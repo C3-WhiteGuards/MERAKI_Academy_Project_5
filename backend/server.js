@@ -22,10 +22,10 @@ app.use(cors());
 
 
 
-//rashed 
+//rashed  25 - 30
 
-
-
+const productsRouter = require("./routers/routes/product");
+app.use("/products",productsRouter );
 
 //Islam
 
