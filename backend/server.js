@@ -14,8 +14,8 @@ app.use(cors());
 
 
 // kulthoum 
-
-
+const resturantRouter =require("./routers/routes/resturant")
+app.use("/resturan",resturantRouter)
 
 //abdallah
 
