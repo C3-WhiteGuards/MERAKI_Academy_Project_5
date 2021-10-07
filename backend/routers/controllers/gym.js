@@ -21,4 +21,22 @@ const createNewGym = (req, res) => {
   });
 };
 
-module.exports = { createNewGym };
+const updateGymById = (req, res) => {
+  const id = req.params.id;
+  const { name, phoneNumber, location, image, priceMonthly, rate_id } =
+    req.body;
+  const gymQuery = `UPDATE gym SET name="${name}", phoneNumber="${phoneNumber}" , location="${location}" ,image="${image}" ,priceMonthly="${priceMonthly}" ,rate_id="${rate_id}" WHERE id = ${id}`;
+  connection.query(gymQuery, (error, result, fields) => {
+    if (error) {
+      console.log(error.response);
+      return;
+    }
+    res.status(200).json({
+      success: true,
+      message: "Success updated Gym by the id ",
+      result: result,
+    });
+  });
+};
+
+module.exports = { createNewGym, updateGymById };
