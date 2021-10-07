@@ -15,8 +15,8 @@ app.use("/gym" , gymRouter)
 
 
 // kulthoum 
-
-
+const resturantRouter =require("./routers/routes/resturant")
+app.use("/resturan",resturantRouter)
 
 //abdallah
 
