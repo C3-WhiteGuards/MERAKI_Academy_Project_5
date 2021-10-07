@@ -9,7 +9,8 @@ app.use(express.json());
 app.use(cors());
 
 // ruqia 
-
+const gymRouter = require("./routers/routes/gym")
+app.use("/gym" , gymRouter)
 
 
 
