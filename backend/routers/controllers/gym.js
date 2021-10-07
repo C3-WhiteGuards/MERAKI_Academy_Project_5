@@ -39,4 +39,20 @@ const updateGymById = (req, res) => {
   });
 };
 
-module.exports = { createNewGym, updateGymById };
+const deleteGymById = (req, res) => {
+  id = req.params.id;
+  const gymQuery = `UPDATE gym SET is_deleted="1"  WHERE id = ${id}`;
+  connection.query(gymQuery, (error, result, fields) => {
+    if (error) {
+      console.log(error.response);
+      return;
+    }
+    res.status(200).json({
+      success: true,
+      message: "Success deleted Gym by the id ",
+      result: result,
+    });
+  });
+};
+
+module.exports = { createNewGym, updateGymById, deleteGymById };
