@@ -1,23 +1,26 @@
-const connection = require('../../db/db');
+const connection = require("../../db/db");
 
+const createNewProduct = (req, res) => {
+  const { name, price, description, image } = req.body;
 
-const createNewProduct = (req , res)=>{
+  const query = `INSERT INTO products (name ,price,description,image ) VALUES (?,?,?,?)`;
+  const data = [name, price, description, image];
 
-    const {name , price , description , image} = req.body;
+  connection.query(query, data, (err, product) => {
+    if (err) {
+      return res
+        .status(404)
+        .json({ success: false, message: "Server Erorr !", Error: err });
+    }
 
-    const query = `INSERT INTO products (name ,price,description,image ) VALUES (?,?,?,?)`;
-    const data = [name , price , description , image];
+    return res
+      .status(200)
+      .json({
+        success: true,
+        message: "add new product is done!",
+        Product_is: product,
+      });
+  });
+};
 
-    connection.query(query , data , (err , product)=>{
-        if (err)
-        {
-           return res.status(404).json({success:false , message:"Server Erorr !" , Error:err})
-        }
-        
-        return res.status(200).json({success:true , message:"add new product is done!" ,Product_is:product })
-    
-    })
-
-}
-
-module.exports = {createNewProduct};
+module.exports = { createNewProduct };
