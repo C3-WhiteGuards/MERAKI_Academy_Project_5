@@ -1,3 +1,4 @@
+const { query } = require("../../db/db");
 const connection = require("../../db/db");
 
 const createNewProduct = (req, res) => {
@@ -22,5 +23,20 @@ const createNewProduct = (req, res) => {
       });
   });
 };
+
+const updateByID = (req ,res)=>{
+    const id = req.params.id
+
+    const query = `UPDATE products SET price = 1 WHERE id = ${id}`;
+    connection.query(query , (err , updatePrice)=>{
+        if (err)
+        {
+            return res.status(404).json({success:false , message:"product not found!" , Error:err})
+        }
+
+        return res.status(200).json({success:true , message:"update the price is done!" , new_price:updatePrice})
+    })
+};
+
 
 module.exports = { createNewProduct };
