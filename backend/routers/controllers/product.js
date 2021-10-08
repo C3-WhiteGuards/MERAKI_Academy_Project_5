@@ -27,8 +27,9 @@ const createNewProduct = (req, res) => {
 const updateByID = (req ,res)=>{
     const id = req.params.id
 
-    const query = `UPDATE products SET price = 1 WHERE id = ${id}`;
-    connection.query(query , (err , updatePrice)=>{
+    const query = `UPDATE products SET price = ? WHERE id = ${id}`;
+    const data = [1];
+    connection.query(query , data, (err , updatePrice)=>{
         if (err)
         {
             return res.status(404).json({success:false , message:"product not found!" , Error:err})
@@ -39,4 +40,4 @@ const updateByID = (req ,res)=>{
 };
 
 
-module.exports = { createNewProduct };
+module.exports = { createNewProduct , updateByID};
