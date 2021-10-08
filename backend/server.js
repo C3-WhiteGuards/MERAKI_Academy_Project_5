@@ -20,8 +20,8 @@ app.use("/resturan",resturantRouter)
 
 //abdallah
 
-
-
+const trainerRouter = require("./routers/routes/trainer")
+app.use("/trainer" , trainerRouter);
 
 //rashed  25 - 30
 
