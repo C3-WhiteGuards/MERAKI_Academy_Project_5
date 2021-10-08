@@ -74,4 +74,19 @@ connection.query(query,(err,result)=>{
 });
 }
 
-module.exports = {createNewResturent , getAllResturants ,updateResturantById }
+const deleteResturantById =( req ,res)=>{
+  const id = req.params.id;
+  const query =  `UPDATE resturant SET is_deleted="1"  WHERE id = ${id}`
+  connection.query(query,(err,result)=>{
+    if (err) {
+      console.log(err.response);
+      return;
+    }
+    res.status(200).json({
+      success : true ,
+      message: `resturant  ${id} deleted `
+    });
+  });
+
+}
+module.exports = {createNewResturent , getAllResturants ,updateResturantById ,deleteResturantById }
