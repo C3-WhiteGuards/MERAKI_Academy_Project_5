@@ -41,7 +41,7 @@ const updateGymById = (req, res) => {
 
 const deleteGymById = (req, res) => {
   id = req.params.id;
-  const gymQuery = `UPDATE gym SET is_deleted="1"  WHERE id = ${id}`;
+  const gymQuery = `UPDATE gym SET is_delete="1"  WHERE id = ${id}`;
   connection.query(gymQuery, (error, result, fields) => {
     if (error) {
       console.log(error.response);
