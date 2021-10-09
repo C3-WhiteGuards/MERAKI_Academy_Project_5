@@ -24,36 +24,26 @@ const createNewTrainer = (req, res) => {
   });
 };
 
-const updateTrainerById = (req, res) => {   
-  try{
-    const {fullName,phoneNumber,rate,location,image,sport } = req.body;
-    const id = req.params;
-  
-    const query = `UPDATE trainers SET fullName = ? , phoneNumber = ? , rate = ? , location = ? , image = ? sport = ?  WHERE id = ${id}`;
-    const data = [fullName,phoneNumber,rate,location,image,sport,id];
-    
-    connection.query(query,data, (err, result) => {
-      if (!result) {
-        return res.status(404).json({
-          success: false,
-          message: `The Trainer => ${id} not found`,
-        });
-      } else {
-        res.status(202).json({
-          success: true,
-          message: ` Success Trainer updated`,
-          Trainer: result,
-        });
-      }
-    });
-  }catch(err) {
-    res.status(500).json({
-      success: false,
-      message: `Server Error`,
-      // err: err,
-    });
-  }
+const updateTrainerById = (req, res) => {
+  const id = req.params.id;
 
-}
+  const { fullName, phoneNumber, location, image, sport, rate } = req.body;
 
-module.exports = { createNewTrainer , updateTrainerById };
+  const query = `UPDATE trainers SET fullName="${fullName}", phoneNumber="${phoneNumber}" , location ="${location}"  ,image="${image}"  , sport ="${sport}" , rate="${rate}"WHERE id = ${id}`;
+
+  connection.query(query, (err, result) => {
+    if (err) {
+      return res.status(404).json({
+        success: false,
+        message: `The Trainer => ${id} not found`,
+      });
+    }
+    res.status(202).json({
+      success: true,
+      message: ` Success Trainer updated`,
+      Trainer: result,
+    });
+  });
+};
+
+module.exports = { createNewTrainer, updateTrainerById };
