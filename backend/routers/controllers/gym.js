@@ -1,10 +1,25 @@
 const connection = require("./../../db/db");
 
 const createNewGym = (req, res) => {
-  const { name, phoneNumber, location, image, priceMonthly, rate_id } =
-    req.body;
-  const gymQuery = `INSERT INTO gym  ( name, phoneNumber, location ,image , priceMonthly , rate_id) VALUES (?,?,?,?,?,?)`;
-  const data = [name, phoneNumber, location, image, priceMonthly, rate_id];
+  const {
+    name,
+    phoneNumber,
+    location,
+    image,
+    priceMonthly,
+    description,
+    is_delete,
+  } = req.body;
+  const gymQuery = `INSERT INTO gym  ( name, phoneNumber, location ,image , priceMonthly,description , is_delete ) VALUES (?,?,?,?,?,?,?)`;
+  const data = [
+    name,
+    phoneNumber,
+    location,
+    image,
+    priceMonthly,
+    description,
+    is_delete,
+  ];
   connection.query(gymQuery, data, (err, result) => {
     if (err) {
       res.status(500).json({
