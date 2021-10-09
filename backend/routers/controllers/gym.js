@@ -54,5 +54,21 @@ const deleteGymById = (req, res) => {
     });
   });
 };
-
-module.exports = { createNewGym, updateGymById, deleteGymById };
+const getAllGyms = (req, res) => {
+  const query = `SELECT * FROM gym WHERE is_delete=0 `;
+  connection.query(query, (error, result) => {
+    if (error) {
+      res.status(500).json({
+        success: false,
+        message: `Server Error`,
+        error: error,
+      });
+    }
+    res.status(200).json({
+      success: true,
+      message: "all  gyms in your website ",
+      result: result,
+    });
+  });
+};
+module.exports = { createNewGym, updateGymById, deleteGymById, getAllGyms };
