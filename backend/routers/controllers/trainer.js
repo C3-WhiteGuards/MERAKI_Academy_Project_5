@@ -1,12 +1,32 @@
 const connection = require("../../db/db");
 
 const createNewTrainer = (req, res) => {
-  let { fullName, phoneNumber, rate, location, image, sport } = req.body;
+  let {
+    firstName,
+    lastName,
+    phoneNumber,
+    location,
+    image,
+    sport,
+    priceMonthly,
+    description,
+    experience,
+  } = req.body;
 
-  let sql = `INSERT INTO trainers(fullName , phoneNumber , rate , location , image , sport )
-    VALUES(?,?,?,?,?,?)`;
+  let sql = `INSERT INTO trainers(firstName, lastName, phoneNumber, location, image, sport ,priceMonthly ,description ,experience)
+    VALUES(?,?,?,?,?,?,?,?,?)`;
 
-  let data = [fullName, phoneNumber, rate, location, image, sport];
+  let data = [
+    firstName,
+    lastName,
+    phoneNumber,
+    location,
+    image,
+    sport,
+    priceMonthly,
+    description,
+    experience,
+  ];
 
   connection.query(sql, data, (err, result) => {
     if (err) {
