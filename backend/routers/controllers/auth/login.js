@@ -33,7 +33,6 @@ const login = (req, res) => {
         userId: result[0].id,
         country: result[0].country,
         role: result[0].role,
-        
       };
 
       const options = {
