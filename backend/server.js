@@ -28,7 +28,8 @@ app.use(cors());
 
 
 //Islam
-
+const usersRouter = require("./routers/routes/auth/signUp");
+app.use("/users", usersRouter);
 
 
 

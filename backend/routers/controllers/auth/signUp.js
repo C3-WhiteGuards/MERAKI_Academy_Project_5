@@ -5,7 +5,7 @@ const createNewUser = async (req, res) => {
   const { fullName,
     email,
     age,
-    bcryptPassword,
+    password,
     phoneNumber,
     country,
     role,
