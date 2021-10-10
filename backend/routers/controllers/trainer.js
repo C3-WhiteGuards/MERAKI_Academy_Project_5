@@ -66,4 +66,23 @@ const updateTrainerById = (req, res) => {
   });
 };
 
-module.exports = { createNewTrainer, updateTrainerById };
+const getTrainerById=(req,res)=>{
+  let id = req.params.id;
+  const query=`SELECT * FROM trainers WHERE id=${id}`;
+  connection.query(query, (err, result) => {
+    if (err){
+        res.status(500).json({
+        success: false,
+        message: `Server Error`,
+         err: err,
+      });
+    };
+      res.status(200).json({
+      success: true,
+      Trainer: result,
+    });
+   
+  });
+}
+
+module.exports = { createNewTrainer, updateTrainerById , getTrainerById };
