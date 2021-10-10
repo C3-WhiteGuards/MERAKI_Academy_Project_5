@@ -34,7 +34,7 @@ const query = `INSERT INTO resturant (
 
 }
 const getAllResturants = (req,res)=>{
-  const query = `SELECT * FROM articles WHERE is_deleted=0 `
+  const query = `SELECT * FROM  resturant  WHERE is_deleted=0 `
   connection.query(query , (error, result)=>{
 
     if (error) {
@@ -48,6 +48,30 @@ const getAllResturants = (req,res)=>{
   });
   };
   
+const updateResturantById = ( req, res )=> 
+{
+  const id = req.params.id;
+  const { 
+    name,
+    location,
+    image,
+    monthlyPrice,
+    rate
 
+}=req.body
 
-module.exports = {createNewResturent , getAllResturants }
+const query = `UPDATE resturant SET name= "${name}" , location="${location}" , image="${image}" ,monthlyPrice="${monthlyPrice}",rate="${rate}" WHERE id= ${id}`;
+connection.query(query,(err,result)=>{
+  if (err) {
+    console.log(err.response);
+    return;
+  }
+  res.status(200).json({
+    success : true ,
+    message:`resturant ${id} updated `,
+    result:result
+  });
+});
+}
+
+module.exports = {createNewResturent , getAllResturants ,updateResturantById }
