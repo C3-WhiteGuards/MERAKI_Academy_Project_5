@@ -7,19 +7,17 @@ const createNewGym = (req, res) => {
     location,
     image,
     priceMonthly,
-    description,
-    is_delete,
+    description
   } = req.body;
-  const gymQuery = `INSERT INTO gym  ( name, phoneNumber, location ,image , priceMonthly,description , is_delete ) VALUES (?,?,?,?,?,?,?)`;
+  const gymQuery = `INSERT INTO gym  ( name, phoneNumber, location ,image , priceMonthly,description) VALUES (?,?,?,?,?,?)`;
   const data = [
     name,
     phoneNumber,
     location,
     image,
     priceMonthly,
-    description,
-    is_delete,
-  ];
+    description
+    ];
   connection.query(gymQuery, data, (err, result) => {
     if (err) {
       res.status(500).json({
