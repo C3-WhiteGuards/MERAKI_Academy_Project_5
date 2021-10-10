@@ -48,4 +48,21 @@ connection.query(query,(err,result)=>{
 });
 }
 
-module.exports = { createNewComment  ,updateResturantById };
+
+const deleteResturantById =( req ,res)=>{
+    const id = req.params.id;
+    const query =  `UPDATE feedback SET is_delete="1"  WHERE id = ${id}`
+    connection.query(query,(err,result)=>{
+      if (err) {
+        console.log(err.response);
+        return;
+      }
+      res.status(200).json({
+        success : true ,
+        message: `comment   ${id} deleted `
+      });
+    });
+  
+  }
+
+module.exports = { createNewComment  ,updateResturantById , deleteResturantById};
