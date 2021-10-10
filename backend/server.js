@@ -29,11 +29,12 @@ const productsRouter = require("./routers/routes/product");
 app.use("/products",productsRouter );
 
 //Islam
-const usersRouter = require("./routers/routes/auth/signUp");
-app.use("/users", usersRouter);
+const registerRouter = require("./routers/routes/auth/signUp");
+app.use("/register", registerRouter);
 const loginRouter = require("./routers/routes/auth/login")
 app.use(loginRouter)
-
+const usersRouter = require("./routers/routes/users")
+app.use("/users", usersRouter);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
