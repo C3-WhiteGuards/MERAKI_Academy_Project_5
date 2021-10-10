@@ -39,6 +39,17 @@ const updateByID = (req ,res)=>{
     })
 };
 
+const deleteByName = (req , res)=>{
+  const name = req.body.name;
 
+  const query = `DELETE FROM products WHERE name  = ?`;
+  const data = [name];
+  connection.query(query , data , (err , deleteProduct)=>{
+      if (err) 
+      return res.status(404).json({success:false , message:"There is Error!" , Error:err});
+
+      return res.status(200).json({success:true , message:`Delete ${name} from product is Done!`})
+  })
+}
 
 module.exports = { createNewProduct , updateByID};
