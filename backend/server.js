@@ -36,6 +36,8 @@ const loginRouter = require("./routers/routes/auth/login")
 app.use(loginRouter)
 const usersRouter = require("./routers/routes/users")
 app.use("/users", usersRouter);
+const cartRouter = require("./routers/routes/cart")
+app.use("/cart", cartRouter);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
