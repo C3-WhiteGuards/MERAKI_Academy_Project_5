@@ -40,4 +40,49 @@ const getGymRateById = (req, res) => {
   });
 };
 
-module.exports = { createGymRate, getGymRateById };
+const createResturantRate = (req, res) => {
+  const { rate, resturantId } = req.body;
+  const userId = req.token.userId;
+  const query = `INSERT INTO rate_resturant (rate,userId,resturantId) VALUES (?,?,?)`;
+  const data = [rate, userId, resturantId];
+  connection.query(query, data, (err, result) => {
+    if (err) {
+      res.status(500).json({
+        success: false,
+        message: `Server Error`,
+        error: err,
+      });
+    }
+    res.status(201).json({
+      success: true,
+      message: "Success new Rate to the Resturant Added ",
+      result: result,
+    });
+  });
+};
+
+const getResturantRateById = (req, res) => {
+  const id = req.params.id;
+  const query = `SELECT * FROM rate_resturant WHERE resturantId = ${id}`;
+  connection.query(query, (error, result) => {
+    if (error) {
+      res.status(500).json({
+        success: false,
+        message: `Server Error`,
+        error: error,
+      });
+    }
+    res.status(200).json({
+      success: true,
+      message: "all rating for this Resturant ",
+      result: result,
+    });
+  });
+};
+
+module.exports = {
+  createGymRate,
+  getGymRateById,
+  createResturantRate,
+  getResturantRateById,
+};
