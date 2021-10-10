@@ -111,9 +111,35 @@ const getAllTrainer = (req, res) => {
   });
 };
 
+const deleteTrainerById = (req, res) => {
+  let { id } = req.params;
+  const query = `UPDATE trainers SET is_deleted = 1 WHERE id =${id}`;
+  
+  connection.query(query, (err, result) => {
+    if (err) {
+      res.status(500).json({
+        success: false,
+        message: `Server Error`,
+        err: err,
+      });
+    }
+    if (!result) {
+      return res.status(404).json({
+        success: false,
+        message: `The Trainer => ${id} not found`,
+      });
+    }
+    res.status(200).json({
+      success: true,
+      message: `Success Delete Trainer with id => ${id}`,
+    });
+  });
+};
+
 module.exports = {
   createNewTrainer,
   updateTrainerById,
   getTrainerById,
   getAllTrainer,
+  deleteTrainerById,
 };
