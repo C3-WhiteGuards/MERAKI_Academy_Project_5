@@ -4,7 +4,7 @@ const addCart = (req,res)=>{
    const {productId}=req.body;
     const userId = req.token.userId;
     const data=[productId,userId]
-    const query = `INSERT INTO users (productId,userId) VALUES(?,?)`;
+    const query = `INSERT INTO cart (productId,userId) VALUES(?,?)`;
   connection.query(query,data, (err, result) => {
     if (err) {
       res.status(500).json({
