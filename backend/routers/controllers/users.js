@@ -3,7 +3,8 @@ const connection = require("../../db/db");
 const updateUserById = (req, res) => {
   const id = req.token.userId;
   const {
-    fullName,
+    firstName,
+    lastName,
     age,
     phoneNumber,
     country,
@@ -13,7 +14,8 @@ const updateUserById = (req, res) => {
     diseases,
   } = req.body;
   const data = [
-    fullName,
+    firstName,
+    lastName,
     age,
     phoneNumber,
     country,
@@ -23,15 +25,16 @@ const updateUserById = (req, res) => {
     diseases,
   ];
   const query = ` UPDATE users SET 
-    fullName =?, 
+    firstName =?,
+    lastName =?,  
     age=?,
     phoneNumber=?,
     country=?,
     image=?,
     weight=?,
     height=?,
-    diseases=?,
-     WHERE id = ${id}`;
+    diseases=?
+     WHERE id =${id}`;
   connection.query(query, data, (err, result) => {
     if (err) {
       res.status(500).json({
@@ -43,4 +46,8 @@ const updateUserById = (req, res) => {
     res.status(200);
     res.json(result);
   });
+};
+
+module.exports = {
+  updateUserById,
 };
