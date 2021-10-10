@@ -29,9 +29,10 @@ const productsRouter = require("./routers/routes/product");
 app.use("/products",productsRouter );
 
 //Islam
-
-
-
+const usersRouter = require("./routers/routes/auth/signUp");
+app.use("/users", usersRouter);
+const loginRouter = require("./routers/routes/auth/login")
+app.use(loginRouter)
 
 
 const PORT = process.env.PORT || 5000;

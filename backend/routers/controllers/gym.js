@@ -1,10 +1,25 @@
 const connection = require("./../../db/db");
 
 const createNewGym = (req, res) => {
-  const { name, phoneNumber, location, image, priceMonthly, rate_id } =
-    req.body;
-  const gymQuery = `INSERT INTO gym  ( name, phoneNumber, location ,image , priceMonthly , rate_id) VALUES (?,?,?,?,?,?)`;
-  const data = [name, phoneNumber, location, image, priceMonthly, rate_id];
+  const {
+    name,
+    phoneNumber,
+    location,
+    image,
+    priceMonthly,
+    description,
+    is_delete,
+  } = req.body;
+  const gymQuery = `INSERT INTO gym  ( name, phoneNumber, location ,image , priceMonthly,description , is_delete ) VALUES (?,?,?,?,?,?,?)`;
+  const data = [
+    name,
+    phoneNumber,
+    location,
+    image,
+    priceMonthly,
+    description,
+    is_delete,
+  ];
   connection.query(gymQuery, data, (err, result) => {
     if (err) {
       res.status(500).json({
@@ -23,9 +38,11 @@ const createNewGym = (req, res) => {
 
 const updateGymById = (req, res) => {
   const id = req.params.id;
-  const { name, phoneNumber, location, image, priceMonthly, rate_id } =
+
+  const { name, phoneNumber, location, image, priceMonthly, description } =
     req.body;
-  const gymQuery = `UPDATE gym SET name="${name}", phoneNumber="${phoneNumber}" , location="${location}" ,image="${image}" ,priceMonthly="${priceMonthly}" ,rate_id="${rate_id}" WHERE id = ${id}`;
+  const gymQuery = `UPDATE gym SET name="${name}", phoneNumber="${phoneNumber}" , location="${location}" ,image="${image}" ,priceMonthly="${priceMonthly}" ,description="${description}"  WHERE id = ${id}`;
+
   connection.query(gymQuery, (error, result, fields) => {
     if (error) {
       console.log(error.response);
@@ -41,7 +58,8 @@ const updateGymById = (req, res) => {
 
 const deleteGymById = (req, res) => {
   id = req.params.id;
-  const gymQuery = `UPDATE gym SET is_deleted="1"  WHERE id = ${id}`;
+
+  const gymQuery = `UPDATE gym SET is_delete="1"  WHERE id = ${id}`;
   connection.query(gymQuery, (error, result, fields) => {
     if (error) {
       console.log(error.response);
@@ -54,6 +72,7 @@ const deleteGymById = (req, res) => {
     });
   });
 };
+
 const getAllGyms = (req, res) => {
   const query = `SELECT * FROM gym WHERE is_delete=0 `;
   connection.query(query, (error, result) => {
@@ -72,3 +91,4 @@ const getAllGyms = (req, res) => {
   });
 };
 module.exports = { createNewGym, updateGymById, deleteGymById, getAllGyms };
+
