@@ -27,9 +27,9 @@ const createNewTrainer = (req, res) => {
 const updateTrainerById = (req, res) => {
   const id = req.params.id;
 
-  const { fullName, phoneNumber, location, image, sport, rate } = req.body;
+  const { firstName , lastName , phoneNumber, location, image, sport, priceMonthly , description , experience} = req.body;
 
-  const query = `UPDATE trainers SET fullName="${fullName}", phoneNumber="${phoneNumber}" , location ="${location}"  ,image="${image}"  , sport ="${sport}" , rate="${rate}"WHERE id = ${id}`;
+  const query = `UPDATE trainers SET firstName="${firstName}", lastName="${lastName}" , phoneNumber="${phoneNumber}", location ="${location}"  ,image="${image}"  , sport ="${sport}" , priceMonthly="${priceMonthly}" , description="${description}" , experience="${experience}"  WHERE id = ${id}`;
 
   connection.query(query, (err, result) => {
     if (err) {
