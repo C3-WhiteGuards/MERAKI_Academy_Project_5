@@ -5,5 +5,5 @@ const commentRouter = express.Router();
 
 commentRouter.post("/", createNewComment);
 commentRouter.put("/:id", updateResturantById);
-commentRouter.delete("/:id", deleteResturantById);
+
 module.exports = commentRouter;
