@@ -1,5 +1,5 @@
 const express = require('express');
-const { addGymUser } = require('../controllers/gymUser');
+const { addGymUser } = require('../controllers/subscribtion');
 const authentication = require('../middlewares/authentication');
 
 const gymUserRouter = express.Router();
