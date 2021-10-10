@@ -26,4 +26,26 @@ const createNewComment = (req, res) => {
   });
 };
 
-module.exports = { createNewComment };
+const updateResturantById = ( req, res )=> 
+{
+  const id = req.params.id;
+  const { comment
+   
+
+}=req.body
+
+const query = `UPDATE feedback SET comment= "${comment}"  WHERE id= ${id}`;
+connection.query(query,(err,result)=>{
+  if (err) {
+    console.log(err.response);
+    return;
+  }
+  res.status(200).json({
+    success : true ,
+    message:`comment  ${id} updated `,
+    result:result
+  });
+});
+}
+
+module.exports = { createNewComment  ,updateResturantById };
