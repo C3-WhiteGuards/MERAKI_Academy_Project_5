@@ -26,7 +26,7 @@ const createNewComment = (req, res) => {
   });
 };
 
-const updateResturantById = ( req, res )=> 
+const updatecommentById = ( req, res )=> 
 {
   const id = req.params.id;
   const { comment
@@ -48,6 +48,7 @@ connection.query(query,(err,result)=>{
 });
 }
 
+
 const deleteCommentById =( req ,res)=>{
     const id = req.params.id;
     const query =  `UPDATE feedback SET is_delete="1"  WHERE id = ${id}`
@@ -65,4 +66,5 @@ const deleteCommentById =( req ,res)=>{
   }
 
 
-module.exports = { createNewComment  ,updateResturantById  ,deleteCommentById };
+module.exports = { createNewComment  , updatecommentById ,deleteCommentById };
+
