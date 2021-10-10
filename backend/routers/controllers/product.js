@@ -40,4 +40,5 @@ const updateByID = (req ,res)=>{
 };
 
 
+
 module.exports = { createNewProduct , updateByID};
