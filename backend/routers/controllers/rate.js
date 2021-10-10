@@ -80,9 +80,51 @@ const getResturantRateById = (req, res) => {
   });
 };
 
+const createTrainerRate = (req, res) => {
+  const { rate, trainerId } = req.body;
+  const userId = req.token.userId;
+  const query = `INSERT INTO rate_trainer (rate,userId,trainerId) VALUES (?,?,?)`;
+  const data = [rate, userId, trainerId];
+  connection.query(query, data, (err, result) => {
+    if (err) {
+      res.status(500).json({
+        success: false,
+        message: `Server Error`,
+        error: err,
+      });
+    }
+    res.status(201).json({
+      success: true,
+      message: "Success new Rate to the Trainer Added ",
+      result: result,
+    });
+  });
+};
+
+const getTrainerRateById = (req, res) => {
+  const id = req.params.id;
+  const query = `SELECT * FROM rate_trainer WHERE trainerId = ${id}`;
+  connection.query(query, (error, result) => {
+    if (error) {
+      res.status(500).json({
+        success: false,
+        message: `Server Error`,
+        error: error,
+      });
+    }
+    res.status(200).json({
+      success: true,
+      message: "all rating for this Trainer ",
+      result: result,
+    });
+  });
+};
+
 module.exports = {
   createGymRate,
   getGymRateById,
   createResturantRate,
   getResturantRateById,
+  createTrainerRate,
+  getTrainerRateById,
 };
