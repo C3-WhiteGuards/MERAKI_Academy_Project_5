@@ -26,7 +26,7 @@ const createNewComment = (req, res) => {
   });
 };
 
-const updateResturantById = ( req, res )=> 
+const updatecommentById = ( req, res )=> 
 {
   const id = req.params.id;
   const { comment
@@ -48,4 +48,4 @@ connection.query(query,(err,result)=>{
 });
 }
 
-module.exports = { createNewComment  ,updateResturantById };
+module.exports = { createNewComment  ,updatecommentById };
