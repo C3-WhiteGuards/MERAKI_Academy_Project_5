@@ -11,8 +11,8 @@ app.use(cors());
 // ruqia 
 const gymRouter = require("./routers/routes/gym")
 app.use("/gym" , gymRouter)
-
-
+rateRouter = require("./routers/routes/rate")
+app.use("/rate" , rateRouter)
 
 // kulthoum 
 const resturantRouter =require("./routers/routes/resturant")
