@@ -25,10 +25,10 @@ const trainerRouter = require("./routers/routes/trainer")
 app.use("/trainer" , trainerRouter);
 
 //rashed  25 - 30
-
 const productsRouter = require("./routers/routes/product");
+const gymUserRouter = require('./routers/routes/subscribtion');
 app.use("/products",productsRouter );
-
+app.use('/gymUser' , gymUserRouter);
 //Islam
 const registerRouter = require("./routers/routes/auth/signUp");
 app.use("/register", registerRouter);

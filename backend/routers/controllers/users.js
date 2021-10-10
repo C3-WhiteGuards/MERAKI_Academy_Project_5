@@ -48,6 +48,23 @@ const updateUserById = (req, res) => {
   });
 };
 
+const gitInfo = (req, res) => {
+  const id = req.token.userId;
+  const query = `SELECT * FROM users WHERE id=${id}`;
+  connection.query(query, (err, result) => {
+    if (err) {
+      res.status(500).json({
+        success: false,
+        message: `Server Error`,
+        error: err,
+      });
+    }
+    res.status(200);
+    res.json(result);
+  });
+};
+
 module.exports = {
   updateUserById,
+  gitInfo,
 };
