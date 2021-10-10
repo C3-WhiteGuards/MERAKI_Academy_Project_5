@@ -38,9 +38,11 @@ const createNewGym = (req, res) => {
 
 const updateGymById = (req, res) => {
   const id = req.params.id;
+
   const { name, phoneNumber, location, image, priceMonthly, description } =
     req.body;
   const gymQuery = `UPDATE gym SET name="${name}", phoneNumber="${phoneNumber}" , location="${location}" ,image="${image}" ,priceMonthly="${priceMonthly}" ,description="${description}"  WHERE id = ${id}`;
+
   connection.query(gymQuery, (error, result, fields) => {
     if (error) {
       console.log(error.response);
@@ -56,6 +58,7 @@ const updateGymById = (req, res) => {
 
 const deleteGymById = (req, res) => {
   id = req.params.id;
+
   const gymQuery = `UPDATE gym SET is_delete="1"  WHERE id = ${id}`;
   connection.query(gymQuery, (error, result, fields) => {
     if (error) {
@@ -70,4 +73,22 @@ const deleteGymById = (req, res) => {
   });
 };
 
-module.exports = { createNewGym, updateGymById, deleteGymById };
+const getAllGyms = (req, res) => {
+  const query = `SELECT * FROM gym WHERE is_delete=0 `;
+  connection.query(query, (error, result) => {
+    if (error) {
+      res.status(500).json({
+        success: false,
+        message: `Server Error`,
+        error: error,
+      });
+    }
+    res.status(200).json({
+      success: true,
+      message: "all  gyms in your website ",
+      result: result,
+    });
+  });
+};
+module.exports = { createNewGym, updateGymById, deleteGymById, getAllGyms };
+
