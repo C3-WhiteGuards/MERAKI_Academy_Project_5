@@ -2,7 +2,8 @@ const connection = require("../../db/db");
 
 
 const addGymUser = (req , res)=>{
-    const {userId  , gymId} = req.body;
+    const { gymId } = req.body;
+    const userId = req.token.userId
     const d = new Date();
     const date = `${d.getFullYear}-${d.getMonth+1}-${d.getDay}`;
 
@@ -14,4 +15,7 @@ const addGymUser = (req , res)=>{
 
         return res.status(200).json({success:true , message:"add new subscribe is Done !"});
     })
-}
+};
+
+
+module.exports = {addGymUser};
