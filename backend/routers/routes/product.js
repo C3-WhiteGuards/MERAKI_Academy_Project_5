@@ -1,5 +1,5 @@
 const express = require("express");
-const { createNewProduct, updateByID } = require("../controllers/product");
+const { createNewProduct, updateByID, deleteByName } = require("../controllers/product");
 
 
 
@@ -7,6 +7,6 @@ const productsRouter = express.Router();
 
 productsRouter.post("/", createNewProduct);
 productsRouter.put('/:id' , updateByID);
-productsRouter.delete('/:name' )
+productsRouter.delete('/:name' , deleteByName )
 
 module.exports = productsRouter;

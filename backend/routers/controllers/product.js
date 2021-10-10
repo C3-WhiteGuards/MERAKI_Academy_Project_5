@@ -52,4 +52,4 @@ const deleteByName = (req , res)=>{
   })
 }
 
-module.exports = { createNewProduct , updateByID};
+module.exports = { createNewProduct , updateByID , deleteByName};
