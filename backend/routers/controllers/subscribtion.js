@@ -22,6 +22,7 @@ const addGymUser = (req, res) => {
   });
 };
 
+
 const addTrainerUser = (req , res)=>{
   const {trainerId} = req.body;
 
@@ -47,3 +48,4 @@ const addTrainerUser = (req , res)=>{
 
 
 module.exports = { addGymUser , addRestaruntUser , addTrainerUser};
+

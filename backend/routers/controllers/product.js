@@ -14,30 +14,51 @@ const createNewProduct = (req, res) => {
         .json({ success: false, message: "Server Erorr !", Error: err });
     }
 
+    return res.status(200).json({
+      success: true,
+      message: "add new product is done!",
+      Product_is: product,
+    });
+  });
+};
+
+const updateByID = (req, res) => {
+  const id = req.params.id;
+
+  const query = `UPDATE products SET price = ? WHERE id = ${id}`;
+  const data = [1];
+  connection.query(query, data, (err, updatePrice) => {
+    if (err) {
+      return res
+        .status(404)
+        .json({ success: false, message: "product not found!", Error: err });
+    }
+
     return res
       .status(200)
       .json({
         success: true,
-        message: "add new product is done!",
-        Product_is: product,
+        message: "update the price is done!",
+        new_price: updatePrice,
       });
   });
 };
 
-const updateByID = (req ,res)=>{
-    const id = req.params.id
+const deleteByName = (req, res) => {
+  const id = req.params.id;
 
-    const query = `UPDATE products SET price = ? WHERE id = ${id}`;
-    const data = [1];
-    connection.query(query , data, (err , updatePrice)=>{
-        if (err)
-        {
-            return res.status(404).json({success:false , message:"product not found!" , Error:err})
-        }
+  const query = `UPDATE products SET is_deleted=1  WHERE id ="${id}"`;
 
-        return res.status(200).json({success:true , message:"update the price is done!" , new_price:updatePrice})
-    })
+  connection.query(query, (err, deleteProduct) => {
+    if (err)
+      return res
+        .status(404)
+        .json({ success: false, message: "There is Error!", Error: err });
+
+    return res
+      .status(200)
+      .json({ success: true, message: `Delete from product is Done!` });
+  });
 };
 
-
-module.exports = { createNewProduct , updateByID};
+module.exports = { createNewProduct, updateByID, deleteByName };

@@ -47,9 +47,19 @@ const createNewTrainer = (req, res) => {
 const updateTrainerById = (req, res) => {
   const id = req.params.id;
 
-  const { fullName, phoneNumber, location, image, sport, rate } = req.body;
+  const {
+    firstName,
+    lastName,
+    phoneNumber,
+    location,
+    image,
+    sport,
+    priceMonthly,
+    description,
+    experience,
+  } = req.body;
 
-  const query = `UPDATE trainers SET fullName="${fullName}", phoneNumber="${phoneNumber}" , location ="${location}"  ,image="${image}"  , sport ="${sport}" , rate="${rate}"WHERE id = ${id}`;
+  const query = `UPDATE trainers SET firstName="${firstName}", lastName="${lastName}" , phoneNumber="${phoneNumber}", location ="${location}"  ,image="${image}"  , sport ="${sport}" , priceMonthly="${priceMonthly}" , description="${description}" , experience="${experience}"  WHERE id = ${id}`;
 
   connection.query(query, (err, result) => {
     if (err) {
@@ -66,4 +76,70 @@ const updateTrainerById = (req, res) => {
   });
 };
 
-module.exports = { createNewTrainer, updateTrainerById };
+const getTrainerById = (req, res) => {
+  let id = req.params.id;
+  const query = `SELECT * FROM trainers WHERE id=${id}`;
+  connection.query(query, (err, result) => {
+    if (err) {
+      res.status(500).json({
+        success: false,
+        message: `Server Error`,
+        err: err,
+      });
+    }
+    res.status(200).json({
+      success: true,
+      Trainer: result,
+    });
+  });
+};
+
+const getAllTrainer = (req, res) => {
+  const query = `SELECT * FROM trainers`;
+  connection.query(query, (err, result) => {
+    if (err) {
+      res.status(500).json({
+        success: false,
+        message: `Server Error`,
+        err: err,
+      });
+    }
+    res.status(200).json({
+      success: true,
+      allTrainers: result,
+    });
+  });
+};
+
+const deleteTrainerById = (req, res) => {
+  let { id } = req.params;
+  const query = `UPDATE trainers SET is_deleted = 1 WHERE id =${id}`;
+  
+  connection.query(query, (err, result) => {
+    if (err) {
+      res.status(500).json({
+        success: false,
+        message: `Server Error`,
+        err: err,
+      });
+    }
+    if (!result) {
+      return res.status(404).json({
+        success: false,
+        message: `The Trainer => ${id} not found`,
+      });
+    }
+    res.status(200).json({
+      success: true,
+      message: `Success Delete Trainer with id => ${id}`,
+    });
+  });
+};
+
+module.exports = {
+  createNewTrainer,
+  updateTrainerById,
+  getTrainerById,
+  getAllTrainer,
+  deleteTrainerById,
+};
