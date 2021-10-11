@@ -1,5 +1,7 @@
+const { Allproduct } = require("../../../frontend/src/components/products/product");
 const { query } = require("../../db/db");
 const connection = require("../../db/db");
+
 
 const createNewProduct = (req, res) => {
   const { name, price, description, image } = req.body;
@@ -61,4 +63,13 @@ const deleteByName = (req, res) => {
   });
 };
 
-module.exports = { createNewProduct, updateByID, deleteByName };
+const getAllProducts = (req , res)=>{
+  const query = `SELECT * FROM products`;
+  connection.query(query , (err , Allproducts)=>{
+    if (err) return res.status(404).json({success:false , message:"There is Error!" , Error:err});
+
+    return res.status(200).json({success:true , message:"All Products" , Products : Allproducts});
+  })
+}
+
+module.exports = { createNewProduct, updateByID, deleteByName , getAllProducts };

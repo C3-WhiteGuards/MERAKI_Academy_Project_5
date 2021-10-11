@@ -1,12 +1,10 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import { Resturants } from './components/resturants/resturant';
+
+import { Gym } from './components/Gym/Gym';
 const App = () => {
 	return <div className="App">App component
-	<Resturants/>
-	
-	
-	
+	<Gym/>
 	</div>;
 
 };

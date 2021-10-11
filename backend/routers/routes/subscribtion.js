@@ -1,12 +1,18 @@
 const express = require('express');
-const { addGymUser } = require('../controllers/subscribtion');
+
+
+const { addGymUser, addRestaruntUser, addTrainerUser } = require('../controllers/subscribtion');
 const authentication = require('../middlewares/authentication');
 
-const gymUserRouter = express.Router();
+const subscribtionRouter = express.Router();
 
-gymUserRouter.post('/' , authentication , addGymUser );
+subscribtionRouter.post('/gym' , authentication , addGymUser );
+subscribtionRouter.post('/rest' , authentication , addRestaruntUser);
+subscribtionRouter.post('/trainer', authentication , addTrainerUser);
 
-module.exports = gymUserRouter;
+module.exports = subscribtionRouter;
+
+
 
 
 
