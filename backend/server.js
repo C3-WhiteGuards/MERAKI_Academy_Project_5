@@ -25,9 +25,9 @@ app.use("/trainer" , trainerRouter);
 
 //rashed  25 - 30
 const productsRouter = require("./routers/routes/product");
-const gymUserRouter = require('./routers/routes/subscribtion');
+const subscribtionRouter = require('./routers/routes/subscribtion');
 app.use("/products",productsRouter );
-app.use('/gymUser' , gymUserRouter);
+app.use('/subscribtion' , subscribtionRouter);
 //Islam
 const usersRouter = require("./routers/routes/auth/signUp");
 app.use("/users", usersRouter);
