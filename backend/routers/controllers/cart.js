@@ -19,9 +19,10 @@ const addCart = (req, res) => {
 };
 
 const deleteCart = (req, res) => {
+  const { productId } = req.body;
   const userId = req.token.userId;
-  const query = `DELETE FROM cart WHERE userId =${userId}`;
-  connection.query(query, data, (err, result) => {
+  const query = `DELETE FROM cart WHERE userId =${userId} AND productId=${productId} `;
+  connection.query(query, (err, result) => {
     if (err) {
       res.status(500).json({
         success: false,
