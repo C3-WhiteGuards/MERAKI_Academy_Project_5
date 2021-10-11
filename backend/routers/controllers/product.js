@@ -1,5 +1,3 @@
-const { Allproduct } = require("../../../frontend/src/components/products/product");
-const { query } = require("../../db/db");
 const connection = require("../../db/db");
 
 
