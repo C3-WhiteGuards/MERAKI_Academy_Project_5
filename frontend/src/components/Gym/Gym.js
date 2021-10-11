@@ -24,6 +24,7 @@ export const Gym = () => {
     <h5>{element.name}</h5>
     <h5>{element.phoneNumber}</h5>
     <img src ={element.image}/>
+    <h5><a href={element.location}> see gym location</a></h5>
     <h5>{element.priceMonthly}</h5>
     <h5>{element.description}</h5>
     <button>subscribe</button>
