@@ -3,10 +3,14 @@ import { Route } from "react-router-dom";
 import { Gym } from "./components/Gym/Gym";
 import { AddProducts } from "./components/products/product";
 import { Login } from "./components/auth/login";
-
+import { Switch } from "react-router";
+import { GymsView } from "./components/Sections/sections";
+import { Trainer } from "./components/trainer/trainer";
+import { Resturants } from "./components/resturants/resturant";
 const App = () => {
   return (
     <div>
+		
       <Switch>
         {/* islam */}
         <Route path="/login" component={Login} />
@@ -15,10 +19,10 @@ const App = () => {
 
 
         {/* rashed */}
-
-
-
-
+        <Route path='/gymsview' component={GymsView} />
+		<Route path='/ALLGyms' component={Gym}/>
+		<Route path='/AllTrainers' component={Trainer}/>
+		<Route path='/AllRestaurnats' component={Resturants}/>
 
         {/* roqia */}
 

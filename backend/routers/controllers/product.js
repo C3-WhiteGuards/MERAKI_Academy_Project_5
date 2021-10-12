@@ -62,7 +62,7 @@ const deleteByName = (req, res) => {
 };
 
 const getAllProducts = (req , res)=>{
-  const query = `SELECT * FROM products`;
+  const query = `SELECT * FROM products WHERE is_deleted = 0`;
   connection.query(query , (err , Allproducts)=>{
     if (err) return res.status(404).json({success:false , message:"There is Error!" , Error:err});
 
