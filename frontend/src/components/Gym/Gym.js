@@ -19,8 +19,7 @@ export const Gym = () => {
 
   return (
     <div className="gym">
-    <div className="child">
-      <div>
+      <div className="child">
 
         {gyms &&
           gyms.map((element, index) => {
@@ -28,11 +27,14 @@ export const Gym = () => {
               <div key={index}>
                 <img src={element.image} />
 
+
+
                 <div className="childtwo">
                   <h5>{element.name}</h5>
                   <h5>{element.phoneNumber}</h5>
                   <h5>{element.priceMonthly}</h5>
                   <h5>{element.description}</h5>
+
                   <h5
                     onClick={() => {
                       window.open(element.location, "_blank");
@@ -44,12 +46,15 @@ export const Gym = () => {
                   <button>subscribe</button>
                 </div>
 
-               
-
-              </div>
+               </div>
             );
           })}
       </div>
     </div>
   );
 };
+
+                  
+ </div>
+)
+
