@@ -3,10 +3,13 @@ import { SocialIcon } from "react-social-icons";
 import Email from "@material-ui/icons/Email";
 import React, { useState } from "react";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { setToken } from "../../../redux/action/loginToken";
 
 export const Login=()=> {
   const [email, setEmail] = useState(0);
   const [password, setPassword] = useState(0);
+  const dispatch = useDispatch();
 
   const userLogin = () => {
     axios
@@ -17,6 +20,7 @@ export const Login=()=> {
       .then((res) => {
         const token = res.data.token;
         localStorage.setItem("token", token);
+        dispatch(setToken(res.data.token))
         console.log(res.data.token);
       })
       .catch((err) => {

@@ -5,7 +5,7 @@ const intialToken = {
   const loginReduser = (state = intialToken, { type, payload }) => {
     switch (type) {
       case "SET_TOKEN":
-        return { token: payload };
+        return { token: state+payload };
   
       default:
         return state;
