@@ -1,0 +1,19 @@
+body{
+    font-size: 7px;
+}
+.gym{
+    position: absolute;
+   
+}
+.child{
+    position:relative;
+    border: 1px red solid;
+}
+.child img{
+    width: 50%;
+    height: 10%;
+}
+
+.childtwo{
+    border: 1px blue solid;
+}
