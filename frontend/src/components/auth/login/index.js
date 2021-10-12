@@ -1,6 +1,4 @@
 import "./login.css";
-import { SocialIcon } from "react-social-icons";
-import Email from "@material-ui/icons/Email";
 import React, { useState } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
@@ -85,7 +83,7 @@ export const Login=()=> {
           <ul className="sci">
             {/* <li><Facebook/></li> */}
             <li>
-              <Email />
+              
             </li>
           </ul>
         </div>
