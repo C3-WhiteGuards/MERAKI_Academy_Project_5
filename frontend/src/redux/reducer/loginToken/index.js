@@ -1,15 +1,15 @@
 const intialToken = {
-    token: "",
+    token: localStorage.getItem('token'),
   };
   
-  const loginReduser = (state = intialToken, { type, payload }) => {
+  const token = (state = intialToken, { type, payload }) => {
     switch (type) {
       case "SET_TOKEN":
-        return { token: state+payload };
+        return { token: payload };
   
       default:
         return state;
     }
   };
   
-  export default loginReduser;
+  export default token;

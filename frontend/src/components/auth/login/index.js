@@ -1,7 +1,7 @@
 import "./login.css";
 import React, { useState } from "react";
 import axios from "axios";
-import { useDispatch } from "react-redux";
+import { useDispatch,useSelector } from "react-redux";
 import { setToken } from "../../../redux/action/loginToken";
 
 export const Login=()=> {
@@ -9,6 +9,11 @@ export const Login=()=> {
   const [password, setPassword] = useState(0);
   const dispatch = useDispatch();
 
+  const state = useSelector((state) => {
+    return {
+      token : state.token.token,
+    };
+  });
   const userLogin = () => {
     axios
       .post("http://localhost:5000/login", {
@@ -19,7 +24,6 @@ export const Login=()=> {
         const token = res.data.token;
         localStorage.setItem("token", token);
         dispatch(setToken(res.data.token))
-        console.log(res.data.token);
       })
       .catch((err) => {
         console.log(err.response.data.message);
