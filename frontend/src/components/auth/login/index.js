@@ -4,7 +4,7 @@ import Email from "@material-ui/icons/Email";
 import React, { useState } from "react";
 import axios from "axios";
 
-export default function Login() {
+export const Login=()=> {
   const [email, setEmail] = useState(0);
   const [password, setPassword] = useState(0);
 
