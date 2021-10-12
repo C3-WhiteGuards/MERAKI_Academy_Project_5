@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import {Link} from "react-router-dom"
 
+import { Link } from "react-router-dom";
+import "./Gym.css";
+
+
+
+// get all gymss function
 export const Gym = () => {
   const [gyms, setAllGym] = useState([]);
 
@@ -16,30 +21,27 @@ export const Gym = () => {
         console.log(error.response);
       });
   }, []);
+
+
   return (
     <div className="gym">
-      <div>
+      <div className="child">
         {gyms &&
           gyms.map((element, index) => {
             return (
               <div key={index}>
                 <img src={element.image} />
-                <h5>{element.name}</h5>
-                <h5>{element.phoneNumber}</h5>
-                <h5>{element.priceMonthly}</h5>
-                <h5>{element.description}</h5>
-                <h5>
-                  <Link target="_blank" to={element.location}>
-                    {" "}
-                    see gym location
-                  </Link>
-                </h5>
-
-                <button>subscribe</button>
-              </div>
-            );
-          })}
-      </div>
-    </div>
-  );
-};
+                <div className="childtwo">
+                  <h5>{element.name}</h5>
+                  <h5>{element.phoneNumber}</h5>
+                  <h5>{element.priceMonthly}</h5>
+                  <h5>{element.description}</h5>
+                  <h5>
+                    <Link target="_blank" to={element.location}>
+                      {" "}
+                      see gym location
+                    </Link>
+                  </h5>
+                  <button>subscribe</button>
+                </div>
+)
