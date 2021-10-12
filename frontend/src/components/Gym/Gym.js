@@ -19,12 +19,15 @@ export const Gym = () => {
 
   return (
     <div className="gym">
-      <div className="child">
+    <div className="child">
+      <div>
+
         {gyms &&
           gyms.map((element, index) => {
             return (
               <div key={index}>
                 <img src={element.image} />
+
                 <div className="childtwo">
                   <h5>{element.name}</h5>
                   <h5>{element.phoneNumber}</h5>
@@ -40,6 +43,9 @@ export const Gym = () => {
                   </h5>
                   <button>subscribe</button>
                 </div>
+
+               
+
               </div>
             );
           })}
@@ -47,148 +53,3 @@ export const Gym = () => {
     </div>
   );
 };
-
-// export const AddNewGym = () => {
-//   const [name, setName] = useState("");
-//   const [phoneNumber, setPhoneNumber] = useState("");
-//   const [image, setImage] = useState("");
-//   const [priceMonthly, setPriceMonthly] = useState("");
-//   const [description, setDescription] = useState("");
-
-//   const addGym = () => {
-//     axios
-//       .post("http://localhost:5000/gym", {
-//         name,
-//         phoneNumber,
-//         image,
-//         priceMonthly,
-//         description,
-//       })
-//       .then((result) => {
-//         console.log(result);
-//       })
-//       .catch((error) => {
-//         console.log(error.response);
-//       });
-//   };
-//  return (
-//     <div>
-//       <input
-//         placeholder="name"
-//         type="text"
-//         onChange={(e) => {
-//           setName(e.target.value);
-//         }}
-//       ></input>
-//       <input
-//         placeholder="phoneNumber"
-//         type="number"
-//         onChange={(e) => {
-//           setPhoneNumber(e.target.value);
-//         }}
-//       ></input>
-//       <input
-//         placeholder="image Link"
-//         type="text"
-//         onChange={(e) => {
-//           setImage(e.target.value);
-//         }}
-//       ></input>
-//       <input
-//         placeholder="priceMonthly"
-//         type="text"
-//         onChange={(e) => {
-//           setPriceMonthly(e.target.value);
-//         }}
-//       ></input>
-//       <input
-//         placeholder="description"
-//         type="text"
-//         onChange={(e) => {
-//           setDescription(e.target.value);
-//         }}
-//       ></input>
-//       <button
-//         onClick={() => {
-//           addGym();
-//         }}
-//       >
-//         {" "}
-//         Add Gym
-//       </button>
-
-//     </div>
-//   );
-// };
-
-///////////////////////////////////////////////////////////////
-// export const UpdateGym = () => {
-//   const [name, setName] = useState("");
-//   const [phoneNumber, setPhoneNumber] = useState("");
-//   const [image, setImage] = useState("");
-//   const [priceMonthly, setPriceMonthly] = useState("");
-//   const [description, setDescription] = useState("");
-
-//   const updateGymById = (id) => {
-//     axios
-//       .put(`http://localhost:5000/gym/${id}`, {
-//         name,
-//         phoneNumber,
-//         image,
-//         priceMonthly,
-//         description,
-//       })
-//       .then((result) => {
-//         console.log(result);
-//         Gym();
-//       });
-//   };
-
-//   return (
-//     <div>
-//       <input
-//         placeholder="name"
-//         type="text"
-//         onChange={(e) => {
-//           setName(e.target.value);
-//         }}
-//       ></input>
-//       <input
-//         placeholder="phoneNumber"
-//         type="number"
-//         onChange={(e) => {
-//           setPhoneNumber(e.target.value);
-//         }}
-//       ></input>
-//       <input
-//         placeholder="image Link"
-//         type="text"
-//         onChange={(e) => {
-//           setImage(e.target.value);
-//         }}
-//       ></input>
-//       <input
-//         placeholder="priceMonthly"
-//         type="text"
-//         onChange={(e) => {
-//           setPriceMonthly(e.target.value);
-//         }}
-//       ></input>
-//       <input
-//         placeholder="description"
-//         type="text"
-//         onChange={(e) => {
-//           setDescription(e.target.value);
-//         }}
-//       ></input>
-//       <button
-//         onClick={() => {
-//           updateGymById();
-//         }}
-//       >
-//         {" "}
-//         Update Gym
-//       </button>
-//     </div>
-//   );
-// };
