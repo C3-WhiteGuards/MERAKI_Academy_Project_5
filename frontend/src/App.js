@@ -4,10 +4,20 @@ import { Gym } from './components/Gym/Gym';
 import { AddProducts } from './components/products/product';
 
 const App = () => {
-	return <div className="App">App component
-	<AddProducts/>
-	<Gym/>
-	</div>;
+	return (<div>
+    <Switch>
+    <Route path="/login" component={Login}/> 
+    
+   
+    
+  
+    
+    
+    
+    </Switch>
+    
+   
+      </div>)
 
 };
 
