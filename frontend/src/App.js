@@ -5,7 +5,7 @@ import { AddProducts } from "./components/products/product";
 import { Login } from "./components/auth/login";
 import { Switch } from "react-router";
 import { GymsView } from "./components/Sections/sections";
-import { Trainer } from "./components/trainer/trainer";
+import { AddTrainer, OneTrainer, Trainer } from "./components/trainer/trainer";
 import { Resturants } from "./components/resturants/resturant";
 const App = () => {
   return (
@@ -23,6 +23,7 @@ const App = () => {
 		<Route path='/ALLGyms' component={Gym}/>
 		<Route path='/AllTrainers' component={Trainer}/>
 		<Route path='/AllRestaurnats' component={Resturants}/>
+		<Route exact path='/trainer/:id' component={OneTrainer}/>
 
         {/* roqia */}
 

@@ -30,13 +30,13 @@ const createNewTrainer = (req, res) => {
 
   connection.query(sql, data, (err, result) => {
     if (err) {
-      res.status(500).json({
+     return res.status(500).json({
         success: false,
         message: `Server Error`,
         // err: err,
       });
     }
-    res.status(201).json({
+   return res.status(201).json({
       success: true,
       message: ` Success Trainer created`,
       Trainer: result,
@@ -81,13 +81,13 @@ const getTrainerById = (req, res) => {
   const query = `SELECT * FROM trainers WHERE id=${id}`;
   connection.query(query, (err, result) => {
     if (err) {
-      res.status(500).json({
+     return res.status(500).json({
         success: false,
         message: `Server Error`,
         err: err,
       });
     }
-    res.status(200).json({
+   return res.status(200).json({
       success: true,
       Trainer: result,
     });
@@ -95,16 +95,16 @@ const getTrainerById = (req, res) => {
 };
 
 const getAllTrainer = (req, res) => {
-  const query = `SELECT * FROM trainers`;
+  const query = `SELECT * FROM trainers where is_deleted = 0`;
   connection.query(query, (err, result) => {
     if (err) {
-      res.status(500).json({
+       return res.status(500).json({
         success: false,
         message: `Server Error`,
         err: err,
       });
     }
-    res.status(200).json({
+    return res.status(200).json({
       success: true,
       allTrainers: result,
     });
@@ -117,7 +117,7 @@ const deleteTrainerById = (req, res) => {
   
   connection.query(query, (err, result) => {
     if (err) {
-      res.status(500).json({
+     return res.status(500).json({
         success: false,
         message: `Server Error`,
         err: err,
@@ -129,7 +129,7 @@ const deleteTrainerById = (req, res) => {
         message: `The Trainer => ${id} not found`,
       });
     }
-    res.status(200).json({
+   return res.status(200).json({
       success: true,
       message: `Success Delete Trainer with id => ${id}`,
     });
