@@ -3,6 +3,13 @@ import { Route,Switch } from "react-router-dom";
 import { Gym } from "./components/Gym/Gym";
 import { AddProducts } from "./components/products/product";
 import { Login } from "./components/auth/login";
+
+import { Switch } from "react-router";
+import { GymsView } from "./components/Sections/sections";
+import { AddTrainer, OneTrainer, Trainer } from "./components/trainer/trainer";
+import { Resturants } from "./components/resturants/resturant";
+
+
 import Register from "./components/auth/signUp";
 import Navigation from "./components/navigation/index"
 import {Footer}  from "./components/Footer/index"
@@ -15,6 +22,7 @@ const App = () => {
 
 <Navigation/> 
 
+
       <Switch>
         {/* islam */}
         <Route path="/login" component={Login} />
@@ -25,10 +33,11 @@ const App = () => {
 
 
         {/* rashed */}
-
-
-
-
+        <Route path='/gymsview' component={GymsView} />
+		<Route path='/ALLGyms' component={Gym}/>
+		<Route path='/AllTrainers' component={Trainer}/>
+		<Route path='/AllRestaurnats' component={Resturants}/>
+		<Route exact path='/trainer/:id' component={OneTrainer}/>
 
         {/* roqia */}
 

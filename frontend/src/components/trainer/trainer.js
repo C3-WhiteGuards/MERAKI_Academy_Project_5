@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from "react";
-
+import "./trainer.css";
 import axios from "axios";
+import { Link } from "react-router-dom";
+import { Route, useHistory } from "react-router";
+import { useParams } from "react-router-dom";
 
 export const Trainer = () => {
   const [trainers, setTrainer] = useState([]);
+  const [id, setId] = useState(0);
+  const history = useHistory();
 
   const getAllTrainers = async () => {
     await axios.get("http://localhost:5000/trainer").then((res) => {
       setTrainer(res.data.allTrainers);
-      console.log(res.data.allTrainers);
     });
   };
   useEffect(() => {
@@ -16,26 +20,51 @@ export const Trainer = () => {
   }, []);
 
   return (
-    <>
-      <div className="trainers">
-        {trainers &&
-          trainers.map((elem, i) => {
-            return (
-              <div key={i}>
-                <p>{elem.firstName}</p>
-                <p>{elem.lastName}</p>
-                <p>{elem.phoneNumber}</p>
-                <p>{elem.location}</p>
-                <img src={elem.image}/>
-                <p>{elem.sport}</p>
-                <p>{elem.priceMonthly}</p>
-                <p>{elem.description}</p>
-                <p>{elem.experience}</p>
-              </div>
-            );
-          })}
-      </div>
-    </>
+    <div className="AllTrainersClass">
+      {trainers &&
+        trainers.map((elem, i) => {
+          
+          return (
+            <div
+              key={i}
+              className="trainrClass"
+              onClick={() => history.push(`/trainer/${elem.id}`)}
+            >
+              <img
+                src={elem.image}
+                className="imgTrainer"
+              />
+              <p className="nameTrainer">{elem.firstName+" "+elem.lastName}</p>
+            </div>
+          );
+        })}
+    </div>
+  );
+};
+
+export const OneTrainer = () => {
+  const [trainer, setTrainer] = useState(0);
+
+  let id_e = useParams().id;
+
+  useEffect(async () => {
+   await axios
+      .get(`http://localhost:5000/trainer/${id_e}`)
+      .then((res) => {
+        setTrainer(res.data.Trainer);
+        console.log(res.data.Trainer);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  },[]);
+
+  return (
+    <div>
+      <h1>{trainer &&trainer[0].firstName}</h1>
+      <h1></h1>
+      <h1></h1>
+    </div>
   );
 };
 
@@ -64,7 +93,6 @@ export const AddTrainer = () => {
         experience,
       })
       .then((res) => {
-        
         console.log(res);
       });
   };
