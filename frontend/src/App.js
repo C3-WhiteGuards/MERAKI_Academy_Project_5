@@ -3,10 +3,9 @@ import { Route,Switch } from "react-router-dom";
 import { Gym } from "./components/Gym/Gym";
 import { AddProducts } from "./components/products/product";
 import { Login } from "./components/auth/login";
-
 import Register from "./components/auth/signUp";
-
 import Navigation from "./components/navigation/index"
+import {Footer}  from "./components/Footer/index"
 import { Logout } from "./components/logout/logout";
 
 const App = () => {
@@ -36,7 +35,6 @@ const App = () => {
 
 
 
-
         {/* koulthom */}
 
 
@@ -48,6 +46,7 @@ const App = () => {
 
         
       </Switch>
+<Footer/>
     </div>
   );
 };
