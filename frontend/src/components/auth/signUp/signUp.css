@@ -1,0 +1,223 @@
+.section2 {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    margin: 0px;
+    top: 0px;
+    background-color: #f7cef346;
+    display: flex;
+  }
+  
+  .section2 .imgBox {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    /*
+    top: 92px;
+    left: 70px;
+    width: 75%;
+    height: 77%;
+    */
+  }
+  
+  .section2 .imgBox::before {
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(255deg,#e91e63,#03a9f4);
+    z-index: 1;
+    mix-blend-mode: screen;
+  }
+  
+  .section2 .imgBox img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    
+  }
+  
+  .section2 .contentBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+     
+  }
+  
+  .section2 .contentBox .formBox h3 {
+    margin-left: 75px;
+    padding: 0px;
+  }
+  
+  .section2 .contentBox .formBox {
+    width: 50%;
+    color: #254656;
+    padding: 0px;
+  }
+  
+  .section2 .contentBox .formBox h2{
+    color: #607d8b;
+    font-weight: 600;
+    font-size: 2em;
+    margin-left: 80px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    border-bottom: 0px solid #f403e0;
+    display: inline-block;
+    letter-spacing: 1px;
+  }
+  .section2 .contentBox .formBox .inputBox {
+    margin-bottom: 20px;
+    margin-right: 25px;
+  }
+  .section2 .contentBox .formBox .inputBox span {
+    font-size: 16px;
+    margin-bottom: 5px;
+    display: inline-block;
+    color: #607d8b;
+    font-weight: 300;
+    font-size: 16px;
+    letter-spacing: 1px;
+  }
+  
+  .section2 .contentBox .formBox .inputBox input {
+    width: 100%;
+    padding: 10px 5px;
+    outline: none;
+    font-weight: 400;
+    border: 1px solid #607d8b;
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: #607d8b;
+    background: transparent;
+    border-radius: 30px;
+    padding-left: 20px;
+  }
+  
+  .section2 .contentBox .formBox .inputBox button {   
+      width: 100%;
+      padding: 10px 5px;
+      outline: none;
+      font-weight: 400;
+      border: 1px solid #607d8b;
+      font-size: 16px;
+      margin-left: 14px;
+      letter-spacing: 1px;
+      color: #ffffff;
+      background: #607d8b;
+      border-radius: 30px;
+      padding-left: 20px;
+  }
+  
+  .section2 .contentBox .formBox .inputBox button:hover{
+    background: #829eac;
+  }
+  
+  .section2 .contentBox .formBox .remember {
+    margin-bottom: 10px;
+    color: #607d8b;
+    font-weight: 400;
+    font-size: 19px;
+  }
+  
+  .section2 .contentBox .formBox .inputBox p {
+    color: #607d8b;
+    margin: 5px;
+    font-size: 20px;
+  }
+  
+  .section2 .contentBox .formBox .inputBox p a {
+    color: #ce275f;
+  }
+  
+  .section2 .contentBox .formBox h2 {
+    width: 100%;
+    color: #607d8b;
+    text-align: center;
+    margin: 40px 0 10px;
+    padding: 0px;
+    text-transform:capitalize;
+  }
+  
+  .section2 .contentBox .formBox .scil {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 30px;
+    width: 100%;
+    padding: 0px;
+    
+  }
+  
+  .section2 .contentBox .formBox .scil li {
+    list-style: none;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #aec5d1;
+    border-radius: 50%;
+    margin: 0 7px;
+    cursor: pointer;
+  }
+  
+  .section2 .contentBox .formBox .scil li:hover{
+    background: #ff4584;
+  }
+  
+  .section2 .contentBox .formBox .scil li img {
+    transform: scale(0.5);
+    filter: invert(1);
+  }
+  
+  @media all and (max-width: 768px) {
+    .section2 .imgBox
+    {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .section2 .contentBox{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+    .section2 .contentBox .formBox {
+      width: 100%;
+      padding: 30px;
+      background: rgb(255 255 255 / 0.7);
+      margin: 50px;
+    }
+    .section2 .contentBox .formBox h3 {
+      width: 100%;
+      color: #607d8b;
+      text-align: center;
+      margin: 30px 0 10px;
+      padding: 0px;
+      font-weight: 500;
+    }
+    
+    .section2 .contentBox .formBox .scil {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 30px;
+      width: 100%;
+      height: 100%;
+    }
+  
+    
+  }

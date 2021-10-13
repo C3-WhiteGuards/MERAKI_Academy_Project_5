@@ -1,80 +1,73 @@
-*{
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-    font-family: "Goudy Bookletter 1911", sans-serif ;
-    background-image: url("https://t3.ftcdn.net/jpg/01/19/59/74/360_F_119597487_SnvLBdheEGOxu05rMQ5tCzo250cRrTz9.jpg");
-    
-    
-    }
-    .fixed{
-        position: fixed;
-        height: 60px;
-        width: 100%;
-        /* color: rgb(116, 113, 113);  */
-        display: flex;
-        align-items: center;
-        position: sticky;
-        top: 0;
-        z-index: 999;
-        background-color: rgb(196, 192, 192);
-        border-bottom: 2px red solid;
-      
-    
-     
-    
-    }
-    /**  logo */
-    .left{ 
-        
-            font-size: 15px;
-            color: white;
-            flex: 3;
-            /* margin-left: 20px; */
-           /* width: 150%;     */
-           border: 2px greenyellow solid;
-           width : 25%
-    }
-    
-    
-    .words{
-        font-size: 6px;
-        display:inline-flex;
-        position: absolute;
-     
-        align-items: center;
-        justify-content: space-around;
-        color: white;
-        /* border: 2px green solid; */
-        width:50%;
-       
-    
-    } 
-    
-    .nav-list{
-        display: flex;
-        gap:10px ;
-      width:20%;
-      justify-content: space-around;
-    list-style:none;
-    }
-    
-    .nav-list a{
-        color: rgb(243, 240, 240); 
-        text-decoration: none; 
-        letter-spacing: 1px;
-        font-weight: bold;
-     
-    }
-    .fixed img{
-        height: 13%;
-        width: 13%;
-        flex-wrap: nowrap;
-        overflow: hidden;
-        margin-top: 5px;
-    
-    }
-    .nav-list a:hover{
-        color: rgb(252, 248, 57);
-       text-decoration-line:underline;
-    }
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Goudy Bookletter 1911", sans-serif;
+  background-image: url("https://t3.ftcdn.net/jpg/01/19/59/74/360_F_119597487_SnvLBdheEGOxu05rMQ5tCzo250cRrTz9.jpg");
+}
+.fixed {
+  position: fixed;
+  height: 60px;
+  width: 100%;
+  /* color: rgb(116, 113, 113);  */
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background-color: rgb(196, 192, 192);
+  border-bottom: 2px red solid;
+}
+
+.left {
+  font-size: 15px;
+  color: white;
+  flex: 3;
+  /* margin-left: 20px; */
+  /* width: 150%;     */
+  border: 2px greenyellow solid;
+  width: 20%;
+}
+
+.words {
+  font-size: 6px;
+  display: inline-flex;
+  position: absolute;
+  min-width: 60px;
+  align-items: center;
+  justify-content: space-around;
+  color: white;
+  font-weight: normal;
+  margin-left: 80%;
+}
+.nav-list {
+  display: flex;
+  gap: 10px;
+  width: 20%;
+  justify-content: space-around;
+  list-style: none;
+}
+.nav-list a {
+  color: rgb(14, 13, 13);
+  text-decoration: none;
+  letter-spacing: 1px;
+  transition: all 0.3s ease 0s;
+  font-family: "Crimson Pro", serif;
+}
+.fixed img {
+  height: 18%;
+  width: 18%;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  margin: 5px 5px 5px 20px;
+}
+.nav-list a:hover {
+  color: rgb(252, 248, 9);
+}
+
+@media only screen and (max-width: 992px) {
+  .Navigation {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
