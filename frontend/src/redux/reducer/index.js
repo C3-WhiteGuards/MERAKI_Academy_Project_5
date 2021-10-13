@@ -1,9 +1,9 @@
 import { createStore, combineReducers } from "redux";
 
-import loginReduser from "./loginToken";
+import token from "./loginToken";
 
 
-const reducers = combineReducers({ loginReduser});
+const reducers = combineReducers({ token});
 
 const store = createStore(reducers);
 
