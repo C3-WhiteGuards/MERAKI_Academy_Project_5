@@ -3,7 +3,11 @@ import { Route,Switch } from "react-router-dom";
 import { Gym } from "./components/Gym/Gym";
 import { AddProducts } from "./components/products/product";
 import { Login } from "./components/auth/login";
+
+import Register from "./components/auth/signUp";
+
 import Navigation from "./components/navigation/index"
+
 const App = () => {
   return (
     <div>
@@ -14,6 +18,7 @@ const App = () => {
       <Switch>
         {/* islam */}
         <Route path="/login" component={Login} />
+        <Route path="/register" component={Register} />
 
 
 
