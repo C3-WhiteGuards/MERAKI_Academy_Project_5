@@ -4,6 +4,7 @@ import { Gym } from "./components/Gym/Gym";
 import { AddProducts } from "./components/products/product";
 import { Login } from "./components/auth/login";
 import Navigaion from "./components/navigation/index"
+import Register from "./components/auth/signUp";
 const App = () => {
   return (
     <div>
@@ -14,6 +15,7 @@ const App = () => {
       <Switch>
         {/* islam */}
         <Route path="/login" component={Login} />
+        <Route path="/register" component={Register} />
 
 
 
