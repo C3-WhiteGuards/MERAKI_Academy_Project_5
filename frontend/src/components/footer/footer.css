@@ -1,0 +1,72 @@
+*{
+    margin: 0px;
+padding: 0px;
+box-sizing: border-box;
+font-family: 'Crimson Pro', serif;
+color: black;
+
+
+}
+
+
+.footerMain{
+    height: 10vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(196, 192, 192);
+    margin-top: 40%; 
+   position: sticky;
+   z-index: 50;
+}
+
+.iconDev{
+   display: flex;
+   gap: 4px;
+   font-size: 200%;
+}
+
+.copyRight h5{
+
+font-size: 7px;
+margin-left: 10px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+text-align: center;
+gap:1px;
+font-weight: normal;
+
+    
+
+}
+.copyRight copyRight{
+    font-size: 70%;
+}
+.aboutus a{
+    text-decoration: none; 
+
+  font-size: 7px;
+  transition: all 0.3s ease 0s;
+}
+
+.aboutus{
+    margin-right: 10px;
+    display: flex;
+    gap:6px
+}
+
+.aboutus a:hover{
+    color: rgb(252, 248, 9);
+}
+
+@media only screen and (max-width: 992px) {
+    .Footer {
+        flex-direction: column-reverse;
+    }
+}
+
+.Facebook{
+    font-size: 60%;
+}
