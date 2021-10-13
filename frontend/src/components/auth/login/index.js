@@ -1,13 +1,23 @@
 import "./login.css";
+
 // import { SocialIcon } from "react-social-icons";
 // import Email from "@material-ui/icons/Email";
+
 import React, { useState } from "react";
 import axios from "axios";
+import { useDispatch,useSelector } from "react-redux";
+import { setToken } from "../../../redux/action/loginToken";
 
 export const Login=()=> {
   const [email, setEmail] = useState(0);
   const [password, setPassword] = useState(0);
+  const dispatch = useDispatch();
 
+  const state = useSelector((state) => {
+    return {
+      token : state.token.token,
+    };
+  });
   const userLogin = () => {
     axios
       .post("http://localhost:5000/login", {
@@ -17,7 +27,7 @@ export const Login=()=> {
       .then((res) => {
         const token = res.data.token;
         localStorage.setItem("token", token);
-        console.log(res.data.token);
+        dispatch(setToken(res.data.token))
       })
       .catch((err) => {
         console.log(err.response.data.message);
@@ -81,7 +91,11 @@ export const Login=()=> {
           <ul className="sci">
             {/* <li><Facebook/></li> */}
             <li>
+
               {/* <Email /> */}
+
+              
+
             </li>
           </ul>
         </div>

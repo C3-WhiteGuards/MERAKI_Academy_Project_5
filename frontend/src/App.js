@@ -1,19 +1,33 @@
 import React from "react";
-import { Route } from "react-router-dom";
+import { Route,Switch } from "react-router-dom";
 import { Gym } from "./components/Gym/Gym";
 import { AddProducts } from "./components/products/product";
 import { Login } from "./components/auth/login";
+
 import { Switch } from "react-router";
 import { GymsView } from "./components/Sections/sections";
 import { AddTrainer, OneTrainer, Trainer } from "./components/trainer/trainer";
 import { Resturants } from "./components/resturants/resturant";
+
+
+import Register from "./components/auth/signUp";
+import Navigation from "./components/navigation/index"
+import {Footer}  from "./components/Footer/index"
+import { Logout } from "./components/logout/logout";
+
 const App = () => {
   return (
     <div>
-		
+
+
+<Navigation/> 
+
+
       <Switch>
         {/* islam */}
         <Route path="/login" component={Login} />
+        <Route path="/register" component={Register} />
+        <Route path = '/logout' component = {Logout} />
 
 
 
@@ -30,7 +44,6 @@ const App = () => {
 
 
 
-
         {/* koulthom */}
 
 
@@ -42,6 +55,7 @@ const App = () => {
 
         
       </Switch>
+<Footer/>
     </div>
   );
 };
