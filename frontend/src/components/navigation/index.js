@@ -1,9 +1,7 @@
 import { Login } from "../auth/login";
-import axios from "axios";
-import React, { useContext, useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { useDispatch,useSelector } from "react-redux";
-// import { setToken } from "../../../redux/action/loginToken"
+import { useSelector } from "react-redux";
 const Navigation = () => {
 
   const state = useSelector((state) => {
@@ -21,7 +19,11 @@ const Navigation = () => {
           <li className="nav-item">
             <h3 className="your_fitness_first "> your fitness first </h3>
           </li>
-        
+          <li className="nav-item">
+            <Link className="Link" to="/login">
+              Login
+            </Link>
+            </li>
           {/* <li className="nav-item">
             <Login/>
           </li> */}
@@ -70,9 +72,9 @@ const Navigation = () => {
               LogOut
             </Link>
           </li> */}
-          {/* <li className="nav-item">
-            <Profile />
-          </li> */}
+          <li className="nav-item">
+            Profile 
+          </li>
         </ul>
       )}
     </nav>
