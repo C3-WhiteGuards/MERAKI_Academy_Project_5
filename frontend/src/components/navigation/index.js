@@ -22,12 +22,12 @@ const Navigation = () => {
             <h3 className="your_fitness_first "> your fitness first </h3>
           </li>
         
-          <li className="nav-item">
-            <Login/>
-          </li>
           {/* <li className="nav-item">
-            <Register/>
+            <Login/>
           </li> */}
+          <li className="nav-item">
+           register 
+          </li>
           {/* <li className="nav-item">
             <Link to="/home">Home</Link>
           </li> */}
@@ -36,9 +36,16 @@ const Navigation = () => {
       ) : (
         <ul className="nav-list">
           <li className="nav-item">
-            <h3 className="your_fitness_first">your fitness first </h3>
+            <h3 className="your_fitness_first">your fitness first is good  </h3>
           </li>
-         
+           <li className="nav-item">
+            <Link className="Link" to="/login">
+              Login
+            </Link>
+            </li>
+          {/* <li className="nav-item">
+            <Login/>
+          </li> */}
           {/* <li className="nav-item">
             <Link className="Link" to="/home">
               Home
