@@ -5,7 +5,7 @@ import "./footer.css"
 
 
 
-const Footer = () => {
+export const Footer = () => {
 	return <div className="footerMain">
 		<div className="copyRight"> 
 			<h5> copyRight <FaCopyright className="copyRight" classicon={FaCopyright}  /></h5>
@@ -23,4 +23,4 @@ const Footer = () => {
 	</div>;
 };
 
-export default Footer;
+
