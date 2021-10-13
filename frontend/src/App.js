@@ -7,6 +7,7 @@ import { Login } from "./components/auth/login";
 import Register from "./components/auth/signUp";
 
 import Navigation from "./components/navigation/index"
+import { Logout } from "./components/logout/logout";
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
         {/* islam */}
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
+        <Route path = '/logout' component = {Logout} />
 
 
 
