@@ -5,21 +5,17 @@ import "./login.css";
 
 import React, { useState } from "react";
 import axios from "axios";
-import { useDispatch,useSelector } from "react-redux";
-import { setToken } from "../../../redux/action/loginToken";
-
-export const Login=()=> {
+import { GoogleLogin } from "react-google-login";
+import { useHistory } from "react-router-dom";
+export const Login = () => {
   const [email, setEmail] = useState(0);
   const [password, setPassword] = useState(0);
-  const dispatch = useDispatch();
+  const history = useHistory();
+  const clientId =
+    "707788443358-u05p46nssla3l8tmn58tpo9r5sommgks.apps.googleusercontent.com";
 
-  const state = useSelector((state) => {
-    return {
-      token : state.token.token,
-    };
-  });
-  const userLogin = () => {
-    axios
+  const userLogin = async() => {
+   await axios
       .post("http://localhost:5000/login", {
         email,
         password,
@@ -32,6 +28,27 @@ export const Login=()=> {
       .catch((err) => {
         console.log(err.response.data.message);
       });
+  };
+
+  const onSuccess = (res) => {
+    axios
+      .post("http://localhost:5000/login/loginGoogle", { tokenId: res.tokenId })
+      .then((res) => {
+        if (res.data) {
+          localStorage.setItem("token", res.data.token);
+          history.push("/home");
+        } else throw Error;
+      })
+      .catch((err) => {
+       
+          console.log(err.response.data.message);
+        
+      });
+    console.log("Login Success: currentUser:", res.tokenObj.id_token); // for set token
+  };
+
+  const onFailure = (res) => {
+    console.log("Login failed: res:", res);
   };
 
   return (
@@ -89,17 +106,19 @@ export const Login=()=> {
           <h3>Login With social media</h3>
 
           <ul className="sci">
-            {/* <li><Facebook/></li> */}
             <li>
-
-              {/* <Email /> */}
-
-              
-
+              <GoogleLogin
+                clientId={clientId}
+                buttonText="Login"
+                onSuccess={onSuccess}
+                onFailure={onFailure}
+                cookiePolicy={"single_host_origin"}
+                style={{ marginTop: "100px" }}
+              />    
             </li>
           </ul>
         </div>
       </div>
     </div>
   );
-}
+};
