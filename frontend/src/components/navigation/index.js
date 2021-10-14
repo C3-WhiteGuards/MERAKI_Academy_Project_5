@@ -39,7 +39,7 @@ const Navigation = () => {
    <div className="words">
 
            <li className="nav-item">
-            <Link className="Link" to="/logOut">
+            <Link className="Link" to="/logout">
               logOut
             </Link>
             </li>

@@ -23,15 +23,16 @@ export const Login = () => {
       .then((res) => {
         const token = res.data.token;
         localStorage.setItem("token", token);
-        dispatch(setToken(res.data.token))
+        history.push("/home");
       })
       .catch((err) => {
         console.log(err.response.data.message);
       });
   };
 
-  const onSuccess = (res) => {
-    axios
+  const onSuccess = async(res) => {
+    console.log(res.tokenId);
+     await axios
       .post("http://localhost:5000/login/loginGoogle", { tokenId: res.tokenId })
       .then((res) => {
         if (res.data) {
