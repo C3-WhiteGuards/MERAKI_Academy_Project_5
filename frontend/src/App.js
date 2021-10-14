@@ -4,16 +4,20 @@ import { Gym } from "./components/Gym/Gym";
 import { AddProducts } from "./components/products/product";
 import { Login } from "./components/auth/login";
 
-import { Switch } from "react-router";
+
 import { GymsView } from "./components/Sections/sections";
-import { AddTrainer, OneTrainer, Trainer } from "./components/trainer/trainer";
+import { AddTrainer,  Trainer } from "./components/trainer/trainer";
 import { Resturants } from "./components/resturants/resturant";
+
 
 
 import Register from "./components/auth/signUp";
 import Navigation from "./components/navigation/index"
 import {Footer}  from "./components/Footer/index"
 import { Logout } from "./components/logout/Logout";
+
+import { OneTrainer } from "./components/trainer/OneTrainer";
+
 import About from "./components/Footer/About";
 import Policy from "./components/Footer/Policy";
 

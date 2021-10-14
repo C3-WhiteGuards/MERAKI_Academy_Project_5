@@ -1,0 +1,53 @@
+.profileTrainer{
+    width: 85%;
+    height: 600px;
+    background-color: violet;
+    margin: auto;
+        
+}
+
+.sport{
+    font-size: 200%;
+    margin-left:200px;
+    padding-top: 80px;
+}
+
+.description{
+    font-size: 70%;
+    padding-top: 150px;
+    padding-left: 100px;
+}
+
+.imgDetails{
+    margin-left: 400px;
+    padding-top: 100px;
+}
+
+.imge{
+    border-radius: 5px;
+}
+
+.details{
+    margin-top: 100px;
+}
+
+#curvearrow {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border-top: 9px dashed transparent;
+    border-right: 9px dashed red;
+    transform: rotate(10deg);
+  }
+  #curvearrow:after {
+    content: "";
+    position: absolute;
+    border: 0 dashed transparent;
+    border-top: 3px dashed red;
+    border-radius: 20px 0 0 0;
+    top: -12px;
+    left: -9px;
+    width: 12px;
+    height: 12px;
+    transform: rotate(45deg);
+  }
