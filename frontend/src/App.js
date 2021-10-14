@@ -15,6 +15,7 @@ import Register from "./components/auth/signUp";
 import Navigation from "./components/navigation/index"
 import {Footer}  from "./components/Footer/index"
 import { Logout } from "./components/logout/Logout";
+import {Cart} from "./components/cart/cart";
 
 import { OneTrainer } from "./components/trainer/OneTrainer";
 
@@ -34,6 +35,7 @@ const App = () => {
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
         <Route path = '/logout' component = {Logout} />
+        <Route path="/cart" component={Cart} />
 
 
 
