@@ -1,6 +1,8 @@
 import "./login.css";
-import { SocialIcon } from "react-social-icons";
-import Email from "@material-ui/icons/Email";
+
+// import { SocialIcon } from "react-social-icons";
+// import Email from "@material-ui/icons/Email";
+
 import React, { useState } from "react";
 import axios from "axios";
 import { GoogleLogin } from "react-google-login";
@@ -21,7 +23,7 @@ export const Login = () => {
       .then((res) => {
         const token = res.data.token;
         localStorage.setItem("token", token);
-        console.log(res.data.token);
+        dispatch(setToken(res.data.token))
       })
       .catch((err) => {
         console.log(err.response.data.message);
@@ -104,7 +106,6 @@ export const Login = () => {
           <h3>Login With social media</h3>
 
           <ul className="sci">
-            {/* <li><Facebook/></li> */}
             <li>
               <GoogleLogin
                 clientId={clientId}
@@ -113,7 +114,7 @@ export const Login = () => {
                 onFailure={onFailure}
                 cookiePolicy={"single_host_origin"}
                 style={{ marginTop: "100px" }}
-              />
+              />    
             </li>
           </ul>
         </div>
