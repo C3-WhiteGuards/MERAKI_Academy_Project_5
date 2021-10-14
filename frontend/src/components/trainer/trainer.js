@@ -42,31 +42,7 @@ export const Trainer = () => {
   );
 };
 
-export const OneTrainer = () => {
-  const [trainer, setTrainer] = useState(0);
 
-  let id_e = useParams().id;
-
-  useEffect(async () => {
-   await axios
-      .get(`http://localhost:5000/trainer/${id_e}`)
-      .then((res) => {
-        setTrainer(res.data.Trainer);
-        console.log(res.data.Trainer);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  },[]);
-
-  return (
-    <div>
-      <h1>{trainer &&trainer[0].firstName}</h1>
-      <h1></h1>
-      <h1></h1>
-    </div>
-  );
-};
 
 export const AddTrainer = () => {
   const [firstName, setFirstName] = useState("");
