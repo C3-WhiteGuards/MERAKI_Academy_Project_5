@@ -15,7 +15,12 @@ import Register from "./components/auth/signUp";
 import Navigation from "./components/navigation/index"
 import {Footer}  from "./components/Footer/index"
 import { Logout } from "./components/logout/Logout";
+
 import { OneTrainer } from "./components/trainer/OneTrainer";
+
+import About from "./components/Footer/About";
+import Policy from "./components/Footer/Policy";
+
 const App = () => {
   return (
     <div>
@@ -41,7 +46,8 @@ const App = () => {
 		<Route exact path='/trainer/:id' component={OneTrainer}/>
 
         {/* roqia */}
-
+<Route  path = '/boutUs' component = {About} />
+<Route  path = '/ourPolicy' component = {Policy} />
 
 
 
