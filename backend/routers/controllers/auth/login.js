@@ -56,7 +56,7 @@ const login = (req, res) => {
 
 const loginGoogle = async (req, res) => {
   const tokenId = req.body.tokenId;
-  client
+  clientId
     .verifyIdToken({
       idToken: tokenId,
       audience:
