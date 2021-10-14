@@ -20,6 +20,7 @@ import { OneTrainer } from "./components/trainer/OneTrainer";
 
 import About from "./components/Footer/About";
 import Policy from "./components/Footer/Policy";
+import Payment from "./components/payment/payment";
 
 const App = () => {
   return (
@@ -35,6 +36,7 @@ const App = () => {
         <Route path="/register" component={Register} />
         <Route path = '/logout' component = {Logout} />
 
+        <Route path="/payment" component={Payment} />
 
 
 
