@@ -4,10 +4,13 @@
 }
 
 .AllTrainersClass {
-  width: 1200px;
+ 
   height: 600px;
+
+  width: 66%;
+
   background-color: white;
-  border: 2px red solid;
+  /* border: 2px red solid; */
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   padding: 20px;
@@ -16,6 +19,7 @@
 }
 
 .trainrClass {
+  margin: 10px;
   height: 220px;
   width: 250px;
   background-color: #ececec;
@@ -34,6 +38,7 @@
 }
 
 .nameTrainer {
+  padding: 0px;
   font-size: 15px;
   margin-top: 15px;
   color: #212121;
@@ -43,4 +48,7 @@
 .trainrClass:hover {
   background-color: #9e9d9d;
   box-shadow: 2px 2px 4px #575858;
+
 }
+
+
