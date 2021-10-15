@@ -39,7 +39,7 @@ const App = () => {
 
 
         {/* rashed */}
-        <Route path='/gymsview' component={GymsView} />
+        <Route path='/AllSections' component={GymsView} />
 		<Route path='/ALLGyms' component={Gym}/>
 		<Route path='/AllTrainers' component={Trainer}/>
 		<Route path='/AllRestaurnats' component={Resturants}/>

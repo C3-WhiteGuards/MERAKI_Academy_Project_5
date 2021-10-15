@@ -7,7 +7,6 @@ import { useParams } from "react-router-dom";
 
 export const Trainer = () => {
   const [trainers, setTrainer] = useState([]);
-  const [id, setId] = useState(0);
   const history = useHistory();
 
   const getAllTrainers = async () => {
