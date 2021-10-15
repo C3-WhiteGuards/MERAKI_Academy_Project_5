@@ -1,53 +1,146 @@
-.profileTrainer{
-    width: 85%;
-    height: 600px;
-    background-color: violet;
-    margin: auto;
-        
-}
-
-.sport{
-    font-size: 200%;
-    margin-left:200px;
-    padding-top: 80px;
-}
-
-.description{
-    font-size: 70%;
-    padding-top: 150px;
-    padding-left: 100px;
-}
-
-.imgDetails{
-    margin-left: 400px;
-    padding-top: 100px;
-}
-
-.imge{
-    border-radius: 5px;
-}
-
-.details{
-    margin-top: 100px;
-}
-
-#curvearrow {
+.col-xs-12 {
+    float: right;
     position: relative;
-    width: 20px;
-    height: 20px;
-    border-top: 9px dashed transparent;
-    border-right: 9px dashed red;
-    transform: rotate(10deg);
-  }
-  #curvearrow:after {
-    content: "";
+    right: 115px;
+    top: 86px;
+}
+
+.pt-bio {
+    position: relative;
+    right: 170px;
+}
+
+.gym-img {
+    border-radius: 100px;
+}
+
+.list--gym-address {
+    position: relative;
+    right: 35px;
+    bottom: 22px;
+    list-style-type: none;
+}
+
+.gym-block-bottm {
+    display: block;
+}
+
+.gym-block__title {
+    margin-left: 53px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-top: 20px;
+}
+
+.text-link {
+    margin: 10px;
+    cursor: pointer;
+}
+
+.list__item h5 {
+    text-decoration: none;
+    padding: 0px;
+    position: relative;
+    right: 9px;
+}
+
+.list__item {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    padding: 1px;
+    font-weight: bold;
+    position: relative;
+    top: 0px;
+    left: 27px;
+}
+
+.col-xs-14 {
+    float: left;
+    position: relative;
+    left: 80px;
+    top: 100px;
+}
+
+.heading {
     position: absolute;
-    border: 0 dashed transparent;
-    border-top: 3px dashed red;
-    border-radius: 20px 0 0 0;
-    top: -12px;
-    left: -9px;
-    width: 12px;
-    height: 12px;
-    transform: rotate(45deg);
-  }
+    left: 25px;
+    bottom: 75%;
+    font-size: 30px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.pt-bio {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 700px;
+    line-height: 25px;
+    position: relative;
+    right: 7px;
+    top: 30px;
+}
+
+.sport-train {
+    position: relative;
+    right: 58px;
+    bottom: 46px;
+}
+
+.list-sport {
+    padding: 0px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+    position: relative;
+    bottom: 58px;
+    left: 30px;
+}
+
+.list-experience {
+    position: relative;
+    bottom: 68px;
+    left: 30px;
+    padding: 0px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+}
+
+.experience-ltem {
+    position: relative;
+    left: 3px;
+    top: 1px;
+}
+
+.sport-tra {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.prgTra {
+    text-align: start;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.location-Class {
+    position: relative;
+    top: 32px;
+    right: 42px;
+}
+
+.phon-Class {
+    position: relative;
+    top: 34px;
+    right: 40px;
+}
+
+.list__phon {
+    position: relative;
+    bottom: 50px;
+    font-weight: bold;
+}
+
+.Sports-Score-Class {
+    position: relative;
+    top: 34px;
+    right: 40px;
+}
+
+.StarBorder-Class {
+    position: relative;
+    top: 32px;
+    right: 42px;
+}
