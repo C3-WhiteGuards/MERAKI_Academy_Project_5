@@ -31,23 +31,3 @@
     margin-top: 100px;
 }
 
-#curvearrow {
-    position: relative;
-    width: 20px;
-    height: 20px;
-    border-top: 9px dashed transparent;
-    border-right: 9px dashed red;
-    transform: rotate(10deg);
-  }
-  #curvearrow:after {
-    content: "";
-    position: absolute;
-    border: 0 dashed transparent;
-    border-top: 3px dashed red;
-    border-radius: 20px 0 0 0;
-    top: -12px;
-    left: -9px;
-    width: 12px;
-    height: 12px;
-    transform: rotate(45deg);
-  }

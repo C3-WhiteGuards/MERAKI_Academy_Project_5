@@ -16,33 +16,36 @@ export const Gym = () => {
       });
   }, []);
   return (
-    <div className="gym">
-      <div className="child">
+    
+      <div >
         {gyms &&
           gyms.map((element, index) => {
             return (
-              <div key={index}>
-                <img src={element.image} />
+              <div key={index} className="OneGym"> 
+
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeOLTtl_ZhcWlmWMExJ3t4P5cBnElgi9VbGA&usqp=CAU" className="imgGym"/>
                 <div className="childtwo">
-                  <h5>{element.name}</h5>
-                  <h5>{element.phoneNumber}</h5>
-                  <h5>{element.priceMonthly}</h5>
-                  <h5>{element.description}</h5>
+                  <h5 className="NameOfTheGym"> Golden Gym</h5>
+                  <h5> 📞 0777522486</h5>
+                  <h5 >  Monthly Subscribtion 350 JD</h5>
+                  <h5 className="desc">Are you up to the Pink Power challenge with the Ladies Fitness Team?
+Ready, Set, Go Pink on Saturday at 6:00 pm at the Ladies Gym – Gold’s Gym Abdoun for the chance to win Free Memberships and a Gold’s Pink Gym Bag.
+</h5>
                   <h5
                     onClick={() => {
                       window.open(element.location, "_blank");
                     }}
                   >
                     {" "}
-                    LOCATION
+                    📍 LOCATION 
                   </h5>
-                  <button>subscribe</button>
+                  <button className="subscribeBtn">Subscribe Now</button>
                 </div>
               </div>
             );
           })}
       </div>
-    </div>
+    
   );
 };
 
