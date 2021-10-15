@@ -4,15 +4,17 @@
 }
 
 .AllTrainersClass {
+ 
   height: 600px;
+
   width: 66%;
+
   background-color: white;
   /* border: 2px red solid; */
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   padding: 20px;
   margin-top: 70px;
-  /* justify-content:space-around; */
   margin-left: 200px;
 }
 
@@ -46,4 +48,7 @@
 .trainrClass:hover {
   background-color: #9e9d9d;
   box-shadow: 2px 2px 4px #575858;
+
 }
+
+

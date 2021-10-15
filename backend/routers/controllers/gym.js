@@ -1,3 +1,4 @@
+const { end } = require("./../../db/db");
 const connection = require("./../../db/db");
 
 const createNewGym = (req, res) => {
@@ -26,7 +27,7 @@ const createNewGym = (req, res) => {
         error: err,
       });
     }
-    res.status(201).json({
+   return res.status(201).json({
       success: true,
       message: "Success new gym Added ",
       result: result,
@@ -63,7 +64,7 @@ const deleteGymById = (req, res) => {
       console.log(error.response);
       return;
     }
-    res.status(200).json({
+   return res.status(200).json({
       success: true,
       message: "Success deleted Gym by the id ",
       result: result,
@@ -75,17 +76,18 @@ const getAllGyms = (req, res) => {
   const query = `SELECT * FROM gym WHERE is_delete=0 `;
   connection.query(query, (error, result) => {
     if (error) {
-      res.status(500).json({
+     return res.status(500).json({
         success: false,
         message: `Server Error`,
         error: error,
-      });
+      }).end();
     }
-    res.status(200).json({
+    return res.status(200).json({
       success: true,
       message: "all  gyms in your website ",
       result: result,
-    });
+    }).end();
+    
   });
 };
 module.exports = { createNewGym, updateGymById, deleteGymById, getAllGyms };

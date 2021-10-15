@@ -9,14 +9,21 @@ import { AddTrainer, Trainer } from "./components/trainer/trainer";
 import { Resturants } from "./components/resturants/resturant";
 
 import Register from "./components/auth/signUp";
+
 import Navigation from "./components/navigation/index";
 import { Footer } from "./components/footer/index";
+
+
 import { Logout } from "./components/logout/Logout";
+import {Cart} from "./components/cart/cart";
 
 import { OneTrainer } from "./components/trainer/OneTrainer";
 
 import About from "./components/footer/About";
 import Policy from "./components/footer/Policy";
+
+import Payment from "./components/payment/payment";
+
 
 const App = () => {
   return (
@@ -27,14 +34,20 @@ const App = () => {
         {/* islam */}
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
-        <Route path="/logout" component={Logout} />
 
+        <Route path="/logout" component={Logout} />
+        <Route path="/cart" component={Cart} />
+
+        <Route path="/payment" component={Payment} />
         {/* rashed */}
         <Route path="/gymsview" component={GymsView} />
         <Route path="/ALLGyms" component={Gym} />
         <Route path="/AllTrainers" component={Trainer} />
         <Route path="/AllRestaurnats" component={Resturants} />
         <Route exact path="/trainer/:id" component={OneTrainer} />
+
+        
+
 
         {/* roqia */}
         <Route path="/boutUs" component={About} />

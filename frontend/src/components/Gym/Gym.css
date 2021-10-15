@@ -1,19 +1,51 @@
-body{
+/* body{
     font-size: 7px;
-}
-.gym{
-    position: absolute;
-   
-}
-.child{
-    position:relative;
-    border: 1px red solid;
-}
-.child img{
-    width: 50%;
-    height: 10%;
-}
+} */
+
+
 
 .childtwo{
-    border: 1px blue solid;
+    /* border: 1px blue solid; */
+    width: 500px;
+    height: 500px;
+    
 }
+
+.OneGym{
+    margin: auto;
+    width: 1200px;
+    height: 500px;
+    /* background-color: tomato; */
+    display: flex;
+    margin-top: 50px;
+    flex-wrap: nowrap;
+    
+}
+
+.subscribeBtn{
+    width: 140px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: tomato;
+    margin-top: 50px;
+    margin-left: 35px;
+    color: white;
+}
+
+.imgGym{
+    
+        width: 600px;
+        height: 500px;
+        margin-right: 150px;
+        border-radius: 3px;
+}
+
+.NameOfTheGym{
+    font-family: 'Crimson Pro', serif;
+    font-size: 40px;
+    margin-top: -30px;
+}
+
+ .desc{
+    font-size: 15px;
+} 
