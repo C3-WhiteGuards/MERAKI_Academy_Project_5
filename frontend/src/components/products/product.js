@@ -1,27 +1,56 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-
+import {Col,Card,Row,Button} from "react-bootstrap";
+import { useSelector,useDispatch } from "react-redux";
+import { addToCart } from "../../redux/action/cart";
 export const Allproduct = () => {
   const [products, setProducts] = useState([]);
-
-  useEffect(() => {
+  const dispatch = useDispatch();
+  const state = useSelector((state) => {
+    return state.cart.cart;
+  }); 
+  const all = JSON.parse(localStorage.getItem("savedData"))
+   useEffect(() => {
     axios.get("http://localhost:5000/products").then((result) => {
-      console.log(result.data);
       setProducts([...result.data.Products]);
     });
   }, []);
 
   return (
-    <div>
+    <div className="container">
+      <h3 className="center">Our items</h3>
+     
+    
+      <Row xs={1} md={3} className="g-4">
       {products &&
-        products.map((element, index) => {
+        products.map((item, index) => {
           return (
-            <div key={index}>
-              <h1>{element.name}</h1>
-              <h1>{element.price}</h1>
-            </div>
+              <Col key={item.id}>
+                <Card>
+                  <Card.Img variant="top" src={item.image}  height="350px"
+                  width="350px" />
+                  <Card.Body>
+                    <Card.Title>{item.name}</Card.Title>
+                    <Card.Text>
+                      {item.description}
+                    </Card.Text>
+                    <Card.Text>
+                     Prics:{item.price}$
+                    </Card.Text>
+                    <Button variant="primary" onClick={()=>{
+                      dispatch(addToCart(item))
+                      all.push(item)
+                      localStorage.setItem("savedData", JSON.stringify(all));
+                    }}>add Cart</Button>
+                  </Card.Body>
+                </Card>
+              </Col>
+            
+          
           );
         })}
+        </Row>
+   
     </div>
   );
 };

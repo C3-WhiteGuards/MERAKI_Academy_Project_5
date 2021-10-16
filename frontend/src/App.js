@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 import { Gym } from "./components/Gym/Gym";
-import { AddProducts } from "./components/products/product";
+import { AddProducts,Allproduct } from "./components/products/product";
 import { Login } from "./components/auth/login";
 
 import { GymsView } from "./components/Sections/sections";
@@ -11,7 +11,7 @@ import { Resturants } from "./components/resturants/resturant";
 import Register from "./components/auth/signUp";
 
 import Navigation from "./components/navigation/index";
-import { Footer } from "./components/Footer/index";
+import { Footer } from "./components/footer/index";
 
 
 import { Logout } from "./components/logout/Logout";
@@ -19,17 +19,17 @@ import {Cart} from "./components/cart/cart";
 
 import { OneTrainer } from "./components/trainer/OneTrainer";
 
-import About from "./components/Footer/About";
-import Policy from "./components/Footer/Policy";
+import About from "./components/footer/About";
+import Policy from "./components/footer/Policy";
 
 import Payment from "./components/payment/payment";
-
+import Main from "./components/main";
 
 const App = () => {
   return (
     <div>
       <Navigation />
-
+     
       <Switch>
         {/* islam */}
         <Route path="/login" component={Login} />
@@ -37,6 +37,8 @@ const App = () => {
 
         <Route path="/logout" component={Logout} />
         <Route path="/cart" component={Cart} />
+        <Route path="/home" component={Main} />
+        <Route path="/allproduct" component={Allproduct} />
 
         <Route path="/payment" component={Payment} />
         {/* rashed */}

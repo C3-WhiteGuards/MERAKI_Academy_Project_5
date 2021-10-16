@@ -1,21 +1,22 @@
 import "./login.css";
-
-// import { SocialIcon } from "react-social-icons";
-// import Email from "@material-ui/icons/Email";
-
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { GoogleLogin } from "react-google-login";
 import { useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { setToken } from "../../../redux/action/loginToken";
+import { addToCart } from "../../../redux/action/cart";
+
 export const Login = () => {
   const [email, setEmail] = useState(0);
   const [password, setPassword] = useState(0);
   const history = useHistory();
+  const dispatch = useDispatch();
   const clientId =
     "707788443358-u05p46nssla3l8tmn58tpo9r5sommgks.apps.googleusercontent.com";
-
-  const userLogin = async() => {
-   await axios
+  
+  const userLogin = async () => {
+    await axios
       .post("http://localhost:5000/login", {
         email,
         password,
@@ -23,16 +24,19 @@ export const Login = () => {
       .then((res) => {
         const token = res.data.token;
         localStorage.setItem("token", token);
+        localStorage.setItem("savedData", JSON.stringify([]));
+        dispatch(setToken(res.data.token));
+        dispatch(addToCart([]));
         history.push("/home");
       })
       .catch((err) => {
-        console.log(err.response.data.message);
+        history.push("/home");
       });
   };
 
-  const onSuccess = async(res) => {
+  const onSuccess = async (res) => {
     console.log(res.tokenId);
-     await axios
+    await axios
       .post("http://localhost:5000/login/loginGoogle", { tokenId: res.tokenId })
       .then((res) => {
         if (res.data) {
@@ -41,9 +45,7 @@ export const Login = () => {
         } else throw Error;
       })
       .catch((err) => {
-       
-          console.log(err.response.data.message);
-        
+        console.log(err.response.data.message);
       });
     console.log("Login Success: currentUser:", res.tokenObj.id_token); // for set token
   };
@@ -106,7 +108,7 @@ export const Login = () => {
 
           <h3>Login With social media</h3>
 
-          <ul className="sci">
+          <ul>
             <li>
               <GoogleLogin
                 clientId={clientId}
@@ -115,7 +117,7 @@ export const Login = () => {
                 onFailure={onFailure}
                 cookiePolicy={"single_host_origin"}
                 style={{ marginTop: "100px" }}
-              />    
+              />
             </li>
           </ul>
         </div>

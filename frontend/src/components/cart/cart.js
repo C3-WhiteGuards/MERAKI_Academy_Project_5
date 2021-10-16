@@ -9,6 +9,7 @@ export const Cart = () => {
   const state = useSelector((state) => {
     return state.cart;
   });
+  console.log(state);
   const handleRemove = (id) => {
     dispatch(removeItem(id));
   };

@@ -1,42 +1,50 @@
 const express = require("express");
 const app = express();
 const port = 3000;
-const cors = require("cors")
+const cors = require("cors");
 const connection = require("./db/db");
-
+const gymRouter = require("./routers/routes/gym");
+const rateRouter = require("./routers/routes/rate");
+const resturantRouter = require("./routers/routes/resturant");
+const commentRouter = require("./routers/routes/comment");
+const trainerRouter = require("./routers/routes/trainer");
+const productsRouter = require("./routers/routes/product");
+const subscribtionRouter = require("./routers/routes/subscribtion");
+const registerRouter = require("./routers/routes/auth/signUp");
+const loginRouter = require("./routers/routes/auth/login");
+const usersRouter = require("./routers/routes/users");
+const cartRouter = require("./routers/routes/cart");
 app.use(express.json());
 
 app.use(cors());
 
-// ruqia 
-const gymRouter = require("./routers/routes/gym")
-app.use("/gym" , gymRouter)
-rateRouter = require("./routers/routes/rate")
-app.use("/rate" , rateRouter)
+// ruqia
 
-// kulthoum 
-const resturantRouter =require("./routers/routes/resturant")
-app.use("/resturan",resturantRouter)
-const commentRouter =require ("./routers/routes/comment")
-app.use("/comment",commentRouter)
+app.use("/gym", gymRouter);
+
+app.use("/rate", rateRouter);
+
+// kulthoum
+
+app.use("/resturan", resturantRouter);
+
+app.use("/comment", commentRouter);
 //abdallah
 
-const trainerRouter = require("./routers/routes/trainer")
-app.use("/trainer" , trainerRouter);
+app.use("/trainer", trainerRouter);
 
 //rashed  25 - 30
-const productsRouter = require("./routers/routes/product");
-const subscribtionRouter = require('./routers/routes/subscribtion');
-app.use("/products",productsRouter );
-app.use('/subscribtion' , subscribtionRouter);
+
+app.use("/products", productsRouter);
+app.use("/subscribtion", subscribtionRouter);
 //Islam
-const registerRouter = require("./routers/routes/auth/signUp");
+
 app.use("/register", registerRouter);
-const loginRouter = require("./routers/routes/auth/login")
-app.use(loginRouter)
-const usersRouter = require("./routers/routes/users")
+
+app.use(loginRouter);
+
 app.use("/users", usersRouter);
-const cartRouter = require("./routers/routes/cart")
+
 app.use("/cart", cartRouter);
 
 const PORT = process.env.PORT || 5000;
