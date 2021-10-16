@@ -4,12 +4,12 @@ import { useParams } from "react-router-dom";
 
 export const OneResturant = () => {
   const [resturant, setResturant] = useState(0);
-
-  let id_r = useParams().id;
+  const token = localStorage.getItem("token")
+  let restaurantId = useParams().id;
 
   useEffect(async () => {
     await axios
-      .get(`http://localhost:5000/resturan/${id_r}`)
+      .get(`http://localhost:5000/resturan/${restaurantId}`)
       .then((res) => {
         setResturant(res.data.Resturant);
         console.log(res.data.Resturant);
@@ -19,6 +19,18 @@ export const OneResturant = () => {
       });
   }, []);
 
+
+ const  addSubsecRestaurant=  async ()=>{
+ await axios.post(`http://localhost:5000/subscribtion/rest
+ `,{restaurantId},{ headers: { Authorization: `Bearer ${token}` } }
+ )
+.then((result)=>{
+  console.log(result);
+}).catch((err)=>{
+  console.log(err);
+})
+
+ }
   return (
     <div className="parent_div">
       <div className="parent_2">
@@ -55,7 +67,7 @@ export const OneResturant = () => {
               <h5 className="rateDiv">{resturant && resturant[0].rate}</h5>
             </li>
           </ul>
-          <button>Subscribe</button>
+          <button onClick ={addSubsecRestaurant}>Subscribe</button>
         </div>
       </div>
     </div>
