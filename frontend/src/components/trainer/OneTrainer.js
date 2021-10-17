@@ -14,7 +14,7 @@ export const OneTrainer = () => {
 
   useEffect(async () => {
     await axios
-      .get(`http://localhost:5000/trainer/${id_e}`)
+      .get(`http://localhost:5000/trainer/${trainerId}`)
       .then((res) => {
         setTrainer(res.data.Trainer);
         console.log(res.data.Trainer);
