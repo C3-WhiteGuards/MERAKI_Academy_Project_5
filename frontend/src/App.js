@@ -24,6 +24,7 @@ import Policy from "./components/Footer/Policy";
 import Payment from "./components/payment/payment";
 import Main from "./components/main";
 import { OneResturant } from "./components/resturants/OneReastaurant";
+import { ProfileUser } from "./components/users/profileUser";
 
 const App = () => {
   return (
@@ -47,7 +48,7 @@ const App = () => {
         <Route path="/AllTrainers" component={Trainer} />
         <Route path="/AllRestaurnats" component={Resturants} />
         <Route exact path="/trainer/:id" component={OneTrainer} />
-
+        <Route exact path='/profile' component={ProfileUser}/>
         {/* roqia */}
         <Route path="/boutUs" component={About} />
         <Route path="/ourPolicy" component={Policy} />

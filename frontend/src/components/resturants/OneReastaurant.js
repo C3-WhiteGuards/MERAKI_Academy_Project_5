@@ -62,10 +62,18 @@ export const OneResturant = () => {
               Price {": "}
               {resturant && resturant[0].monthlyPrice} JD
             </li>
+
+
+            {/* <li className="rate">
+              Rate :{" "}
+              <h5 className="rateDiv">{resturant && resturant[0].rate}</h5>
+            </li> */}
+
             <li className="rate">
               Resturant Rate : {resturant && resturant[0].rate}
             </li>
             <button className="resButton" onClick={addSubsecRestaurant}>Subscribe</button>
+
           </ul>
         </div>
       </div>
