@@ -9,12 +9,12 @@ import StarBorder from "@mui/icons-material/StarBorder";
 
 export const OneTrainer = () => {
   const [trainer, setTrainer] = useState(0);
-
-  let id_e = useParams().id;
+  const token = localStorage.getItem("token");
+  let trainerId = useParams().id;
 
   useEffect(async () => {
     await axios
-      .get(`http://localhost:5000/trainer/${id_e}`)
+      .get(`http://localhost:5000/trainer/${trainerId}`)
       .then((res) => {
         setTrainer(res.data.Trainer);
         console.log(res.data.Trainer);
@@ -23,6 +23,21 @@ export const OneTrainer = () => {
         console.log(err);
       });
   }, []);
+
+  const addSubsecribtionTrainer = async () => {
+    await axios
+      .post(
+        `http://localhost:5000/subscribtion/trainer`,
+        { trainerId },
+        { headers: { Authorization: `Bearer ${token}` } }
+      )
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <div className="big-div">
@@ -84,6 +99,7 @@ export const OneTrainer = () => {
         </h2>
         <div className="pt-bio">
           <p className="prgTra">{trainer && trainer[0].description}</p>
+          <button>onClick={addSubsecribtionTrainer}</button>
         </div>
       </div>
     </div>
