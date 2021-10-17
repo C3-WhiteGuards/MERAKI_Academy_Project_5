@@ -51,4 +51,14 @@ const addRestaruntUser = (req, res) => {
       .json({ success: true, message: "add new subscribe is Done !" });
   });
 };
-module.exports = { addGymUser, addRestaruntUser, addTrainerUser };
+/////////////////////////////////////////////////////////////////
+const getResturantsSubscribtion = (req , res)=>{
+  const id  = req.token.userId;
+  const query = `SELECT * FROM subscriptionsRestaurant INNER JOIN resturant ON subscriptionsRestaurant.restaurantId=resturant.id WHERE userId=${id}`;
+  connection.query(query , (err , result)=>{
+   // if (err) return res.status(404).json({success:false , message:"There is Error!" , Error:err});
+
+   res.status(200).json({success:true , message:"get all restaurants subscriptions!" , result:result});
+  })
+}
+module.exports = { addGymUser, addRestaruntUser, addTrainerUser , getResturantsSubscribtion};

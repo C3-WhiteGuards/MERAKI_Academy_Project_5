@@ -50,10 +50,10 @@ export const OneResturant = () => {
               </h5>
             </li>
 
-            <li className="rate">
+            {/* <li className="rate">
               Rate :{" "}
               <h5 className="rateDiv">{resturant && resturant[0].rate}</h5>
-            </li>
+            </li> */}
           </ul>
           <button>Subscribe</button>
         </div>
