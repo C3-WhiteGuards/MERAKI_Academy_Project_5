@@ -4,15 +4,18 @@
   height: 100vh;
   margin: 0px;
   top: 0px;
-  background-color: #f7cef346;
+  /* background-color: #f7cef346; */
   display: flex;
 }
+
 /**/
+
 .section .imgBx {
   position: relative;
   width: 60%;
   height: 100%;
 }
+
 .section .imgBx::before {
   content: '';
   position: absolute;
@@ -20,10 +23,11 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(255deg,#A3A3A3,#984cac2d);
+  background: linear-gradient(255deg, #066981, #4c66ac2d);
   z-index: 1;
   mix-blend-mode: screen;
 }
+
 .section .imgBx img {
   position: absolute;
   top: 0;
@@ -32,27 +36,36 @@
   height: 100%;
   object-fit: cover;
 }
-.section .contentBx{
+
+.section .contentBx {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 50%;
   height: 100%;
 }
+
 .section .contentBx .formBx h3 {
-  margin-left: 75px;
+  margin-left: 30px;
   padding: 0px;
+  font-size: 23px;
 }
+
 .section .contentBx .formBx p {
   font-size: 20px;
-  margin-left: 15px;
+  margin-right: 58px;
+  margin-top: 0px;
 }
+
 .section .contentBx .formBx {
+  margin-left: 20px;
+  margin-bottom: 44px;
   width: 50%;
   color: #254656;
   padding: 0px;
 }
-.section .contentBx .formBx h2{
+
+.section .contentBx .formBx h2 {
   color: #607D8B;
   font-weight: 600;
   font-size: 3em;
@@ -63,10 +76,12 @@
   display: inline-block;
   letter-spacing: 1px;
 }
+
 .section .contentBx .formBx .inputBx {
   margin-bottom: 20px;
   margin-right: 25px;
 }
+
 .section .contentBx .formBx .inputBx span {
   font-size: 16px;
   margin-bottom: 5px;
@@ -76,6 +91,7 @@
   font-size: 16px;
   letter-spacing: 1px;
 }
+
 .section .contentBx .formBx .inputBx input {
   width: 100%;
   padding: 10px 5px;
@@ -89,38 +105,49 @@
   border-radius: 30px;
   padding-left: 20px;
 }
-.section .contentBx .formBx .inputBx button {  
-    width: 102%;
-    padding: 10px 5px;
-    outline: none;
-    font-weight: 400;
-    border: 1px solid #607D8B;
-    font-size: 16px;
-    letter-spacing: 1px;
-    color: #FFFFFF;
-    background: #284C5D;
-    border-radius: 30px;
-    padding-left: 20px;
-    margin-left: 13px;
+
+.section .contentBx .formBx .inputBx button {
+  background: #284C5D;
+  width: 45%;
+  height: 37px;
+  padding: 6px 5px;
+  outline: none;
+  font-weight: 400;
+  border: 1px solid #607d8b;
+  font-size: 16px;
+  margin-left: 2px;
+  letter-spacing: 1px;
+  color: #ffffff;
+  border-radius: 30px;
+  padding-left: 5px;
 }
-.section .contentBx .formBx .inputBx button:hover{
+
+.section .contentBx .formBx .inputBx button:hover {
   background: #2E7EA3;
 }
+
 .section .contentBx .formBx .remember {
   margin-bottom: 10px;
   color: #10445D;
   font-weight: 400;
   font-size: 19px;
 }
+
 .section .contentBx .formBx .inputBx p {
   color: #284C5D;
   margin: 5px;
+  margin-bottom: 21px;
+  margin-right: 66px;
+    padding: 0;
   font-size: 18px;
 }
+
 .section .contentBx .formBx .inputBx p a {
   color: #1E3255;
   text-decoration: none;
+  font-size: 19px;
 }
+
 .section .contentBx .formBx h2 {
   width: 100%;
   color: #284C5D;
@@ -129,6 +156,7 @@
   padding: 0px;
   font-size: 38px;
 }
+
 .section .contentBx .formBx .sci {
   display: flex;
   justify-content: center;
@@ -137,6 +165,7 @@
   width: 100%;
   padding: 0px;
 }
+
 .section .contentBx .formBx .sci li {
   list-style: none;
   width: 50px;
@@ -149,23 +178,33 @@
   margin: 0 7px;
   cursor: pointer;
 }
-.section .contentBx .formBx .sci li:hover{
+
+.section .contentBx .formBx .sci li:hover {
   background: #FF4584;
 }
+
 .section .contentBx .formBx .sci li img {
   transform: scale(0.5);
   filter: invert(1);
 }
+
+/* .with-gmail {
+  list-style-type: none;
+  display:inline-flex;
+  position: absolute;
+  right: 306px;
+  top: 92%;
+} */
+
 @media all and (max-width: 768px) {
-  .section .imgBx
-  {
+  .section .imgBx {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
   }
-  .section .contentBx{
+  .section .contentBx {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -195,4 +234,10 @@
     width: 100%;
     height: 100%;
   }
+  
+/* .with-gmail {
+  list-style-type: none;
+  display:inline-flex;
+} */
 }
+

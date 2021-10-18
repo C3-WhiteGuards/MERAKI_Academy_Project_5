@@ -14,7 +14,7 @@ export const Login = () => {
   const dispatch = useDispatch();
   const clientId =
     "707788443358-u05p46nssla3l8tmn58tpo9r5sommgks.apps.googleusercontent.com";
-  
+
   const userLogin = async () => {
     await axios
       .post("http://localhost:5000/login", {
@@ -58,7 +58,9 @@ export const Login = () => {
     <div className="section">
       <div className="imgBx">
         <img
-          src="https://c8.alamy.com/compes/rh4grn/un-chico-se-esta-ejecutando-en-la-caminadora-concepto-de-deporte-para-ninos-rh4grn.jpg"
+          src="https://api.time.com/wp-content/uploads/2020/03/gym-coronavirus.jpg
+
+          "
           alt="broken"
         />
       </div>
@@ -88,13 +90,13 @@ export const Login = () => {
               }}
             />
           </div>
-          <div className="remember">
+          {/* <div className="remember">
             <label>
               <input type="checkbox" />
               Remember me
             </label>
-          </div>
-          <div className="">
+          </div> */}
+          <div className="inputBx">
             {/**  <input type="submit" value="Sign in"/>*/}
             <button className="" onClick={userLogin}>
               Sign In
@@ -104,22 +106,17 @@ export const Login = () => {
             <p>
               <a href="#"> Forgotten Your Password? </a>{" "}
             </p>
-          </div>
 
-          <h3>Login With social media</h3>
-
-          <ul>
-            <li>
+            <div className="with-gmail">
               <GoogleLogin
                 clientId={clientId}
                 buttonText="Login"
                 onSuccess={onSuccess}
                 onFailure={onFailure}
                 cookiePolicy={"single_host_origin"}
-                style={{ marginTop: "100px" }}
               />
-            </li>
-          </ul>
+            </div>
+          </div>
         </div>
       </div>
     </div>

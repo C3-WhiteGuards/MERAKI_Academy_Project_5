@@ -5,6 +5,8 @@ import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import Carousel from "react-bootstrap/Carousel";
 import { Allproduct } from "../products/product";
+import { AddComment } from "../comment/comment";
+
 import "./main.css";
 const Main = () => {
   return (
@@ -109,6 +111,8 @@ const Main = () => {
       </div>
         <Allproduct/>
       
+      <AddComment />
+
     </div>
   );
 };

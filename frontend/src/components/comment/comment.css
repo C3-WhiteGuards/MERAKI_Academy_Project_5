@@ -1,0 +1,27 @@
+.buttonComment {
+    width: 140px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: rgb(201, 146, 137);
+    margin-top: 50px;
+    margin-left: 35px;
+    color: white;
+}
+
+.input-comment {
+    margin-left: 35px;
+    margin-top: 53px;
+    width: 30%;
+    height: 145px;
+    padding: 10px 5px;
+    outline: none;
+    font-weight: 400;
+    border: 1px solid #607d8b;
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: #607d8b;
+    background: transparent;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-bottom: 110px;
+}
