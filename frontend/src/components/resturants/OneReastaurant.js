@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import "./oneResturant.css";
-
 export const OneResturant = () => {
   const [resturant, setResturant] = useState(0);
   const token = localStorage.getItem("token");
@@ -56,7 +55,7 @@ export const OneResturant = () => {
                 window.open(resturant[0].location, "_blank");
               }}
             >
-              Resturant Location
+               📍 LOCATION
             </li>
             <li className="price">
               Price {": "}
@@ -65,7 +64,8 @@ export const OneResturant = () => {
             <li className="rate">
               Resturant Rate : {resturant && resturant[0].rate}
             </li>
-            <button className="resButton" onClick={addSubsecRestaurant}>Subscribe</button>
+            <button className="resButton" onClick={addSubsecRestaurant}>Subscribe Now </button>
+            
           </ul>
         </div>
       </div>

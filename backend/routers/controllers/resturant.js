@@ -89,4 +89,24 @@ const deleteResturantById =( req ,res)=>{
   });
 
 }
-module.exports = {createNewResturent , getAllResturants ,updateResturantById ,deleteResturantById }
+
+const getResturantById = (req, res) => {
+  let id = req.params.id;
+  const query = `SELECT * FROM resturant WHERE id=${id}`;
+  connection.query(query, (err, result) => {
+    if (err) {
+     return res.status(500).json({
+        success: false,
+        message: `Server Error`,
+        err: err,
+      });
+    }
+   return res.status(200).json({
+      success: true,
+      Resturant: result,
+    });
+  });
+};
+
+
+module.exports = {createNewResturent , getAllResturants ,updateResturantById ,deleteResturantById ,getResturantById }
