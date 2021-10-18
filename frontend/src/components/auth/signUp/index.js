@@ -31,7 +31,7 @@ export default function Register() {
     <div className="section2">
       <div className="imgBox">
         <img
-          src="https://i.pinimg.com/originals/a1/4b/a4/a14ba405f675270ef43bdaa5e5932892.png"
+          src="https://media-cldnry.s-nbcnews.com/image/upload/newscms/2021_10/3455164/210308-gym-masks-bd-2x1.jpg          "
           alt=""
         />
       </div>
@@ -84,11 +84,8 @@ export default function Register() {
               Do You have an account? <a href="#"> Login in</a>{" "}
             </p>
           </div>
-
-          <h3>Login With social media</h3>
           <ul className="scil">
-            <li>{/* <Facebook /> */}</li>
-            <li>{/* <Email /> */}</li>
+           
           </ul>
         </div>
       </div>

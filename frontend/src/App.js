@@ -11,21 +11,25 @@ import { Resturants } from "./components/resturants/resturant";
 import Register from "./components/auth/signUp";
 
 import Navigation from "./components/navigation/index";
-import { Footer } from "./components/Footer/index";
+import { Footer } from "./components/footer/index";
 
 import { Logout } from "./components/logout/Logout";
 import { Cart } from "./components/cart/cart";
 
 import { OneTrainer } from "./components/trainer/OneTrainer";
 
-import About from "./components/Footer/About";
-import Policy from "./components/Footer/Policy";
+import About from "./components/footer/About";
+import Policy from "./components/footer/Policy";
 
 import Payment from "./components/payment/payment";
 import Main from "./components/main";
 import { OneResturant } from "./components/resturants/OneReastaurant";
+
+import { AddComment } from "./components/comment/comment";
+
 import { ProfileUser } from "./components/users/profileUser";
 import ScrollToTop from "./components/scroll/scroll";
+
 
 const App = () => {
   return (
@@ -55,6 +59,7 @@ const App = () => {
         <Route path="/boutUs" component={About} />
         <Route path="/ourPolicy" component={Policy} />
         <Route exact path="/resturan/:id" component={OneResturant} />
+        {/* <Route exact path="/feedback" component={AddComment} /> */}
         {/* koulthom */}
 
         {/* abdalllah */}
