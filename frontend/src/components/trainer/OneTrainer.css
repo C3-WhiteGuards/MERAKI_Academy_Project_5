@@ -147,3 +147,20 @@
 .gym-block-bottm h3 {
   font-size: 23px;
 }
+.btnTrainner {
+  width: 140px;
+  height: 40px;
+  border-radius: 5px;
+  background: linear-gradient(255deg,#3906f3,#0326662d);
+  margin-top: 50px;
+  margin-left: 30px;
+  color: white;
+}
+
+.btnTrainner:hover{ 
+  background: linear-gradient(255deg,#167e5b,#01461e2d);
+}
+.list--gym-address a{
+  color: black;
+ text-decoration: none;  
+}

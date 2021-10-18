@@ -26,12 +26,14 @@
     width: 140px;
     height: 40px;
     border-radius: 5px;
-    background-color: tomato;
+    background: linear-gradient(255deg,#3906f3,#0326662d);
     margin-top: 50px;
     margin-left: 35px;
     color: white;
 }
-
+.subscribeBtn:hover{
+    background: linear-gradient(255deg,#167e5b,#01461e2d);
+}
 .imgGym{
     
         width: 600px;

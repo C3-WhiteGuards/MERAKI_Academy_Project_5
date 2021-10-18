@@ -99,7 +99,7 @@ export const OneTrainer = () => {
         </h2>
         <div className="pt-bio">
           <p className="prgTra">{trainer && trainer[0].description}</p>
-          <button>onClick={addSubsecribtionTrainer}</button>
+          <button className="btnTrainner" onClick={addSubsecribtionTrainer}> Subscribe Now </button>
         </div>
       </div>
     </div>
