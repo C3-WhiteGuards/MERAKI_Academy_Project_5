@@ -20,7 +20,7 @@ const Navigation = () => {
   return (
    <>
       {!state.token ? (
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" sticky="top">
+        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" sticky="top" style={{height:"80px"}}>
         <Container>
           <Navbar.Brand >
             <Image className="logo" src="/image.png" width="45%" height="45%" />
@@ -55,7 +55,7 @@ const Navigation = () => {
         </Container>
         </Navbar>
       ) : (
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" sticky="top">
+        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" sticky="top" style={{height:"80px"}}>
         <Container>
           <Navbar.Brand>
             <Image className="logo" src="/image.png" width="45%" height="45%" />
