@@ -25,11 +25,13 @@ import Payment from "./components/payment/payment";
 import Main from "./components/main";
 import { OneResturant } from "./components/resturants/OneReastaurant";
 import { ProfileUser } from "./components/users/profileUser";
+import ScrollToTop from "./components/scroll/scroll";
 
 const App = () => {
   return (
     <div>
       <Navigation />
+      <ScrollToTop/>
 
       <Switch>
         {/* islam */}
