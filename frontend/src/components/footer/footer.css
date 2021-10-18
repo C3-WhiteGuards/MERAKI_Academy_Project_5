@@ -17,7 +17,7 @@ font-weight: normal;
     align-items: center;
     justify-content: space-between;
     background-color: rgb(196, 192, 192);
-    margin-top: 40%; 
+    margin-top: 125px; 
    position: sticky;
    z-index: 50;
 }
@@ -42,9 +42,9 @@ font-weight: normal;
     
 
 }
-.copyRight copyRight{
+/* .copyRight copyRight{
     font-size: 70%;
-}
+} */
 .aboutus a{
     text-decoration: none; 
 
@@ -70,4 +70,8 @@ font-weight: normal;
 
 .Facebook{
     font-size: 60%;
+}
+
+.copyrigh{
+    font-size: 11px;
 }

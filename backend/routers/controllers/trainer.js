@@ -98,6 +98,7 @@ const getAllTrainer = (req, res) => {
   const query = `SELECT * FROM trainers where is_deleted = 0`;
   connection.query(query, (err, result) => {
     if (err) {
+      console.log(`getAlltrainer`,err);
        return res.status(500).json({
         success: false,
         message: `Server Error`,
@@ -117,6 +118,7 @@ const deleteTrainerById = (req, res) => {
   
   connection.query(query, (err, result) => {
     if (err) {
+      console.log(err);
      return res.status(500).json({
         success: false,
         message: `Server Error`,

@@ -9,7 +9,7 @@ import "./About"
 export const Footer = () => {
 	return <div className="footerMain">
 		<div className="copyRight"> 
-			<h5> copyRight <FaCopyright className="copyRight" classicon={FaCopyright}  /></h5>
+			<h5 className="copyrigh" style={{fontSize:"17px"}}> copyright © 2021 </h5>
 		</div>
 		<div className="iconDev">
 		<FaInstagram className="Facebook" icon={FaInstagram} />
@@ -17,7 +17,7 @@ export const Footer = () => {
 		<FaTwitter className="Facebook" icon={FaTwitter}  />
 		</div>
 		
- <div className="aboutus">
+ <div className="aboutus0">
  <Link to="/boutUs"> About Us      </Link>
  <Link to="/ourPolicy"> Our Policy</Link>
  </div>

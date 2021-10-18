@@ -1,9 +1,29 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import './profile.css';
 import "bootstrap/dist/css/bootstrap.min.css";
-import {ProgressBar , Button , Image , Modal} from 'react-bootstrap';
-import {Place , Phone , SportsScore , StarBorder, Email } from "@mui/icons-material";
+import {ProgressBar , Button , Image } from 'react-bootstrap';
+import {Place , Phone  , Email, Cancel } from "@mui/icons-material";
+import Modal from "react-modal";
+
+const customStyles = {
+    content: {
+        width:"400px",
+      top: "50%",
+      left: "50%",
+      right: "auto",
+      bottom: "auto",
+      marginRight: "-50%",
+      transform: "translate(-50%, -50%)",
+      borderRadius: "5px",
+      backgroundColor: "white",
+        overlay: {
+          backgroundColor: "#ffffff",
+        },
+    },
+  };
+  
 
 export const ProfileUser = () => {
   const [profile, setProfile] = useState();
@@ -18,6 +38,7 @@ export const ProfileUser = () => {
       })
       .then((result) => {
         setProfile(result.data[0]);
+        console.log(result.data[0]);
       })
       .catch((err) => {
         console.log(err);
@@ -49,8 +70,42 @@ function dateDiffInDays(a) {
 }
 
 
-      const a = new Date("2021-11-16")
-      console.log(dateDiffInDays(a));
+  let subtitle;
+  const [modalIsOpen, setIsOpen] = useState(false);
+  function openModal() {
+    setIsOpen(true);
+    console.log("rashed modal");
+  }
+
+  function afterOpenModal() {
+    // subtitle.style.color = "black";
+    // subtitle.style.textAlign = "center";
+    // subtitle.style.fontFamily = "bold";
+  }
+
+  function closeModal() {
+    setIsOpen(false);
+  }
+
+  const [age , setAge] = useState(0);
+  const [phoneNumber , setPhoneNumber] = useState(0);
+  const [country , setCountry] = useState("");
+  const [weight , setWeight] = useState(0);
+  const [height , setHeight] = useState(0);
+  const [ diseases , setDiseases] = useState("");
+  const history = useHistory();
+  
+
+  const updateInfo = () =>{
+    axios.put("http://localhost:5000/users", {age,phoneNumber,country,weight,height,diseases,}, {headers: {Authorization: `Bearer: ${token}`}} )
+    .then((result)=>{
+      console.log(result);
+      closeModal()
+      
+    }).catch((err)=>{
+      console.log("Error",err);
+    });
+  };
     
    
    
@@ -59,49 +114,62 @@ function dateDiffInDays(a) {
     <div className="userProfile">
       
       <div style={{display:"grid"}}>
-      <img className="imgProfile" src="https://images.pexels.com/photos/736230/pexels-photo-736230.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"/>
+      <img className="imgProfile" src={profile && profile.image}/>
        <div className="mainDetails">
-      <p className="details"><Phone/> 0777522486</p>
-      <p className="details"><Email/> shanbol@gmail.com</p>
-      <p className="details"><Place/> Jordan</p>
+      <p className="details"><Phone/>{profile && profile.phoneNumber}</p>
+      <p className="details"><Email/> {profile && profile.email}</p>
+      <p className="details"><Place/> {profile && profile.country}</p>
       </div>
       </div>
       <div className="imgAndInfo">
-      <p className="NameOfUser">Rashed Migdady</p> 
+      <p className="NameOfUser">{profile && profile.firstName+" "+profile.lastName }</p> 
       <div className="AllInfo"> 
-     
-      <div style={{display:"flex" , gap:"100px" , margin:"50px" , border:"solid red 2px" , width:"600px"}} className="secondDetails">
+      <div style={{display:"grid"}}>
+      <div style={{display:"flex" , gap:"100px" , margin:"50px" , width:"600px"}} className="secondDetails">
        <div>  
-      <p className="details">Weight: 80 Kg</p>
-      <p className="details">Diseases :  Diseases1,Diseases2</p>
+      <p className="details">Weight: {profile && profile.weight} Kg</p>
+      <p className="details">Diseases: {profile && profile.diseases}</p>
       </div>
       <div>
-      <p className="details">height: 160 cm</p>
-      <p className="details">Age : 52 Years</p>
+      <p className="details">height: {profile && profile.height} cm</p>
+      <p className="details">Age: {profile && profile.age} Years</p>
       </div> 
-      <Button variant="outline-dark" className="EditInfo">Edit Info</Button>
-      {/*  */}
-      {/* <Modal.Dialog>
-  <Modal.Header closeButton>
-    <Modal.Title>Modal title</Modal.Title>
-  </Modal.Header>
-
-  <Modal.Body>
-    <p>Modal body text goes here.</p>
-  </Modal.Body>
-
-  <Modal.Footer>
-    <Button variant="secondary">Close</Button>
-    <Button variant="primary">Save changes</Button>
-  </Modal.Footer>
-</Modal.Dialog> */}
-
-      {/*  */}
       </div>
+      <Button onClick={openModal} variant="outline-dark" className="EditInfo">Edit Info</Button>
+      </div>
+      
+      
+      <Modal
+        isOpen={modalIsOpen}
+        onAfterOpen={afterOpenModal}
+        onRequestClose={closeModal}
+        style={customStyles}
+        contentLabel="Example Modal"
+        ariaHideApp={false}
+      >
+        
+          <Cancel onClick={closeModal} className="closeButton"/>
+        
+        <div className="AllInputs">
+            
+        <input type="number" className="inputModal" placeholder=" Your Phone" onChange={(e)=>{setPhoneNumber(e.target.value)}}/>
+        <input type="number" className="inputModal" placeholder=" Your weiget" onChange={(e)=>{setWeight(e.target.value)}}/>
+        <input type="number" className="inputModal"placeholder=" Your heigest" onChange={(e)=>{setHeight(e.target.value)}}/>
+        <input type="number" className="inputModal"placeholder=" Your Age" onChange={(e)=>{setAge(e.target.value)}}/>
+        <input type="text" className="inputModal"placeholder=" Country" onChange={(e)=>{setCountry(e.target.value)}}/>
+        <lebel className="lebelDiseases"> • Do you have any Diseases ?</lebel>
+        <input type="text" className="inputModalDiseases" onChange={(e)=>{setDiseases(e.target.value)}} />
+        <Button  variant="outline-dark" className="EnterInfo" onClick={updateInfo}>Enter</Button>
+        </div>
+        
+      </Modal>
+
+      
+      
       </div>
       </div>
       <fieldset className="restaurantSubscirption">
-      <legend className="titleSubscription">{" "}Resturants Subscribtion</legend>
+      <legend className="titleSubscription">{" "}Restaurant Subscription</legend>
           <p>{subRest && subRest.name}</p>
            
 
