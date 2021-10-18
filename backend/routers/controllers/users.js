@@ -48,7 +48,7 @@ const updateUserById = (req, res) => {
   });
 };
 
-const gitInfo = (req, res) => {
+const getInfo = (req, res) => {
   const id = req.token.userId;
   const query = `SELECT * FROM users WHERE id=${id}`;
   connection.query(query, (err, result) => {
@@ -66,5 +66,5 @@ const gitInfo = (req, res) => {
 
 module.exports = {
   updateUserById,
-  gitInfo,
+  getInfo,
 };
