@@ -1,0 +1,62 @@
+ 
+ .resturant_img{
+    margin-left: 25% ;
+    margin-top: 5%;
+   
+} 
+.resturant_img img {
+    width : 1000px ;
+    height: 400px;
+}
+.parent_div{
+    display: flex;
+    justify-items: center;
+    align-items: center;
+   
+}
+.resturant_1{
+    display: flex;
+   margin-left: 50%;
+    align-items: center;
+  font-size: 25px;
+    width: 50%;
+  
+    
+}
+.list_main {
+    list-style: none;
+   
+    text-align: center;
+
+}
+.name{
+    font-size: large;
+    letter-spacing: 0.5px;
+  
+    font-weight: bold;
+
+
+}
+.list__item{
+    font-size: 20px; 
+}
+
+.resButton{
+    font-size: 20px; 
+    margin-left: 40%;
+    margin-top: 20px;
+   width: 150px;
+   height: 40px;
+   background: linear-gradient(255deg,#3906f3,#0326662d);
+    border-radius: 2px;
+    cursor: pointer;
+    transition: width 1s 
+}
+
+.resButton:hover{
+    background: linear-gradient(255deg,#167e5b,#01461e2d);
+    
+    width: 200px;
+  
+}
+

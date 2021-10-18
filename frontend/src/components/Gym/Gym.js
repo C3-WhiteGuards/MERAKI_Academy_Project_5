@@ -38,7 +38,7 @@ export const Gym = () => {
   };
 
   return (
-    <div>
+    <div className="bigDiv">
       {allgyms &&
         allgyms.map((element, index) => {
           return (
@@ -49,9 +49,9 @@ export const Gym = () => {
               />
               <div className="childtwo">
                 <h5 className="NameOfTheGym">{element.name}</h5>
-                <h5>📞{element.phoneNumber}</h5>
-                <h5> {element. priceMonthly}</h5>
-                <h5 className="desc"> {element.description}</h5>
+                <h5 className="name2"> 📞phone Number :{element.phoneNumber} </h5>
+                <h5 className="name2"> Monthly payment : {element. priceMonthly} $</h5>
+                <h5 className="name2"> {element.description}</h5>
                 <h5
                   onClick={() => {
                     window.open(element.location, "_blank");

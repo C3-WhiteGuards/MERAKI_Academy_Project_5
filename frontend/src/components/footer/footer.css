@@ -15,9 +15,12 @@
     align-items: center;
     justify-content: space-between;
     background-color: rgb(196, 192, 192);
-    margin-top: 7%;
-    position: sticky;
-    z-index: 50;
+
+
+    margin-top: 125px; 
+   position: sticky;
+   z-index: 50;
+
 }
 
 .iconDev {
@@ -37,9 +40,11 @@
     font-weight: normal;
 }
 
+
 .copyRight copyRight {
     font-size: 70%;
 }
+
 
 .aboutus a {
     text-decoration: none;
@@ -65,4 +70,8 @@
 
 .Facebook {
     font-size: 60%;
+}
+
+.copyrigh{
+    font-size: 11px;
 }

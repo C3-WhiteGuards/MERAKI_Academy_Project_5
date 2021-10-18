@@ -24,12 +24,18 @@ import Policy from "./components/footer/Policy";
 import Payment from "./components/payment/payment";
 import Main from "./components/main";
 import { OneResturant } from "./components/resturants/OneReastaurant";
+
 import { AddComment } from "./components/comment/comment";
+
+import { ProfileUser } from "./components/users/profileUser";
+import ScrollToTop from "./components/scroll/scroll";
+
 
 const App = () => {
   return (
     <div>
       <Navigation />
+      <ScrollToTop/>
 
       <Switch>
         {/* islam */}
@@ -48,7 +54,7 @@ const App = () => {
         <Route path="/AllTrainers" component={Trainer} />
         <Route path="/AllRestaurnats" component={Resturants} />
         <Route exact path="/trainer/:id" component={OneTrainer} />
-
+        <Route exact path='/profile' component={ProfileUser}/>
         {/* roqia */}
         <Route path="/boutUs" component={About} />
         <Route path="/ourPolicy" component={Policy} />
