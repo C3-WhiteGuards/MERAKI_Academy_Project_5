@@ -28,8 +28,8 @@ const Main = () => {
                 <Card.Body>
                   <Card.Title>Trainers</Card.Title>
                   <Card.Text>
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
+                  Being educated while exercising is essential in maximizing effectiveness and reducing risk of injury.
+                  A personal trainer will teach you everything you need to know about exercising .
                   </Card.Text>
                   <Button variant="dark" onClick=
                   
@@ -37,7 +37,7 @@ const Main = () => {
                     ()=> history.push("/AllTrainers")
                     
                   }
-                  >Find Your Trainer </Button>
+                  >Find Your personal  Trainer </Button>
                 </Card.Body>
               </Card>
             </div>
@@ -53,15 +53,16 @@ const Main = () => {
                 <Card.Body>
                   <Card.Title>Restaurants</Card.Title>
                   <Card.Text>
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
+                   The food you eat can eather be  either the safest and most powerful form of midicine OR the slowest form of poison 
+
+                   Dont forget that health needs healthy food   
                   </Card.Text>
                   <Button variant="dark"  onClick=
                   
                   {
                     ()=> history.push("/AllRestaurnats")
                     
-                  }>Find Your Restaurant </Button>
+                  }>Find Your Healthy  Restaurant </Button>
                 </Card.Body>
               </Card>
             </div>
@@ -77,15 +78,15 @@ const Main = () => {
                 <Card.Body>
                   <Card.Title>Gyms</Card.Title>
                   <Card.Text>
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
+                  Joining a gym can help you stay motivated to exercise consistently. 
+                  This is a great way to build muscle, lose weight, lower blood pressure, boost mental focus, and more .
                   </Card.Text>
                   <Button variant="dark" onClick=
                   
                   {
                     ()=> history.push("/ALLGyms")
                     
-                  }>Find Your Gym</Button>
+                  }>Find Your Perfect  Gym</Button>
                 </Card.Body>
               </Card>
             </div>
