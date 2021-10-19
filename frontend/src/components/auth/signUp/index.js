@@ -42,7 +42,7 @@ export default function Register() {
           <div className="inputBox">
             <input
               type="text"
-              placeholder="first name"
+              placeholder="First Name"
               onChange={(e) => {
                 setFirstName(e.target.value);
               }}
@@ -51,7 +51,7 @@ export default function Register() {
           <div className="inputBox">
             <input
               type="text"
-              placeholder="last name"
+              placeholder="Last Name"
               onChange={(e) => {
                 setLastName(e.target.value);
               }}
@@ -59,7 +59,7 @@ export default function Register() {
           </div>
           <div className="inputBox">
             <input
-              type="email"
+              type="Email"
               placeholder="Email"
               onChange={(e) => {
                 setEmail(e.target.value);
@@ -68,7 +68,7 @@ export default function Register() {
           </div>
           <div className="inputBox">
             <input
-              type="password"
+              type="Password"
               placeholder="Password"
               onChange={(e) => {
                 setPassword(e.target.value);
@@ -81,7 +81,7 @@ export default function Register() {
           </div>
           <div className="inputBox">
             <p>
-              Do You have an account? <a href="#"> Login in</a>{" "}
+              Do You have an account? <a href="/login"> Login in</a>{" "}
             </p>
           </div>
           <ul className="scil">
