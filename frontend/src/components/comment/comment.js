@@ -37,15 +37,15 @@ export const AddComment = () => {
   //   };
 
   return (
-    <div>
-      <input
+    <div className="testArea">
+      <textarea rows="4" cols="50"
         className="input-comment"
-        placeholder="comment"
+        placeholder="GIVE US YOUR OPEINE . . ."
         type="text"
         onChange={(e) => {
           setComment(e.target.value);
         }}
-      ></input>
+      ></textarea>
       <button className="buttonComment" onClick={createComment}>
         {" "}
         Send
