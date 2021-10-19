@@ -5,6 +5,7 @@ function About() {
     return (
     <div className="radi">
         <div className="roqia">
+            <img ref ="http://media.bizj.us/view/img/10072378/howtogym*1200xx2715-1527-0-142.jpg"> </img> 
             <h4>WE WELCOME EVERYBODY</h4>
             <p> This is not just a strapline. We welcome everybody, regardless of size, ability, age, ethnicity, religion, gender, sex, or sexual orientation. Our gyms are friendly, supportive, and judgement-free spaces where everybody can come in, work out and leave feeling good</p>
    <h4>QUALITY, AFFORDABLE GYMS, EVERYWHERE</h4>
