@@ -3,18 +3,18 @@
     padding: 0px;
     box-sizing: border-box;
     font-family: 'Crimson Pro', serif;
-    color: black;
+   
     font-size: 20px;
     font-weight: normal;
 }
 
 .footerMain {
-    height: 26vh;
+    height: 70px;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: rgb(196, 192, 192);
+    background-color: rgb(12, 12, 12);
 
 
     margin-top: 125px; 
@@ -23,10 +23,16 @@
 
 }
 
-.iconDev {
+.iconDevMain{
     display: flex;
     gap: 4px;
-    font-size: 200%;
+    font-size: 25px;
+    color: white;
+    background-color: thistle;
+  
+}
+.iconDevMain .facebook{
+    font-size: 25px;
 }
 
 .copyRight h5 {
@@ -41,37 +47,34 @@
 }
 
 
-.copyRight copyRight {
-    font-size: 70%;
+.copyRight h5 {
+    font-size:17px ;
+   color: white;
 }
 
 
-.aboutus a {
+.Aboutfooter a {
     text-decoration: none;
-    font-size: 20px;
+    font-size:17px;
     transition: all 0.3s ease 0s;
+    color: white;
 }
 
-.aboutus {
+.Aboutfooter {
     margin-right: 10px;
     display: flex;
-    gap: 10px
+    gap: 10px;
+    color: white;
 }
 
-.aboutus a:hover {
+.Aboutfooter a:hover {
     color: rgb(252, 248, 9);
 }
-
+.iconDevMain:hover{
+    color: rgb(252, 248, 9);
+}
 @media only screen and (max-width: 992px) {
     .Footer {
         flex-direction: column-reverse;
     }
-}
-
-.Facebook {
-    font-size: 60%;
-}
-
-.copyrigh{
-    font-size: 11px;
 }
