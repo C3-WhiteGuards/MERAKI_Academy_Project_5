@@ -21,7 +21,7 @@ const Main = () => {
               <Card>
                 <Card.Img
                   variant="top"
-                  src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/portrait-of-a-trainer-in-gym-royalty-free-image-1584723855.jpg"
+                  src="https://d1nigvtzsvfzyx.cloudfront.net/store/amenity/075cda3f435bc205f9a7-xs.png"
                   height="350px"
                   width="350px"
                 />
