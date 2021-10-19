@@ -10,8 +10,10 @@ import { addToCart } from "../../../redux/action/cart";
 export const Login = () => {
   const [email, setEmail] = useState(0);
   const [password, setPassword] = useState(0);
+  const [message, setMessage] = useState("");
   const history = useHistory();
   const dispatch = useDispatch();
+
   const clientId =
     "707788443358-u05p46nssla3l8tmn58tpo9r5sommgks.apps.googleusercontent.com";
 
@@ -29,8 +31,8 @@ export const Login = () => {
         dispatch(addToCart([]));
         history.push("/home");
       })
-      .catch((err) => {
-        history.push("/home");
+      .catch((error) => {
+        setMessage("Email or Password incorrect, please try again");
       });
   };
 
@@ -66,7 +68,6 @@ export const Login = () => {
       </div>
       <div className="contentBx">
         <div className="formBx">
-         
           <h2>LOGIN</h2>
 
           <div className="inputBx">
@@ -100,9 +101,10 @@ export const Login = () => {
             </button>
           </div>
           <div className="inputBx">
-            <p>
+            <p style={{ color: "red", fontSize: "15px" }}>{message}</p>
+            {/* <p>
               <a href="#"> Forget Your Password ? </a>{" "}
-            </p>
+            </p> */}
 
             <div className="with-gmail">
               <GoogleLogin
