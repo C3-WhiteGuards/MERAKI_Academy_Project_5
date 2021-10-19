@@ -8,7 +8,10 @@ import { Allproduct } from "../products/product";
 import { AddComment } from "../comment/comment";
 
 import "./main.css";
+import { useHistory } from "react-router";
+
 const Main = () => {
+  const history = useHistory()
   return (
     <div>
       <div className="Main text-center">
@@ -28,7 +31,13 @@ const Main = () => {
                     Some quick example text to build on the card title and make
                     up the bulk of the card's content.
                   </Card.Text>
-                  <Button variant="primary">Go somewhere</Button>
+                  <Button variant="dark" onClick=
+                  
+                  {
+                    ()=> history.push("/AllTrainers")
+                    
+                  }
+                  >Find Your Trainer </Button>
                 </Card.Body>
               </Card>
             </div>
@@ -47,7 +56,12 @@ const Main = () => {
                     Some quick example text to build on the card title and make
                     up the bulk of the card's content.
                   </Card.Text>
-                  <Button variant="primary">Go somewhere</Button>
+                  <Button variant="dark"  onClick=
+                  
+                  {
+                    ()=> history.push("/AllRestaurnats")
+                    
+                  }>Find Your Restaurant </Button>
                 </Card.Body>
               </Card>
             </div>
@@ -66,7 +80,12 @@ const Main = () => {
                     Some quick example text to build on the card title and make
                     up the bulk of the card's content.
                   </Card.Text>
-                  <Button variant="primary">Go somewhere</Button>
+                  <Button variant="dark" onClick=
+                  
+                  {
+                    ()=> history.push("/ALLGyms")
+                    
+                  }>Find Your Gym</Button>
                 </Card.Body>
               </Card>
             </div>

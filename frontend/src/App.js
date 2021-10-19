@@ -34,9 +34,12 @@ import ScrollToTop from "./components/scroll/scroll";
 const App = () => {
   return (
     <div>
+
+      
       <Navigation />
       <ScrollToTop/>
 
+     
       <Switch>
         {/* islam */}
         <Route path="/login" component={Login} />
