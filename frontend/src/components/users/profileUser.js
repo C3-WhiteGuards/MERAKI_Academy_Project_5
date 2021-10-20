@@ -27,8 +27,8 @@ const customStyles = {
   
 
 export const ProfileUser = () => {
-  const [profile, setProfile] = useState();
-  const [subRest, setSubRest] = useState();
+  const [profile, setProfile] = useState("");
+  const [subRest, setSubRest] = useState("");
   const token = localStorage.getItem("token");
   const id = token.userId;
 
@@ -62,7 +62,7 @@ export const ProfileUser = () => {
   }, []);
 
 
-  const [subTrainer , setSubTrainer] = useState();
+  const [subTrainer , setSubTrainer] = useState("");
   useEffect(() => {
     axios
       .get("http://localhost:5000/subscribtion/TrainersSubscribtion", {
@@ -79,7 +79,7 @@ export const ProfileUser = () => {
       });
   }, []);
 
-  const [subGym , setSubGym] = useState();
+  const [subGym , setSubGym] = useState("");
   useEffect(() => {
     axios
       .get("http://localhost:5000/subscribtion/GymSubscribtions", {
@@ -130,7 +130,7 @@ function dateDiffInDays(a) {
   const [height , setHeight] = useState(0);
   const [ diseases , setDiseases] = useState("");
   const history = useHistory();
-  //subTrainer["name"] = `${subTrainer&&subTrainer.firstName} ${subTrainer&&subTrainer.lastName}`
+ 
   const AllSubscribtions = [subRest , subTrainer , subGym];
 
   const updateInfo = () =>{
@@ -155,7 +155,7 @@ function dateDiffInDays(a) {
        <div className="mainDetails">
       <p className="details"><Phone/>{profile && profile.phoneNumber}</p>
       <p className="details"><Email/> {profile && profile.email}</p>
-      <p className="details"><Place/> rrrr{profile && profile.country}</p>
+      <p className="details"><Place/> {profile && profile.country}</p>
       </div>
       </div>
       <div className="imgAndInfo" >
@@ -189,13 +189,13 @@ function dateDiffInDays(a) {
         
         <div className="AllInputs">
             
-        <input type="number" className="inputModal" placeholder=" Your Phone" onChange={(e)=>{setPhoneNumber(e.target.value)}}/>
+        <input type="number" className="inputModal" placeholder=" Your Phone"  onChange={(e)=>{setPhoneNumber(e.target.value)}}/>
         <input type="number" className="inputModal" placeholder=" Your weiget" onChange={(e)=>{setWeight(e.target.value)}}/>
         <input type="number" className="inputModal"placeholder=" Your heigest" onChange={(e)=>{setHeight(e.target.value)}}/>
         <input type="number" className="inputModal"placeholder=" Your Age" onChange={(e)=>{setAge(e.target.value)}}/>
-        <input type="text" className="inputModal"placeholder=" Country" onChange={(e)=>{setCountry(e.target.value)}}/>
+        <input type="text" className="inputModal"placeholder=" Country"  onChange={(e)=>{setCountry(e.target.value)}}/>
         <lebel className="lebelDiseases"> • Do you have any Diseases ?</lebel>
-        <input type="text" className="inputModalDiseases" onChange={(e)=>{setDiseases(e.target.value)}} />
+        <input type="text" className="inputModalDiseases" value={profile && profile.diseases} onChange={(e)=>{setDiseases(e.target.value)}} />
         <Button  variant="outline-dark" className="EnterInfo" onClick={updateInfo}>Enter</Button>
         </div>
         
@@ -206,10 +206,10 @@ function dateDiffInDays(a) {
       </div>
       </div>
       <div className="AllSubscribtion">
-        {AllSubscribtions.map((elem , i)=>{
-          return( 
-            <fieldset className="restaurantSubscirption">
-      <legend className="titleSubscription">{" "} Subscription</legend>
+        {AllSubscribtions.map((elem , i)=>{ console.log(elem);
+          return( <>
+          { elem !== undefined?( <fieldset className="restaurantSubscirption">
+            <legend className="titleSubscription">{" "} Subscription</legend>
           <p className="nameSub">{elem && elem.name }</p>
            
 
@@ -221,8 +221,11 @@ function dateDiffInDays(a) {
          
           </div>
           <div className="ExpierDate"> Expier Date: {elem && elem.date_to.slice(0,10)}</div>
-      </fieldset>
-          )
+      </fieldset>) : (<div></div>)
+
+                      }
+           
+         </> )
         })
           }
         
