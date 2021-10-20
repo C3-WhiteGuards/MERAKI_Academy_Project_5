@@ -3,6 +3,7 @@ import "./about.css"
 
 function About() {
     return (
+        <div className="allAbout">
     <div className="radi">
         <div className="roqia">
             <h4>WE WELCOME EVERYBODY</h4>
@@ -14,6 +15,7 @@ function About() {
 
 Hear from some of our amazing members and their inspiring stories.</p>
     </div>
+        </div>
         </div>
     )
 }

@@ -11,15 +11,15 @@ import { Resturants } from "./components/resturants/resturant";
 import Register from "./components/auth/signUp";
 
 import Navigation from "./components/navigation/index";
-import { Footer } from "./components/footer/index";
+import { Footer } from "./components/Footer/index";
 
 import { Logout } from "./components/logout/Logout";
 import { Cart } from "./components/cart/cart";
 
 import { OneTrainer } from "./components/trainer/OneTrainer";
 
-import About from "./components/footer/About";
-import Policy from "./components/footer/Policy";
+import About from "./components/Footer/About";
+import Policy from "./components/Footer/Policy";
 
 import Payment from "./components/payment/payment";
 import Main from "./components/main";
@@ -29,9 +29,11 @@ import { AddComment } from "./components/comment/comment";
 
 import { ProfileUser } from "./components/users/profileUser";
 import ScrollToTop from "./components/scroll/scroll";
+import {Review} from "./components/Review/Review";
 
 
 const App = () => {
+ 
   return (
     <div>
 
@@ -44,7 +46,8 @@ const App = () => {
         {/* islam */}
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
-
+        
+        <Route path="/review" component={Review} />
         <Route path="/logout" component={Logout} />
         <Route path="/cart" component={Cart} />
         <Route path="/home" component={Main} />
@@ -64,8 +67,9 @@ const App = () => {
         <Route exact path="/resturan/:id" component={OneResturant} />
         {/* <Route exact path="/feedback" component={AddComment} /> */}
         {/* koulthom */}
-
+        
         {/* abdalllah */}
+        <Route path="/" component={Main} />
       </Switch>
       <Footer />
     </div>
