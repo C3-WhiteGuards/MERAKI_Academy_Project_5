@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Modal from "react-modal";
+import { Modal, Button } from "react-bootstrap";
 
 import { loadStripe } from "@stripe/stripe-js";
 import {
@@ -10,38 +10,8 @@ import {
 } from "@stripe/react-stripe-js";
 import "./payment.css";
 
-const customStyles = {
-  content: {
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)",
-    borderRadius: "5px",
-    backgroundColor: "purple",
-      overlay: {
-        backgroundColor: "#ffffff",
-      },
-  },
-};
-
 const Payment = () => {
-  let subtitle;
   const [modalIsOpen, setIsOpen] = React.useState(false);
-  function openModal() {
-    setIsOpen(true);
-  }
-
-  function afterOpenModal() {
-    // subtitle.style.color = "black";
-    // subtitle.style.textAlign = "center";
-    // subtitle.style.fontFamily = "bold";
-  }
-
-  function closeModal() {
-    setIsOpen(false);
-  }
 
   const CARD_OPTIONS = {
     iconStyle: "solid",
@@ -154,8 +124,6 @@ const Payment = () => {
       event.preventDefault();
 
       if (!stripe || !elements) {
-        // Stripe.js has not loaded yet. Make sure to disable
-        // form submission until Stripe.js has loaded.
         return;
       }
 
@@ -269,33 +237,47 @@ const Payment = () => {
     ],
   };
 
-  // Make sure to call `loadStripe` outside of a component’s render to avoid
-  // recreating the `Stripe` object on every render.
   const stripePromise = loadStripe("pk_test_6pRNASCoBOKtIshFeQd4XMUh");
-  return (
-    <div>
-      <button onClick={openModal} className="waves-effect waves-light btn">
-        Pay
-      </button>
-      <Modal
-        isOpen={modalIsOpen}
-        onAfterOpen={afterOpenModal}
-        onRequestClose={closeModal}
-        style={customStyles}
-        contentLabel="Example Modal"
-        ariaHideApp={false}
-      >
-        <button onClick={closeModal} className="waves-effect waves-light btn">
-          X
-        </button>
+  function MyVerticallyCenteredModal(props) {
+    return (
+      <div className="container">
+        <Modal
+          {...props}
+          size="lg"
+          aria-labelledby="contained-modal-title-vcenter"
+          centered
+        >
+          <Modal.Header closeButton>
+            <Modal.Title id="contained-modal-title-vcenter">
+              Pyment Method
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <div className="AppWrapper">
+              <Elements stripe={stripePromise} options={ELEMENTS_OPTIONS}>
+                <CheckoutForm />
+              </Elements>
+            </div>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button onClick={props.onHide}>Close</Button>
+          </Modal.Footer>
+        </Modal>
+      </div>
+    );
+  }
 
-        <div className="AppWrapper">
-          <Elements stripe={stripePromise} options={ELEMENTS_OPTIONS}>
-            <CheckoutForm />
-          </Elements>
-        </div>
-      </Modal>
-    </div>
+  return (
+    <>
+      <Button variant="primary" onClick={() => setIsOpen(true)}>
+        Pay
+      </Button>
+
+      <MyVerticallyCenteredModal
+        show={modalIsOpen}
+        onHide={() => setIsOpen(false)}
+      />
+    </>
   );
 };
 

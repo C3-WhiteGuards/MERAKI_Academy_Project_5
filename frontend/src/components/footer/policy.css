@@ -6,7 +6,7 @@
     justify-content: space-between;
     margin: 10% 25% 25% ;
 }
-ul li{
+.policyUl li{
     text-align: left;
     padding: 30px 0px 0px 30px;
 }
