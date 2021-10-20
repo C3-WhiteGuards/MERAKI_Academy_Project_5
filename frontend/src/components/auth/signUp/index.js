@@ -1,18 +1,20 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./signUp.css";
-// import Facebook from "@material-ui/icons/Facebook";
-// import Email from "@material-ui/icons/Email";
+import { useHistory } from "react-router-dom";
 
 export default function Register() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
 
+  const history = useHistory();
 
-  const userRegister = () => {
-    axios
+  const userRegister = async (e) => {
+    e.preventDefault();
+    await axios
       .post("http://localhost:5000/register", {
         firstName,
         lastName,
@@ -20,10 +22,11 @@ export default function Register() {
         password,
       })
       .then((res) => {
-        console.log(res.data);
+        history.push("/login");
       })
       .catch((err) => {
-        console.log(err.response.data.message);
+        console.log(err);
+        setMessage("Error happened while register, please try again");
       });
   };
 
@@ -59,7 +62,7 @@ export default function Register() {
           </div>
           <div className="inputBox">
             <input
-              type="Email"
+              type="email"
               placeholder="Email"
               onChange={(e) => {
                 setEmail(e.target.value);
@@ -77,16 +80,17 @@ export default function Register() {
           </div>
 
           <div className="inputBox">
-            <button className="submit" onClick={userRegister}>Sign up</button>
+            <button className="submit" onClick={userRegister}>
+              Sign up
+            </button>
           </div>
           <div className="inputBox">
+            <p style={{ color: "red", fontSize: "15px" }}>{message}</p>
             <p>
               Do You have an account? <a href="/login"> Login in</a>{" "}
             </p>
           </div>
-          <ul className="scil">
-           
-          </ul>
+          <ul className="scil"></ul>
         </div>
       </div>
     </div>

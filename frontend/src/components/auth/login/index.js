@@ -17,7 +17,8 @@ export const Login = () => {
   const clientId =
     "707788443358-u05p46nssla3l8tmn58tpo9r5sommgks.apps.googleusercontent.com";
 
-  const userLogin = async () => {
+  const userLogin = async (e) => {
+    e.preventDefault();
     await axios
       .post("http://localhost:5000/login", {
         email,
