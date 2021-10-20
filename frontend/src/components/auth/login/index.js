@@ -10,6 +10,7 @@ import { addToCart } from "../../../redux/action/cart";
 export const Login = () => {
   const [email, setEmail] = useState(0);
   const [password, setPassword] = useState(0);
+  const [message , setMessage] = useState("")
   const history = useHistory();
   const dispatch = useDispatch();
   const clientId =
@@ -26,11 +27,14 @@ export const Login = () => {
         localStorage.setItem("token", token);
         localStorage.setItem("savedData", JSON.stringify([]));
         dispatch(setToken(res.data.token));
+        console.log(res);
         dispatch(addToCart([]));
         history.push("/home");
       })
       .catch((err) => {
-        history.push("/home");
+        setMessage("Email or Passwor is incorrect!")
+        ///history.push("/home");
+        console.log(message);
       });
   };
 

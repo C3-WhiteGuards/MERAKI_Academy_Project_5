@@ -14,8 +14,8 @@ const Main = () => {
       <div className="Main text-center">
         <div className="container">
           <div className="row">
-            <div className="col-md-4 col-sm-12">
-              <Card>
+            <div className="col-md-4 col-sm-12" >
+              <Card className="cardS">
                 <Card.Img
                   variant="top"
                   src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/portrait-of-a-trainer-in-gym-royalty-free-image-1584723855.jpg"
@@ -34,7 +34,7 @@ const Main = () => {
             </div>
 
             <div className="col-md-4 col-sm-12">
-              <Card>
+              <Card className="cardS">
                 <Card.Img
                   variant="top"
                   src="https://cdn.vox-cdn.com/thumbor/BBzIzBTtIXF1HG_5Lm7BvMkPNXk=/0x0:960x673/1200x900/filters:focal(404x261:556x413)/cdn.vox-cdn.com/uploads/chorus_image/image/62771444/realgood_stuff.1546466894.jpg"
@@ -53,7 +53,7 @@ const Main = () => {
             </div>
 
             <div className="col-md-4 col-sm-12">
-              <Card>
+              <Card className="cardS">
                 <Card.Img
                   variant="top"
                   src="https://wiselivingmagazine.co.uk/wp-content/uploads/2018/11/gyms-near-me-how-to-find-the-best-gym-widescreen.jpg"
