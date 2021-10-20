@@ -1,9 +1,7 @@
 .Main{
     margin-top: 50px;
 }
-/* .Main img{
-    height: 25px;
-} */
+
 .Main-Stories {
     background-color: #E3E3E3;
     margin-top: 50px;
@@ -47,6 +45,10 @@
 }
 .Slider-Show .fundmeText h5 {
     color: #666;
+}
+.cardS:hover{
+    
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 @media only screen and (max-width: 772px) {
     .Slider-Show {
