@@ -97,31 +97,57 @@ const Main = () => {
       <div className="Main-Stories">
         <div className="container">
           <Carousel fade>
-            <Carousel.Item className="d-block w-100">
+            <Carousel.Item className="line">
               <div className="Slider-Show">
                 <div className="fundmeText">
-                  <h5></h5>
-                  <h2>ndtndtn</h2>
-                  <p>djtjdtj</p>
+                 
+                  <h5>“ If something stands between you and your success, move it. Never be denied.”</h5>
                 </div>
                 <img
                   className="d-block w-100"
-                  src="https://cdn.vox-cdn.com/thumbor/BBzIzBTtIXF1HG_5Lm7BvMkPNXk=/0x0:960x673/1200x900/filters:focal(404x261:556x413)/cdn.vox-cdn.com/uploads/chorus_image/image/62771444/realgood_stuff.1546466894.jpg"
+                  src="https://thumbor.forbes.com/thumbor/960x0/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F5f298efbe2252631e7028543%2FA-woman-working-out-in-a-gym%2F960x0.jpg%3Ffit%3Dscale"
                   alt="First slide"
                 />
               </div>
             </Carousel.Item>
 
-            <Carousel.Item className="">
+            <Carousel.Item className="line">
               <div className="Slider-Show">
                 <div className="fundmeText">
-                  <h5>GOFUNDME FUNDRAISING STORIES</h5>
-                  <h2>ndtndtn</h2>
-                  <p>djtjdtj</p>
+                  
+                  <h5>“ Your diet is a bank account, Good food choices are good investments.”</h5>
                 </div>
                 <img
                   className="d-block w-100"
-                  src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/portrait-of-a-trainer-in-gym-royalty-free-image-1584723855.jpg"
+                  src="https://media.self.com/photos/5fe36191fa75923c77cd821f/4:3/w_2560%2Cc_limit/GettyImages-1128962609.jpg"
+                  alt="First slide"
+                />
+              </div>
+            </Carousel.Item>
+            
+            <Carousel.Item className="line">
+              <div className="Slider-Show">
+                <div className="fundmeText">
+                
+                  <h5>“ Take a deep dreath and believe in your trainer, he will keep u motivated”</h5>
+                </div>
+                <img
+                  className="d-block w-100"
+                  src="https://cdn.crello.com/api/media/medium/194375538/stock-photo-male-personal-trainer-helping-young"
+                  alt="First slide"
+                />
+              </div>
+            </Carousel.Item>
+             
+            <Carousel.Item className="line">
+              <div className="Slider-Show">
+                <div className="fundmeText">
+                
+                  <h5>“ Exercise is a celebration of what your body can do, Not a punishment for what you ate.” </h5>
+                </div>
+                <img
+                  className="d-block w-100"
+                  src="https://evofitness.at/wp-content/uploads/2018/09/EVO-2020-PP-February-Banner_19-1200x675.jpg"
                   alt="First slide"
                 />
               </div>

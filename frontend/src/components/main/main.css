@@ -3,7 +3,7 @@
 }
 
 .Main-Stories {
-    background-color: #E3E3E3;
+    background-color: rgba(3, 3, 3, 0.9);
     margin-top: 50px;
 }
 .Main-Stories .container {
@@ -16,15 +16,16 @@
     margin: 100px;
 }
 .Slider-Show img {
-    max-width: 500px;
-    height: 300px;
+    max-width: 600px;
+    height: 400px;
+    border-radius: 3px;
 }
 .fundmeText {
     width: 500px;
 }
 .carousel-control-next-icon,
 .carousel-control-prev-icon {
-    background-color: #02A95C;
+    /* background-color:black; */
     font-size: 15px;
     border-radius: 50%;
     -webkit-border-radius: 50%;
@@ -44,7 +45,8 @@
     max-width: 600px;
 }
 .Slider-Show .fundmeText h5 {
-    color: #666;
+    color:white;
+    margin-right: 90px;
 }
 .cardS:hover{
     
