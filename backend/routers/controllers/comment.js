@@ -58,7 +58,7 @@ const deleteCommentById = (req, res) => {
 };
 
 const getComment = (req, res) => {
-  const query = `SELECT * FROM feedback WHERE is_delete=0`;
+  const query =  `SELECT * FROM feedback LEFT JOIN users ON feedback.userId=users.id  `;
   connection.query(query, (err, result) => {
     if (err) {
       return res.status(500).json({

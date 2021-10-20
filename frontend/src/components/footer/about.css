@@ -1,4 +1,4 @@
-*{
+.allAbout{
     margin: 0px;
 padding: 0px;
 box-sizing: border-box;
@@ -6,15 +6,29 @@ font-family: 'Crimson Pro', serif;
 color: black;
 font-size: 20px;
 font-weight: normal;
-}
+} 
 .radi{
-  
-    width: 50%;
-    display: flex;
+    width : 100%;
+    /* width: 50%; */
+    /* display: flex; */
     align-items: center;
-    justify-content: space-between;
-    margin: 10% 25% 25% ;
+    /* justify-content: space-between; */
+    /* margin: 10% 25% 25% ; */
    
+}
+.roqia img {
+    width : 1350px ;
+    height: 500px ;
+    vertical-align: middle
+}
+.roqia{
+    width : 100%;
+    /* width: 50%; */
+    display: grid ;
+    /* align-items: center; */
+    /* justify-content: space-between; */
+    /* margin: 10% 25% 25% ; */
+border : red 
 }
 p{
    text-align: center;

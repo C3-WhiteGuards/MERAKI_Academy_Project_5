@@ -10,7 +10,9 @@ import { addToCart } from "../../../redux/action/cart";
 export const Login = () => {
   const [email, setEmail] = useState(0);
   const [password, setPassword] = useState(0);
-  const [message, setMessage] = useState("");
+
+  const [message , setMessage] = useState("")
+
   const history = useHistory();
   const dispatch = useDispatch();
 
@@ -29,11 +31,15 @@ export const Login = () => {
         localStorage.setItem("token", token);
         localStorage.setItem("savedData", JSON.stringify([]));
         dispatch(setToken(res.data.token));
+        console.log(res);
         dispatch(addToCart([]));
         history.push("/home");
       })
+
       .catch((error) => {
         setMessage("Email or Password incorrect, please try again");
+
+
       });
   };
 
@@ -61,9 +67,7 @@ export const Login = () => {
     <div className="section">
       <div className="imgBx">
         <img
-          src="https://api.time.com/wp-content/uploads/2020/03/gym-coronavirus.jpg
-
-          "
+          src="https://api.time.com/wp-content/uploads/2020/03/gym-coronavirus.jpg"
           alt="broken"
         />
       </div>

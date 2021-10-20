@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./trainer.css";
 import axios from "axios";
-import { Link } from "react-router-dom";
-import { Route, useHistory } from "react-router";
-import { useParams } from "react-router-dom";
+import { useHistory } from "react-router";
+
 
 export const Trainer = () => {
   const [trainers, setTrainer] = useState([]);
@@ -12,6 +11,7 @@ export const Trainer = () => {
   const getAllTrainers = async () => {
     await axios.get("http://localhost:5000/trainer").then((res) => {
       setTrainer(res.data.allTrainers);
+      console.log(res.data.allTrainers);
     });
   };
   useEffect(() => {

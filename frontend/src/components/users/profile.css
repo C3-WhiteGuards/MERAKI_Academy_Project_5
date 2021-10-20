@@ -1,14 +1,15 @@
 .userProfile{
     width: 95%;
-    height: 600px;
+    height: auto;
     
     margin: auto;
     margin-top: 20px;
    /* background-image:   linear-gradient(to right , #171717 , #c4c4c4 , #858585);*/
     border-radius: 5px;
     display: flex;
-    padding-left: 120px;
+    padding-left: 20px;
     padding-top: 35px;
+    padding-bottom: 20px;
 }
 
 .imgProfile{
@@ -21,8 +22,9 @@
 
 .NameOfUser{
     font-size: 35px;
-    padding-right: 350px;
+    /* padding-right: 350px; */
     font-family: "Goudy Bookletter 1911", sans-serif;
+    width: 350px;
 
 
 
@@ -63,12 +65,18 @@
     height: 200px;
     border-radius: 5px;
      /* box-shadow: 1px 1px 1px 1px #e1ff38; */
+     margin-top: 20px;
+     display: grid
 };
 
+.nameSub{
+
+}
 .ExpierDate{
-    font-size: 13px;
+    font-size: 12px;
     margin-top: 20px;
     padding-left: 10px;
+    
 }
 
 .EditInfo{
@@ -94,22 +102,27 @@
     margin-left: 1em;
     display: inline;
     background-color:white;
-    width: 130px;
+    width: 80px;
     font-size: 13px;
     padding-left: 5px;
-}
-
-.mainDetails{
-    /* display: grid; */
-   /* text-align: right; */
-    /* border: greenyellow 2px solid; */
-    width: 250px;
     
 }
 
-.inputModal{
-    border: solid rgb(118, 119, 116) 1px;
+.mainDetails{
+    display: grid;
+   text-align: left;
+    /* border: greenyellow 2px solid; */
+    width: 250px;
+    
+    right: auto;
+    
+}
+
+.inputModal{ 
     border-radius: 3px;
+    border-bottom: solid rgb(56, 56, 55) 2px;
+    font-size: 15px;
+    margin-top: 15px;
 }
 
 .AllInputs{

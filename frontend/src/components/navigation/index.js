@@ -16,6 +16,7 @@ const Navigation = () => {
     };
   });
 
+  console.log("token",state.token);
 
   return (
    <>
@@ -31,16 +32,16 @@ const Navigation = () => {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link href="#features"></Nav.Link>
-              <Nav.Link href="#pricing">Pricing</Nav.Link>
+              <Nav.Link href="/review">Review</Nav.Link>
               <NavDropdown title="Our Sections" id="collasible-nav-dropdown">
                 <NavDropdown.Item href="#action/3.1">
-                <Link to="/AllTrainers" style={{textDecoration: "none" }}>Trainers</Link>
+                <Link to="/AllTrainers" style={{textDecoration: "none" , color:"gray"}}>Trainers</Link>
                 </NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.2">
-                <Link to="/ALLGyms" style={{textDecoration: "none" }}>GYMs</Link>
+                <Link to="/ALLGyms" style={{textDecoration: "none" , color:"gray" }}>GYMs</Link>
                 </NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.3">
-                <Link to="/AllRestaurnats" style={{textDecoration: "none" }}>Restaurants</Link>
+                <Link to="/AllRestaurnats" style={{textDecoration: "none" , color:"gray"}}>Restaurants</Link>
                 </NavDropdown.Item>
               </NavDropdown>
             </Nav>
@@ -64,18 +65,17 @@ const Navigation = () => {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link href="#features"></Nav.Link>
-              <Nav.Link href="#pricing">Pricing</Nav.Link>
-              <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+
+              <Nav.Link href="/review">Review</Nav.Link>
+              <NavDropdown title="Our Sections" id="collasible-nav-dropdown">
+                <NavDropdown.Item href="#action/3.1">
+                <Link to="/AllTrainers" style={{textDecoration: "none", color:"gray" }}>Trainers</Link>
+                </NavDropdown.Item>             
                 <NavDropdown.Item href="#action/3.2">
-                  Another action
+                <Link to="/ALLGyms" style={{textDecoration: "none" , color:"gray"}}>GYMs</Link>
                 </NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.3">
-                  Something
-                </NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.4">
-                  Separated link
+                <Link to="/AllRestaurnats" style={{textDecoration: "none" , color:"gray"}}>Restaurants</Link>
                 </NavDropdown.Item>
               </NavDropdown>
             </Nav>

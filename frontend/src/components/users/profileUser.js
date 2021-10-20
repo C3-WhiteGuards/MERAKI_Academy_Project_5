@@ -7,6 +7,7 @@ import {ProgressBar , Button , Image } from 'react-bootstrap';
 import {Place , Phone  , Email, Cancel } from "@mui/icons-material";
 import Modal from "react-modal";
 
+
 const customStyles = {
     content: {
         width:"400px",
@@ -51,8 +52,43 @@ export const ProfileUser = () => {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((result) => {
-        console.log(result.data.result[0]);
+        console.log("subRest",result.data.result[0]);
         setSubRest(result.data.result[0]);
+        
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+
+  const [subTrainer , setSubTrainer] = useState();
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/subscribtion/TrainersSubscribtion", {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((result) => {
+        console.log("subTrainer",result.data.result[0]);
+        setSubTrainer(result.data.result[0]);
+        
+        
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+  const [subGym , setSubGym] = useState();
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/subscribtion/GymSubscribtions", {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((result) => {
+        console.log("subTrainer",result.data.result[0]);
+        setSubGym(result.data.result[0]);
+        
       })
       .catch((err) => {
         console.log(err);
@@ -66,7 +102,7 @@ function dateDiffInDays(a) {
   const d = new Date();
   const utc1 = Date.UTC(a.getFullYear(), a.getMonth(), a.getDate());
   const utc2 = Date.UTC(d.getFullYear(), d.getMonth(), d.getDate());
-  return Math.floor((utc2 - utc1) / 86400000);
+  return Math.abs(Math.floor((utc2 - utc1) / 86400000));
 }
 
 
@@ -94,7 +130,8 @@ function dateDiffInDays(a) {
   const [height , setHeight] = useState(0);
   const [ diseases , setDiseases] = useState("");
   const history = useHistory();
-  
+  //subTrainer["name"] = `${subTrainer&&subTrainer.firstName} ${subTrainer&&subTrainer.lastName}`
+  const AllSubscribtions = [subRest , subTrainer , subGym];
 
   const updateInfo = () =>{
     axios.put("http://localhost:5000/users", {age,phoneNumber,country,weight,height,diseases,}, {headers: {Authorization: `Bearer: ${token}`}} )
@@ -111,26 +148,26 @@ function dateDiffInDays(a) {
    
 
   return (
-    <div className="userProfile">
+    <div className="userProfile" >
       
-      <div style={{display:"grid"}}>
+      <div style={{display:"grid" , height:"620px" , borderRadius:"5px"}}>
       <img className="imgProfile" src={profile && profile.image}/>
        <div className="mainDetails">
       <p className="details"><Phone/>{profile && profile.phoneNumber}</p>
       <p className="details"><Email/> {profile && profile.email}</p>
-      <p className="details"><Place/> {profile && profile.country}</p>
+      <p className="details"><Place/> rrrr{profile && profile.country}</p>
       </div>
       </div>
-      <div className="imgAndInfo">
-      <p className="NameOfUser">{profile && profile.firstName+" "+profile.lastName }</p> 
-      <div className="AllInfo"> 
+      <div className="imgAndInfo" >
+      <p className="NameOfUser" >{profile && profile.firstName+" "+profile.lastName }</p> 
+      <div className="AllInfo" > 
       <div style={{display:"grid"}}>
       <div style={{display:"flex" , gap:"100px" , margin:"50px" , width:"600px"}} className="secondDetails">
-       <div>  
+       <div >  
       <p className="details">Weight: {profile && profile.weight} Kg</p>
       <p className="details">Diseases: {profile && profile.diseases}</p>
       </div>
-      <div>
+      <div >
       <p className="details">height: {profile && profile.height} cm</p>
       <p className="details">Age: {profile && profile.age} Years</p>
       </div> 
@@ -168,20 +205,29 @@ function dateDiffInDays(a) {
       
       </div>
       </div>
-      <fieldset className="restaurantSubscirption">
-      <legend className="titleSubscription">{" "}Restaurant Subscription</legend>
-          <p>{subRest && subRest.name}</p>
+      <div className="AllSubscribtion">
+        {AllSubscribtions.map((elem , i)=>{
+          return( 
+            <fieldset className="restaurantSubscirption">
+      <legend className="titleSubscription">{" "} Subscription</legend>
+          <p className="nameSub">{elem && elem.name }</p>
            
 
            <div style={{display:"flex" , gap:"20px" , paddingLeft:"10px"}}> 
             
-         <Image src={subRest && subRest.image} roundedCircle style={{width:"30px" , height:"30px" , borderRadius:"100%" }} />
+         <Image src={elem && elem.image} roundedCircle style={{width:"30px" , height:"30px" , borderRadius:"100%" }} />
 
-          <ProgressBar variant="dark" animated now={Math.abs( 3.3*dateDiffInDays(new Date(subRest&& subRest.date_to.slice(0,10))))}  label={`${Math.abs( dateDiffInDays(new Date(subRest&& subRest.date_to.slice(0,10))))} day`} className="progress" />
+          <ProgressBar variant="dark" animated now={3.3*dateDiffInDays(new Date(elem&& elem.date_to.slice(0,10)))}  label={`${ dateDiffInDays(new Date(elem&& elem.date_to.slice(0,10)))} day`} className="progress" />
          
           </div>
-          <div className="ExpierDate"> Expier Date: {subRest && subRest.date_to.slice(0,10)}</div>
+          <div className="ExpierDate"> Expier Date: {elem && elem.date_to.slice(0,10)}</div>
       </fieldset>
+          )
+        })
+          }
+        
+      
+      </div>
     </div>
   );
 };
