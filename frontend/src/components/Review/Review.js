@@ -22,8 +22,8 @@ export const Review = () => {
       <div className="hdrrev">
       
       {/* <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQryFgRbAorc_TxDWs0eEE4C5L253-yPQbiecjp0OjMscEtGEc5-3orRQazBM3Fm8vonyo&usqp=CAU" /> */}
-      <h3  className="reh3"> Customers Review</h3>
-      <h5 className="reh5"> what our Customers say about us </h5>
+      <h3  className="reh3"> Customers Review <img src="https://cdn-icons-png.flaticon.com/256/4108/4108233.png" style={{width:"50px" , height:"50px" , marginTop:"-20px"}}/></h3>
+      <h5 className="reh5"> What Our Customers Say About Us </h5>
      
       </div>
       {review &&

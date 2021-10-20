@@ -1,4 +1,4 @@
-*{
+.allAbout{
     margin: 0px;
 padding: 0px;
 box-sizing: border-box;
@@ -6,7 +6,7 @@ font-family: 'Crimson Pro', serif;
 color: black;
 font-size: 20px;
 font-weight: normal;
-}
+} 
 .radi{
   
     width: 50%;

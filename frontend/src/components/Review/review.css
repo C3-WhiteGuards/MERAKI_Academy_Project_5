@@ -21,8 +21,11 @@
   width: 500px;
   height: 200px;
   border-radius: 5px;
-  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 30%);
+  /* box-shadow: 0 1px 3px 0 rgb(0 0 0 / 30%); */
+  /* box-shadow: 10px 10px 5px grey; */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   text-align: left;
+  background-image: linear-gradient( rgb(252, 252, 104), rgb(255, 255, 254));
 }
 .inforReview img {
   width: 50px;
