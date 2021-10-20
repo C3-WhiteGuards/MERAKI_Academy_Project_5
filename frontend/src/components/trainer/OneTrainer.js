@@ -6,7 +6,7 @@ import Place from "@mui/icons-material/Place";
 import Phone from "@mui/icons-material/Phone";
 import SportsScore from "@mui/icons-material/SportsScore";
 import StarBorder from "@mui/icons-material/StarBorder";
-
+import swal from 'sweetalert';
 export const OneTrainer = () => {
   const [trainer, setTrainer] = useState(0);
   const token = localStorage.getItem("token");
@@ -32,6 +32,12 @@ export const OneTrainer = () => {
         { headers: { Authorization: `Bearer ${token}` } }
       )
       .then((result) => {
+        swal({
+          title: "Congratulations !! ",
+          text: "You Now Have The Perfect Personal Trainer  !! \n  Go To Your Cart To Confirm Your Subsicribtion ",
+          icon: "success",
+          button: "OK",
+        });
         console.log(result);
       })
       .catch((err) => {

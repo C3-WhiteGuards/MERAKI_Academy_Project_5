@@ -74,7 +74,7 @@ const getGymsSubscribtion = (req , res)=>{
 
 const getTrainersSubscribtion = (req , res)=>{
   const id  = req.token.userId;
-  const query = `SELECT * FROM subscriptionsTrainers INNER JOIN trainers ON subscriptionsTrainers.trainerId=trainers.id WHERE userId=${id}`;
+  const query = `SELECT userId,trainerId,date_to,id,phoneNumber,location,image,sport,priceMonthly,description,experience ,CONCAT(firstName," ",lastName) AS name FROM subscriptionsTrainers INNER JOIN trainers ON subscriptionsTrainers.trainerId=trainers.id WHERE userId=${id}`;
   connection.query(query , (err , result)=>{
    // if (err) return res.status(404).json({success:false , message:"There is Error!" , Error:err});
 

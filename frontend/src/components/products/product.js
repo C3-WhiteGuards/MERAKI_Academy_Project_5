@@ -3,6 +3,7 @@ import axios from "axios";
 import {Col,Card,Row,Button} from "react-bootstrap";
 import { useSelector,useDispatch } from "react-redux";
 import { addToCart } from "../../redux/action/cart";
+import swal from 'sweetalert';
 export const Allproduct = () => {
   const [products, setProducts] = useState([]);
   const dispatch = useDispatch();
@@ -41,7 +42,12 @@ export const Allproduct = () => {
                       dispatch(addToCart(item))
                       all.push(item)
                       localStorage.setItem("savedData", JSON.stringify(all));
-                    }}>add Cart</Button>
+                      swal({
+                        title: "added to cart ",
+                        icon: "success",
+                        button: "OK",
+                      });
+                    }}>Add To Cart</Button>
                   </Card.Body>
                 </Card>
               </Col>

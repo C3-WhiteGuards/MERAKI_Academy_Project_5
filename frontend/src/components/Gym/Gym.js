@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./Gym.css";
-
+import swal from 'sweetalert';
 export const Gym = () => {
   const [allgyms, setAllGyms] = useState([]);
   const userId = localStorage.getItem("userId");
@@ -30,6 +30,12 @@ export const Gym = () => {
         { headers: { Authorization: `Bearer ${token}` } }
       )
       .then((result) => {
+        swal({
+          title: "Congratulations !! ",
+          text: "  Your Fitness Home Is Here !! \n Go To Your Cart To Confirm Your Subsicribtion ",
+          icon: "success",
+          button: "OK",
+        });
         console.log(result);
       })
       .catch((error) => {

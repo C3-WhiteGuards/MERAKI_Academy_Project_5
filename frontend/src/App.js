@@ -30,7 +30,7 @@ import { AddComment } from "./components/comment/comment";
 import { ProfileUser } from "./components/users/profileUser";
 import ScrollToTop from "./components/scroll/scroll";
 import {Review} from "./components/Review/Review";
-
+import Dashboard from "./components/dashboard/Dashboard";
 
 const App = () => {
  
@@ -46,7 +46,7 @@ const App = () => {
         {/* islam */}
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
-        
+        <Route path="/dashboard" component={Dashboard} />
         <Route path="/review" component={Review} />
         <Route path="/logout" component={Logout} />
         <Route path="/cart" component={Cart} />

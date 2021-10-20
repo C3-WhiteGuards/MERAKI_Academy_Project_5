@@ -5,6 +5,7 @@ import "./footer.css";
 import "./About";
 
 export const Footer = () => {
+
   return (
     <div className="footerMain">
       <div className="copyRight">
@@ -15,6 +16,22 @@ export const Footer = () => {
         <FaFacebook icon={FaFacebook} className="facebook" />
         <FaTwitter icon={FaTwitter} className="facebook" />
       </div>
+
+	
+	return(
+		<div className="allFooter">
+		 <div className="footerMain">
+		<div className="copyRight"> 
+			<h5 > copyright © 2021 </h5>
+		</div>
+		<div className="iconDevMain">
+		<FaInstagram icon={FaInstagram} className="facebook" />
+		<FaFacebook icon={FaFacebook}   className="facebook"/>
+		<FaTwitter icon={FaTwitter}  className="facebook" />
+		</div>
+	
+
+
 
       <div className="Aboutfooter">
         <Link to="/boutUs"> About Us </Link>
