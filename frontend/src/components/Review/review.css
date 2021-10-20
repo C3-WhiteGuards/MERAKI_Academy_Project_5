@@ -1,46 +1,76 @@
-*{
-    margin:0px;
-    padding: 0px;
-    box-sizing: border-box;
-
+.divRev {
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 450px;
 }
 
-.reviewIgm{
-    width: 300px;
-    height: 250px;
-   
+.imgReview img {
+  width: 10px;
+  height: 10px;
 }
-.review2 h5{
-font-size: 30px;
-
+.imgReview img {
+  width: 170px;
+  height: 170px;
 }
-.divRev{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 200px;  
-   
+.divRev .inforReview {
+  display: grid;
+  align-items: left;
+  justify-content: left;
+  width: 500px;
+  height: 200px;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 30%);
+  text-align: left;
 }
-.inforReview{
-    border: 1px red solid;
+.inforReview img {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  margin-top: 10px;
+  margin-left: 29px;
 }
-.imgReview img{
-    width: 300px;
-    height: 300px;
+.inforReview h5 {
+  margin-top: -50px;
+  margin-bottom: 0px;
+  padding-top: -30px;
+  padding-bottom: 0px;
+  font-size: small;
 }
-.imgReview{
-    border: 1px red solid;
+.review .hdrrev .reh3 {
+  font-size: x-large;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 5px #c9cc04;
+  margin-left: 10px;
 }
-.inforReview{
-    display: grid;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;   
-    width: 400px;
-    height: 300px;
+.review .reh5 {
+  font-size: small;
+  font-weight: normal;
+  margin-top: -35px;
+  margin-left: 15px;
 }
-.inforReview img{
-    width:50px;
-    height: 50px;
-    border-radius: 100%;
+.review {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+.hdrrev {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 80px 0px 0px 0px;
+}
+.inforReview:hover {
+  background-color: #f8f5f5;
+  box-shadow: 2px 2px 4px #c9cc04;
+}
+.inforReview {
+  padding: 0px;
+  font-size: 15px;
+  margin-top: 15px;
+  color: #212121;
+  font-family: cursive;
 }
