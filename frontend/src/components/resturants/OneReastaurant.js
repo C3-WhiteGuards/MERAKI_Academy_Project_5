@@ -2,6 +2,10 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import "./oneResturant.css";
+import swal from 'sweetalert';
+// import Payment from "../payment/payment";
+// import swal from '@sweetalert/with-react'
+
 export const OneResturant = () => {
   const [resturant, setResturant] = useState(0);
   const token = localStorage.getItem("token");
@@ -28,6 +32,15 @@ export const OneResturant = () => {
         { headers: { Authorization: `Bearer ${token}` } }
       )
       .then((result) => {
+        swal({
+          title: "Congratulations !! ",
+          text: "Your Food Is Healthy Now , go to your cart to confirm your subsicribtion ",
+          icon: "success",
+          button: "OK",
+        });
+        // swal(<div>
+        //   <Payment/>
+        // </div>)
         console.log(result);
       })
       .catch((err) => {
