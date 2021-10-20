@@ -12,12 +12,6 @@
     position: relative;
     width: 50%;
     height: 100%;
-    /*
-    top: 92px;
-    left: 70px;
-    width: 75%;
-    height: 77%;
-    */
   }
   
   .section2 .imgBox::before {
@@ -63,17 +57,6 @@
     padding: 0px;
   }
   
-  /* .section2 .contentBox .formBox h2{
-    color: #080808;
-    font-weight: 600;
-    font-size: 2em;
-    margin-left: 80px;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-    border-bottom: 0px solid #f403e0;
-    display: inline-block;
-    letter-spacing: 1px;
-  } */
   .section2 .contentBox .formBox .inputBox {
     margin-bottom: 20px;
     margin-right: 25px;
