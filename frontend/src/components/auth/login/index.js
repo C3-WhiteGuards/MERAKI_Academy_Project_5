@@ -70,11 +70,8 @@ export const Login = () => {
       </div>
       <div className="contentBx">
         <div className="formBx">
-          <p>
-            Welcome here, where there are all kinds of sports and nutritional
-            supplements
-          </p>
-          <h2>Login</h2>
+         
+          <h2>LOGIN</h2>
 
           <div className="inputBx">
             <input
@@ -108,7 +105,7 @@ export const Login = () => {
           </div>
           <div className="inputBx">
             <p>
-              <a href="#"> Forgotten Your Password? </a>{" "}
+              <a href="#"> Forget Your Password ? </a>{" "}
             </p>
 
             <div className="with-gmail">

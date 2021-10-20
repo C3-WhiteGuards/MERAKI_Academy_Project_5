@@ -27,7 +27,7 @@
     left: 0px;
     width: 100%;
     height: 100%;
-    background: linear-gradient(255deg, #050505, #0805082d);
+    /* background: linear-gradient(255deg, #050505, #0805082d); */
     z-index: 1;
     mix-blend-mode: screen;
   }
@@ -59,12 +59,12 @@
   
   .section2 .contentBox .formBox {
     width: 50%;
-    color: #254656;
+    color: #080808;
     padding: 0px;
   }
   
-  .section2 .contentBox .formBox h2{
-    color: #607d8b;
+  /* .section2 .contentBox .formBox h2{
+    color: #080808;
     font-weight: 600;
     font-size: 2em;
     margin-left: 80px;
@@ -73,7 +73,7 @@
     border-bottom: 0px solid #f403e0;
     display: inline-block;
     letter-spacing: 1px;
-  }
+  } */
   .section2 .contentBox .formBox .inputBox {
     margin-bottom: 20px;
     margin-right: 25px;
@@ -82,7 +82,7 @@
     font-size: 16px;
     margin-bottom: 5px;
     display: inline-block;
-    color: #607d8b;
+    color: #080808;
     font-weight: 300;
     font-size: 16px;
     letter-spacing: 1px;
@@ -92,62 +92,72 @@
     width: 100%;
     padding: 10px 5px;
     outline: none;
-    font-weight: 400;
-    border: 1px solid #607d8b;
+    /* font-weight: 400; */
+    border: 1px solid #080808;
     font-size: 16px;
     letter-spacing: 1px;
-    color: #607d8b;
+    color: #080808;
     background: transparent;
     border-radius: 30px;
     padding-left: 20px;
   }
+  .section2 .contentBox .formBox .inputBox input:hover{
+    background-color: #faf9aa;
+    border: 2px solid #faf9aa;
+  }
   
   .section2 .contentBox .formBox .inputBox button {   
     width: 45%;
-    height: 37px;
+    height: 50px;
       padding: 6px 5px;
       outline: none;
-      font-weight: 400;
-      border: 1px solid #607d8b;
-      font-size: 16px;
+      font-weight: 200;
+      border: 2px solid #080808;
+      font-size: 20px;
       margin-left: 80px;
       letter-spacing: 1px;
       color: #ffffff;
-      background: #607d8b;
-      border-radius: 15px;
+      background: #080808;
+      border-radius: 30px;
       padding-left: 5px;
   }
   
   .section2 .contentBox .formBox .inputBox button:hover{
-    background: #829eac;
+    background: #faf9aa;
+    color: #080808;
+    border: 1px solid  #faf9aa;
   }
   
   .section2 .contentBox .formBox .remember {
     margin-bottom: 10px;
-    color: #607d8b;
+    color: #080808;
     font-weight: 400;
     font-size: 19px;
   }
   
   .section2 .contentBox .formBox .inputBox p {
-    color: #607d8b;
+    color: #080808;
     margin: 5px;
     margin-right: 47px;
     font-size: 20px;
   }
   
   .section2 .contentBox .formBox .inputBox p a {
-    color: #ce275f;
+    color: #f30808;
+    text-decoration: none;
   }
-  
+ 
   .section2 .contentBox .formBox h2 {
     width: 100%;
-    color: #607d8b;
+    color: #080808;
     text-align: center;
-    margin: 40px 0 10px;
+    /* margin: 30px 100px 20px 80px; */
     padding: 0px;
-    text-transform:capitalize;
+    font-weight: bold ;
     padding-right: 24px;
+    display: inline-block;
+    letter-spacing: 1px;
+    font-size: 30px;
   }
   
   .section2 .contentBox .formBox .scil {
@@ -167,7 +177,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #aec5d1;
+    color: #080808;
     border-radius: 50%;
     margin: 0 7px;
     cursor: pointer;
@@ -207,7 +217,7 @@
     }
     .section2 .contentBox .formBox h3 {
       width: 100%;
-      color: #607d8b;
+      color: #080808;
       text-align: center;
       margin: 30px 0 10px;
       padding: 0px;

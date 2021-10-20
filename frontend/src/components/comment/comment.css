@@ -1,27 +1,39 @@
+.testArea{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+   }
 .buttonComment {
-    width: 140px;
+    width: 120px;
     height: 40px;
-    border-radius: 5px;
-    background-color: rgb(201, 146, 137);
+    border-radius: 3px;
+    background-color: black;
     margin-top: 50px;
     margin-left: 35px;
     color: white;
+}
+.buttonComment:hover{
+    background: #faf9aa;
+    color: #080808;
+    border: 2px solid  #faf9aa;
+  
 }
 
 .input-comment {
     margin-left: 35px;
     margin-top: 53px;
-    width: 30%;
-    height: 145px;
+    width: 40%;
+    height: 100px;
     padding: 10px 5px;
     outline: none;
-    font-weight: 400;
-    border: 1px solid #607d8b;
+    font-weight: 200;
+    border: 1px solid #0c0c0c;
     font-size: 16px;
     letter-spacing: 1px;
-    color: #607d8b;
+    color: #0d0d0e;
     background: transparent;
-    border-radius: 10px;
+    border-radius: 3px;
     padding-left: 10px;
     padding-bottom: 110px;
 }

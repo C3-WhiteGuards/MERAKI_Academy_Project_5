@@ -29,19 +29,25 @@ import { AddComment } from "./components/comment/comment";
 
 import { ProfileUser } from "./components/users/profileUser";
 import ScrollToTop from "./components/scroll/scroll";
+import {Review} from "./components/Review/Review";
 
 
 const App = () => {
+ 
   return (
     <div>
+
+      
       <Navigation />
       <ScrollToTop/>
 
+     
       <Switch>
         {/* islam */}
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
-
+        
+        <Route path="/review" component={Review} />
         <Route path="/logout" component={Logout} />
         <Route path="/cart" component={Cart} />
         <Route path="/home" component={Main} />
@@ -61,8 +67,9 @@ const App = () => {
         <Route exact path="/resturan/:id" component={OneResturant} />
         {/* <Route exact path="/feedback" component={AddComment} /> */}
         {/* koulthom */}
-
+        
         {/* abdalllah */}
+        <Route path="/" component={Main} />
       </Switch>
       <Footer />
     </div>
