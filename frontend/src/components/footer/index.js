@@ -9,7 +9,9 @@ import "./About"
 
 export const Footer = () => {
 	
-	return <div className="footerMain">
+	return(
+		<div className="allFooter">
+		 <div className="footerMain">
 		<div className="copyRight"> 
 			<h5 > copyright © 2021 </h5>
 		</div>
@@ -23,7 +25,9 @@ export const Footer = () => {
  <Link to="/boutUs"> About Us      </Link>
  <Link to="/ourPolicy"> Our Policy</Link>
  </div>
-	</div>;
+	</div>
+	</div>
+	)
 };
 
 
