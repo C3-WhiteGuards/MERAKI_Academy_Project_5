@@ -49,7 +49,7 @@ export const Review = () => {
                    <div className="imgReview">
                   <img 
                    
-                    src="https://www.pngall.com/wp-content/uploads/2018/04/Gym-Free-Download-PNG.png"
+                    src="https://www.pngall.com/wp-content/uploads/2018/04/Gym-Free-Download-PNG.png" 
                   />
                   </div>
                   <div className="inforReview">

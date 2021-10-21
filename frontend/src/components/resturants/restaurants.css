@@ -1,46 +1,41 @@
 .AllResturants {
-  width: 1200px;
-  /* height: 600px; */
-  border: 1px solid rgb(237, 253, 5);
+  width: 80%;
   margin: auto;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   padding: 20px;
   margin-top: 70px;
-  margin-left: 200px;
-  grid-auto-rows: 250px;
+  margin-left: 120px;
+  justify-content: space-between;
+  gap: 50px;
 }
-
 .cardRestrurant {
-  height: 220px;
-  width: 250px;
+  height: 300px;
+  width: 350px;
   background-color: #ececec;
   margin-left: 30px;
   border-radius: 5px;
   max-width: 200px;
   text-align: center;
   box-shadow: 0 1px 3px 0 rgb(0 0 0 / 30%);
-  
 }
 
 .imgRestaurant {
-    width: 150px;
-    height: 150px;
-    border-radius: 100%;
-    margin-top: 10px;
-  }
+  width: 150px;
+  height: 150px;
+  border-radius: 100%;
+  margin-top: 40px;
+}
 
-  .nameResturant {
-    font-size: 15px;
-    margin-top: 15px;
-    color: #212121;
-    font-family: URWDINCond-Black, Helvetica, Arial, sans-serif;
-  }
+.nameResturant {
+  font-size: 15px;
+  margin-top: 40px;
+  color: #212121;
+  font-family: URWDINCond-Black, Helvetica, Arial, sans-serif;
+  font-weight: bold;
+}
 
-.cardRestrurant:hover{
-    background-color: #f8f8f8;
-    
-    box-shadow: 4px 4px 4px 4px #989999;
-
-    
-} 
+.cardRestrurant:hover {
+  background-color: #f8f8f8;
+  box-shadow: 4px 4px 4px 4px #989999;
+}

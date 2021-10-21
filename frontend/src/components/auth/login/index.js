@@ -67,7 +67,7 @@ export const Login = () => {
     <div className="section">
       <div className="imgBx">
         <img
-          src="https://api.time.com/wp-content/uploads/2020/03/gym-coronavirus.jpg"
+          src="https://www.reviewsxp.com/blog/wp-content/uploads/2019/08/Best-gyms-in-jaipur-e1565704535975.jpg"
           alt="broken"
         />
       </div>

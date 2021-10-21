@@ -50,7 +50,7 @@ export const OneResturant = () => {
 
   return (
     <div className="parent_div">
-      <div className="parent_2">
+      <div className="parenttt">
         <div className="resturant_img">
           <img
             // src={resturant && resturant[0].image}
@@ -63,14 +63,14 @@ export const OneResturant = () => {
           <ul className="list_main">
             <li className="name">{resturant && resturant[0].name}</li>
             <li
-              className="list__item"
+              className="name"
               onClick={() => {
                 window.open(resturant[0].location, "_blank");
               }}
             >
                📍 LOCATION
             </li>
-            <li className="price">
+            <li className="name">
               Price {": "}
               {resturant && resturant[0].monthlyPrice} JD
             </li>
@@ -81,7 +81,7 @@ export const OneResturant = () => {
               <h5 className="rateDiv">{resturant && resturant[0].rate}</h5>
             </li> */}
 
-            <li className="rate">
+            <li className="name">
               Resturant Rate : {resturant && resturant[0].rate}
             </li>
 
