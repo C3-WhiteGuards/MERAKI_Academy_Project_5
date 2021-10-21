@@ -1,39 +1,56 @@
-.testArea{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-   
-   }
-.buttonComment {
-    width: 120px;
-    height: 40px;
-    border-radius: 3px;
-    background-color: black;
-    margin-top: 50px;
-    margin-left: 35px;
-    color: white;
-}
-.buttonComment:hover{
-    background: #faf9aa;
-    color: #080808;
-    border: 2px solid  #faf9aa;
-  
+.container33 {
+    width: 40%;
+    margin: 20px auto;
+    background-color: #fff;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #E3E3E3;
+    border-radius: 10px;
+    text-align: center;
 }
 
-.input-comment {
-    margin-left: 35px;
-    margin-top: 53px;
-    width: 40%;
-    height: 100px;
-    padding: 10px 5px;
-    outline: none;
-    font-weight: 200;
-    border: 1px solid #0c0c0c;
-    font-size: 16px;
-    letter-spacing: 1px;
-    color: #0d0d0e;
-    background: transparent;
+.form44 {
+    margin: 20px auto;
+    width: 80%;
+}
+
+.container22 {
+    padding: 10px;
+}
+
+.textareaaa {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #F3F3F7;
+}
+
+.form44 .signupbtnn {
+    background: #000000;
+    font-size: 1.2rem;
+    border-width: 0;
     border-radius: 3px;
-    padding-left: 10px;
-    padding-bottom: 110px;
+    color: white;
+    padding: 14px 20px;
+    margin: 30px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+.clearrr {
+    width: 40%;
+    margin: auto;
+}
+
+.signupbtnn:hover {
+    opacity: 1;
+}
+
+@media (max-width: 1040px) {
+    .container33 {
+        width: 100%;
+    }
 }
