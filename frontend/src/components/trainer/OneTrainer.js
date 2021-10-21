@@ -82,7 +82,7 @@ export const OneTrainer = () => {
                 {" "}
                 <SportsScore />
               </div>
-              Sport :{" "}
+              Sport {": "}
               <a className="sport-ltem">{trainer && trainer[0].sport}</a>
             </li>
             <li className="list-experience">
@@ -90,7 +90,7 @@ export const OneTrainer = () => {
                 {" "}
                 <StarBorder />
               </div>
-              Experience :
+              Experience {": "}
               <a className="experience-ltem">
                 {trainer && trainer[0].experience} Years
               </a>
