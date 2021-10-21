@@ -1,23 +1,19 @@
-/* * {
-  margin: 0;
-  padding: 0;
-} */
-
 .AllTrainersClass {
   height: auto;
-  width: 66%;
+  width: 80%;
   background-color: white;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   padding: 20px;
   margin-top: 70px;
-  margin-left: 200px;
+  margin-left: 115px;
+  justify-content: space-between;
+  gap: 50px;
 }
-
 .trainrClass {
   margin: 10px;
-  height: 220px;
-  width: 250px;
+  height: 300px;
+  width: 350px;
   background-color: #ececec;
   margin-left: 30px;
   border-radius: 5px;
@@ -25,22 +21,20 @@
   text-align: center;
   box-shadow: 0 1px 3px 0 rgb(0 0 0 / 30%);
 }
-
 .imgTrainer {
   width: 150px;
   height: 150px;
   border-radius: 100%;
-  margin-top: 10px;
+  margin-top: 40px;
 }
-
 .nameTrainer {
   padding: 0px;
   font-size: 15px;
-  margin-top: 15px;
+  margin-top: 40px;
+  font-weight: bold;
   color: #212121;
   font-family: URWDINCond-Black, Helvetica, Arial, sans-serif;
 }
-
 .trainrClass:hover {
   background-color: #ffffff;
   box-shadow: 2px 2px 4px #575858;

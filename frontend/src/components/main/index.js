@@ -29,7 +29,7 @@ const Main = () => {
                   <Card.Title>Trainers</Card.Title>
                   <Card.Text>
                   Being educated while exercising is essential in maximizing effectiveness and reducing risk of injury.
-                  A personal trainer will teach you everything you need to know about exercising .
+                  A personal trainer will teach you everything .
                   </Card.Text>
                   <Button variant="dark" onClick=
                   

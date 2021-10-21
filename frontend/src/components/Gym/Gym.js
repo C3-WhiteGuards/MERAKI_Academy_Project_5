@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./Gym.css";
-import swal from 'sweetalert';
+import swal from "sweetalert";
 export const Gym = () => {
   const [allgyms, setAllGyms] = useState([]);
   const userId = localStorage.getItem("userId");
@@ -48,34 +48,74 @@ export const Gym = () => {
       {allgyms &&
         allgyms.map((element, index) => {
           return (
-            <div key={index} className="OneGym">
-              <img
-                src={element.image}
-                className="imgGym"
-              />
-              <div className="childtwo">
-                <h5 className="NameOfTheGym">{element.name}</h5>
-                <h5 className="name2"> 📞phone Number :{element.phoneNumber} </h5>
-                <h5 className="name2"> Monthly payment : {element. priceMonthly} $</h5>
-                <h5 className="name2"> {element.description}</h5>
-                <h5
-                  onClick={() => {
-                    window.open(element.location, "_blank");
-                  }}
-                >
-                  {" "}
-                  📍 LOCATION
-                </h5>
-                <button
-                  className="subscribeBtn"
-                  onClick={() => {
-                    addSubsGym(element.id);
-                  }}
-                >
-                  Subscribe Now
-                </button>
-              </div>
-            </div>
+            <>
+              {index % 2 == 0 ? (
+                <div key={index} className="OneGym">
+                  <img src={element.image} className="imgGym" />
+                  <div className="childtwo">
+                    <h5 className="NameOfTheGym">{element.name}</h5>
+                    <h5 className="name2">
+                      {" "}
+                      Phone Number :{element.phoneNumber}{" "}
+                    </h5>
+                    <h5 className="name2">
+                      {" "}
+                      Monthly payment : {element.priceMonthly} $
+                    </h5>
+                    <h5 className="name2"> {element.description}</h5>
+                    <h5  className="name2"
+                      onClick={() => {
+                        window.open(element.location, "_blank");
+                      }}
+                    >
+                      {" "}
+                      📍 LOCATION
+                    </h5>
+                    <button
+                      className="subscribeBtn"
+                      onClick={() => {
+                        addSubsGym(element.id);
+                      }}
+                    >
+                      Subscribe Now
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <div key={index} className="OneGym">
+                  <div className="childtwo">
+                    <h5 className="NameOfTheGym">{element.name}</h5>
+                    <h5 className="name2">
+                      {" "}
+                      Phone Number :{element.phoneNumber}{" "}
+                    </h5>
+                    <h5 className="name2">
+                      {" "}
+                      Monthly payment : {element.priceMonthly} $
+                    </h5>
+                    <h5 className="name2"> {element.description}</h5>
+                    <h5 className="name2"
+                      onClick={() => {
+                        window.open(element.location, "_blank");
+                      }}
+                    >
+                      {" "}
+                      📍 LOCATION
+                    </h5>
+                    <button
+                      className="subscribeBtn"
+                      onClick={() => {
+                        addSubsGym(element.id);
+                      }}
+                    >
+                      Subscribe Now
+                    </button>
+                  </div>
+
+                  <img src={element.image} className="imgGym" />
+                </div>
+              )}
+            </>
           );
         })}
     </div>

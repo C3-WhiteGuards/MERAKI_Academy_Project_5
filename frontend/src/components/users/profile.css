@@ -1,25 +1,112 @@
+/********************************** main div */
 .userProfile{
-    width: 95%;
-    height: auto;
-    
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    /* background-color: rgb(235, 129, 129); */
     margin: auto;
     margin-top: 20px;
-   /* background-image:   linear-gradient(to right , #171717 , #c4c4c4 , #858585);*/
+    background-color: #F1F7E7;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 5px;
-    display: flex;
-    padding-left: 20px;
-    padding-top: 35px;
-    padding-bottom: 20px;
-}
 
-.imgProfile{
-    width: 300px;
-    height: 400px;
-    border-radius: 4px;
-    padding-top: 30px;
+}
+/************************************* left dic */
+.leftdiv{
+    /* border: 3px yellow solid; */
+    width:20% ;
+    height: auto;
+   }
+.leftdiv .imgProfile{
+width: 200px;
+height: 200px;
+border-radius: 100%;
+margin-top: 40px;
+border: 1px rgb(12, 12, 12) solid;
+margin: 40px 30px 10px 30px;
+  
+} 
+.leftdiv details{
+    text-align: left;
+    font-size: 2px;
+   
+
+}
+/************************ middle div ***********************/
+.imgAndInfo{
+  
+    /* border: 3px rgb(0, 255, 21) solid; */
+    width:15%;
+    justify-content: space-around;
+    text-align: left;
+   
     
 }
 
+.middleDiv{
+    text-align: left;
+    justify-content: space-between;
+    height: auto;
+}
+.middleDiv .NameOfUser{
+font-size: 30px;
+font-weight: bold;
+margin-left: 0px ;
+padding-left: 0px;
+}
+.middleDiv .details2{
+font-size: 15px ;
+}
+.profileeeBtn{
+    width: 90px;
+    height: 40px;
+    border-radius: 3px;
+    background: black;
+    margin-top: 20px;
+    font-size: 15px;
+    color: white;
+    cursor: pointer;
+    transition: width 1s;
+  margin-top: 40px;
+  margin-left: 10px ;
+}
+
+
+
+
+/*********************************** right div ******************************/
+.AllSubscribtion{
+    display: flex;
+    gap: 20px;
+    width:40%;
+    justify-content: space-between;
+   align-content: stretch;
+
+    flex-direction: column;
+    flex-wrap: nowrap;
+    margin-top: 20px;
+    margin-left: 70px;
+   
+    margin-bottom: 20px;
+    
+}
+.restaurantSubscirption{
+    font-size: small;
+    box-shadow: 4px 4px 4px 4px #989999;
+    /* border: 1px rgb(12, 12, 12) solid; */
+    width: 330px;
+    height: 150px;
+    border-radius: 5px;
+
+}
+.progress{
+    width: 200px;
+    margin-top: 6px;
+    border: solid 1px yellow;
+    margin-left: 100px;
+}
+/******************/
 .NameOfUser{
     font-size: 35px;
     /* padding-right: 350px; */
@@ -43,11 +130,6 @@
     
 }
 
-.progress{
-    width: 300px;
-    margin-top: 6px;
-    border: solid 1px yellow;
-}
 
 .details{
     font-size: 14px;
@@ -59,21 +141,19 @@
 
 }
 
-.restaurantSubscirption{
+/* .restaurantSubscirption{
     border: solid rgb(158, 158, 158) 1px;
     width: 400px;
     height: 200px;
     border-radius: 5px;
-     /* box-shadow: 1px 1px 1px 1px #e1ff38; */
+     box-shadow: 1px 1px 1px 1px #e1ff38;
      margin-top: 20px;
      display: grid
-};
+}; */
 
-.nameSub{
 
-}
 .ExpierDate{
-    font-size: 12px;
+    font-size: 15px;
     margin-top: 20px;
     padding-left: 10px;
     
@@ -91,10 +171,7 @@
 
 }
 
-.secondDetails{
-    /* background-image:   linear-gradient(to right , #474747 , #c4c4c4 , #858585); */
-    
-}
+
 
 .titleSubscription{
     position: relative;
@@ -123,12 +200,13 @@
     border-bottom: solid rgb(56, 56, 55) 2px;
     font-size: 15px;
     margin-top: 15px;
+    height: 30px;
 }
 
 .AllInputs{
     display: grid;
-    gap: 10px;
-    width: 300px;
+    gap: 5px;
+    width: 250px;
     margin: auto;
     padding-top: 10px;
 
@@ -139,13 +217,15 @@
     width: 15px;
     height: 30px;
     margin-right: auto;
+    
 }
 
 .EnterInfo{
-    font-weight: bold;
-    font-size: 13px;
+  
+    font-size: 15px;
     width: 80px;
     margin: auto;
+    color: white;
 }
 
 .inputModalDiseases{
