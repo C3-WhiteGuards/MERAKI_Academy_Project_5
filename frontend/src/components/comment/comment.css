@@ -1,12 +1,19 @@
+.commentPerant{
+    width:100%;
+    padding:30px 20px ;
+    background-color:  #F3F3F7;
+    margin-top: 100px;
+}
 .container33 {
-    width: 40%;
-    margin: 20px auto;
+    width: 60%;
+    margin: 15px auto;
     background-color: #fff;
     border-style: solid;
     border-width: 1px;
     border-color: #E3E3E3;
     border-radius: 10px;
     text-align: center;
+  
 }
 
 .form44 {
@@ -21,28 +28,28 @@
 .textareaaa {
     width: 100%;
     padding: 15px;
-    margin: 5px 0 22px 0;
+    /* margin: 5px 0 22px 0; */
     display: inline-block;
     border: none;
     background: #F3F3F7;
 }
 
 .form44 .signupbtnn {
-    background: #000000;
-    font-size: 1.2rem;
+    background-Color:#ffcd08;
+    font-Size:"16px";
     border-width: 0;
     border-radius: 3px;
-    color: white;
-    padding: 14px 20px;
+    color:black;
+    padding: 10px 15px;
     margin: 30px 0;
     border: none;
     cursor: pointer;
-    width: 100%;
+    width: 60%;
 }
 
 .clearrr {
     width: 40%;
-    margin: auto;
+    margin: 0 auto;
 }
 
 .signupbtnn:hover {
