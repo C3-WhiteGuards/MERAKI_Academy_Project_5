@@ -24,14 +24,15 @@ export const AddComment = () => {
 
   return (
     <>
+    <div className="commentPerant">
       <div className="container33">
         <div className="form44">
-          <h3> Send us a Message</h3>
+          <h4> Send us a Message</h4>
           <div className="container22">
             <textarea
               className="textareaaa"
               cols="30"
-              rows="10"
+              rows="6"
               placeholder="Write you opinion . . .
               "
               onChange={(e) => {
@@ -49,6 +50,7 @@ export const AddComment = () => {
             </div>
           </div>
         </div>
+      </div>
       </div>
     </>
   );
