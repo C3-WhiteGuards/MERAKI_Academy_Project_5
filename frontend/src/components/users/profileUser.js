@@ -8,19 +8,22 @@ import { Place, Phone, Email, Cancel } from "@mui/icons-material";
 import Modal from "react-modal";
 
 const customStyles = {
-  content: {
-    width: "800px",
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)",
-    borderRadius: "5px",
 
-    backgroundColor: "white",
-    overlay: {
-      backgroundColor: "#ffffff",
+    content: {
+        width:"500px",
+      top: "50%",
+      left: "50%",
+      right: "auto",
+      bottom: "auto",
+      marginRight: "-50%",
+      transform: "translate(-50%, -50%)",
+      borderRadius: "5px",
+     
+      backgroundColor: "white",
+        overlay: {
+          backgroundColor: "#ffffff",
+        },
+
     },
   },
 };
@@ -158,103 +161,44 @@ export const ProfileUser = () => {
         </p>
       </div>
 
-      <div className="imgAndInfo">
-        <div className="middleDiv">
-          <h4 className="NameOfUser">
-            {profile && profile.firstName + " " + profile.lastName}
-          </h4>
-          <h5 className="details2">
-            Your Weight : {profile && profile.weight} Kg
-          </h5>
-          <h5 className="details2">
-            Your Height: {profile && profile.height} cm
-          </h5>
-          <h5 className="details2">
-            Your Age : {profile && profile.age} Years
-          </h5>
-          <h5 className="details2">
-            Any Diseases History : {profile && profile.diseases}
-          </h5>
-          <Button
-            onClick={openModal}
-            variant="outline-dark"
-            className="EditInfo"
-            className="profileeeBtn"
-          >
-            {" "}
-            Edit Info{" "}
-          </Button>
-        </div>
 
-        <Modal
-          isOpen={modalIsOpen}
-          onAfterOpen={afterOpenModal}
-          onRequestClose={closeModal}
-          style={customStyles}
-          contentLabel="Example Modal"
-          ariaHideApp={false}
-        >
-          <Cancel onClick={closeModal} className="closeButton" />
-          <div className="AllInputs">
-            <label> Your Phone</label>
-            <input
-              type="number"
-              className="inputModal"
-              onChange={(e) => {
-                setPhoneNumber(e.target.value);
-              }}
-            />
-            <label> Your weiget </label>
-            <input
-              type="number"
-              className="inputModal"
-              onChange={(e) => {
-                setWeight(e.target.value);
-              }}
-            />
-            <label> Your heiget </label>
-            <input
-              type="number"
-              className="inputModal"
-              onChange={(e) => {
-                setHeight(e.target.value);
-              }}
-            />
-            <label> Your Age </label>
-            <input
-              type="number"
-              className="inputModal"
-              onChange={(e) => {
-                setAge(e.target.value);
-              }}
-            />
-            <label>Country </label>
-            <input
-              type="text"
-              className="inputModal"
-              onChange={(e) => {
-                setCountry(e.target.value);
-              }}
-            />
-            <lebel className="lebelDiseases">
-              {" "}
-              • Do you have any Diseases ?
-            </lebel>
-            <input
-              type="text"
-              className="inputModalDiseases"
-              value={profile && profile.diseases}
-              onChange={(e) => {
-                setDiseases(e.target.value);
-              }}
-            />
-            <Button
-              variant="outline-dark"
-              className="EnterInfo"
-              onClick={updateInfo}
-            >
-              Enter
-            </Button>
+      <div className="imgAndInfo" >
+      
+      <div className="middleDiv">
+      <h4 className="NameOfUser" >{profile && profile.firstName+" "+profile.lastName }</h4> 
+      <h5 className="details2">Your Weight : {profile && profile.weight} Kg</h5>
+      <h5 className="details2">Your Height: {profile && profile.height} cm</h5>
+      <h5 className="details2">Your Age : {profile && profile.age} Years</h5>
+      <h5 className="details2">Any Diseases History : {profile && profile.diseases}</h5>
+    <Button onClick={openModal} variant="outline-dark" className="EditInfo" className="profileeeBtn"> Edit Info </Button>
+    </div>
+      
+      
+      <Modal
+        isOpen={modalIsOpen}
+        onAfterOpen={afterOpenModal}
+        onRequestClose={closeModal}
+        style={customStyles}
+        contentLabel="Example Modal"
+        ariaHideApp={false}
+      >
+      <Cancel onClick={closeModal} className="closeButton"/>
+        <div className="AllInputs">
+      
+        <input type="number" className="inputModal" placeholder="Your Phone" onChange={(e)=>{setPhoneNumber(e.target.value)}}/>
+      
+        <input type="number" className="inputModal"placeholder="Weight"  onChange={(e)=>{setWeight(e.target.value)}}/>
+        
+        <input type="number" className="inputModal"placeholder="Height" onChange={(e)=>{setHeight(e.target.value)}}/>
+        
+        <input type="number" className="inputModal"placeholder="Your Age" onChange={(e)=>{setAge(e.target.value)}}/>
+        
+        <input type="text" className="inputModal"placeholder="Country" onChange={(e)=>{setCountry(e.target.value)}}/>
+        <lebel className="lebelDiseases"> • Do you have any Diseases ?</lebel>
+        <input type="text" className="inputModalDiseases" value={profile && profile.diseases} onChange={(e)=>{setDiseases(e.target.value)}} />
+        <Button  variant="outline-dark" className="EnterInfo" onClick={updateInfo}>Enter</Button>
+
+      
           </div>
         </Modal>
       </div>
