@@ -1,14 +1,14 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
-import "./profile.css";
+import './profile.css';
 import "bootstrap/dist/css/bootstrap.min.css";
-import { ProgressBar, Button, Image } from "react-bootstrap";
-import { Place, Phone, Email, Cancel } from "@mui/icons-material";
+import {ProgressBar , Button , Image } from 'react-bootstrap';
+import {Place , Phone  , Email, Cancel } from "@mui/icons-material";
 import Modal from "react-modal";
 
-const customStyles = {
 
+const customStyles = {
     content: {
         width:"500px",
       top: "50%",
@@ -23,10 +23,9 @@ const customStyles = {
         overlay: {
           backgroundColor: "#ffffff",
         },
-
     },
-  },
-};
+  };
+  
 
 export const ProfileUser = () => {
   const [profile, setProfile] = useState("");
@@ -41,7 +40,7 @@ export const ProfileUser = () => {
       })
       .then((result) => {
         setProfile(result.data[0]);
-        console.log(result.data[0]);
+        console.log("user profile",result.data[0]);
       })
       .catch((err) => {
         console.log(err);
@@ -54,50 +53,59 @@ export const ProfileUser = () => {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((result) => {
-        console.log("subRest", result.data.result[0]);
+        console.log("subRest",result.data.result[0]);
         setSubRest(result.data.result[0]);
+        
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
 
-  const [subTrainer, setSubTrainer] = useState("");
+
+  const [subTrainer , setSubTrainer] = useState("");
   useEffect(() => {
     axios
       .get("http://localhost:5000/subscribtion/TrainersSubscribtion", {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((result) => {
-        console.log("subTrainer", result.data.result[0]);
+        console.log("subTrainer",result.data.result[0]);
         setSubTrainer(result.data.result[0]);
+        
+        
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
 
-  const [subGym, setSubGym] = useState("");
+  const [subGym , setSubGym] = useState("");
   useEffect(() => {
     axios
       .get("http://localhost:5000/subscribtion/GymSubscribtions", {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((result) => {
-        console.log("subTrainer", result.data.result[0]);
+        console.log("subTrainer",result.data.result[0]);
         setSubGym(result.data.result[0]);
+        
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
 
-  function dateDiffInDays(a) {
-    const d = new Date();
-    const utc1 = Date.UTC(a.getFullYear(), a.getMonth(), a.getDate());
-    const utc2 = Date.UTC(d.getFullYear(), d.getMonth(), d.getDate());
-    return Math.abs(Math.floor((utc2 - utc1) / 86400000));
-  }
+ 
+
+
+function dateDiffInDays(a) {
+  const d = new Date();
+  const utc1 = Date.UTC(a.getFullYear(), a.getMonth(), a.getDate());
+  const utc2 = Date.UTC(d.getFullYear(), d.getMonth(), d.getDate());
+  return Math.abs(Math.floor((utc2 - utc1) / 86400000));
+}
+
 
   let subtitle;
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -116,56 +124,55 @@ export const ProfileUser = () => {
     setIsOpen(false);
   }
 
-  const [age, setAge] = useState(0);
-  const [phoneNumber, setPhoneNumber] = useState(0);
-  const [country, setCountry] = useState("");
-  const [weight, setWeight] = useState(0);
-  const [height, setHeight] = useState(0);
-  const [diseases, setDiseases] = useState("");
+  const [age , setAge] = useState(0);
+  const [phoneNumber , setPhoneNumber] = useState(0);
+  const [country , setCountry] = useState("");
+  const [weight , setWeight] = useState(0);
+  const [height , setHeight] = useState(0);
+  const [ diseases , setDiseases] = useState("");
   const history = useHistory();
+ 
+  const AllSubscribtions = [subRest , subTrainer , subGym];
 
-  const AllSubscribtions = [subRest, subTrainer, subGym];
-
-  const updateInfo = () => {
-    axios
-      .put(
-        "http://localhost:5000/users",
-        { age, phoneNumber, country, weight, height, diseases },
-        { headers: { Authorization: `Bearer: ${token}` } }
-      )
-      .then((result) => {
-        console.log(result);
-        closeModal();
-      })
-      .catch((err) => {
-        console.log("Error", err);
-      });
+  const updateInfo = () =>{
+    axios.put("http://localhost:5000/users", {age,phoneNumber,country,weight,height,diseases,}, {headers: {Authorization: `Bearer: ${token}`}} )
+    .then((result)=>{
+      console.log(result);
+      closeModal()
+      
+    }).catch((err)=>{
+      console.log("Error",err);
+    });
   };
-
-  /* style={{display:"grid" , height:"620px" , borderRadius:"5px"}} */
+    
+   /* style={{display:"grid" , height:"620px" , borderRadius:"5px"}} */
+   
 
   return (
-    <div className="userProfile">
+    <div className="userProfile" >
+      
+
+    
       <div className="leftdiv">
-        {/* <img className="imgProfile" src={profile && profile.image}/> */}
-        <img className="imgProfile" src={profile && profile.image} />
-        <p className="details">
-          <Phone className="details" /> Phone Number :{" "}
-          {profile && profile.phoneNumber}{" "}
-        </p>
-        <p className="details">
-          <Email className="details" /> Email : {profile && profile.email}
-        </p>
-        <p className="details">
-          <Place className="details" /> Country : {profile && profile.country}
-        </p>
-      </div>
+      <img className="imgProfile" src={profile && profile.image}/>
+      <h4 className="NameOfUser" >{profile && profile.firstName+" "+profile.lastName }</h4> 
+      
+     </div>
+
+
+
+
+
+
 
 
       <div className="imgAndInfo" >
       
       <div className="middleDiv">
-      <h4 className="NameOfUser" >{profile && profile.firstName+" "+profile.lastName }</h4> 
+        <h5 className="details2"><Phone className="details2" /> Phone Number : {profile && profile.phoneNumber} </h5>
+      <h5 className="details2"><Email className="details2"/> Email :  {profile && profile.email}</h5>
+      <h5 className="details2"><Place className="details2"/> Country : {profile && profile.country}</h5>
+
       <h5 className="details2">Your Weight : {profile && profile.weight} Kg</h5>
       <h5 className="details2">Your Height: {profile && profile.height} cm</h5>
       <h5 className="details2">Your Age : {profile && profile.age} Years</h5>
@@ -197,68 +204,54 @@ export const ProfileUser = () => {
         <lebel className="lebelDiseases"> • Do you have any Diseases ?</lebel>
         <input type="text" className="inputModalDiseases" value={profile && profile.diseases} onChange={(e)=>{setDiseases(e.target.value)}} />
         <Button  variant="outline-dark" className="EnterInfo" onClick={updateInfo}>Enter</Button>
-
-      
-          </div>
+        </div>
         </Modal>
-      </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
       <div className="AllSubscribtion">
-        {AllSubscribtions.map((elem, i) => {
-          console.log(elem);
-          return (
-            <>
-              {elem !== undefined ? (
-                <fieldset className="restaurantSubscirption">
-                  <legend className="titleSubscription"> </legend>
-                  <p
-                    className="nameSub"
-                    style={{ margin: "0px", padding: "0px" }}
-                  >
-                    {elem && elem.name}
-                  </p>
+        {AllSubscribtions.map((elem , i)=>{ console.log(elem);
+          return( <>
+          { elem !== undefined?( <fieldset className="restaurantSubscirption">
+            <legend className="titleSubscription">{" "} </legend>
+          <p className="nameSub" style={{margin:"0px" , padding:"0px"}}>{elem && elem.name }</p>
+           
 
-                  <div style={{ marginLeft: "20px", padding: "0px" }}>
-                    <Image
-                      src={elem && elem.image}
-                      roundedCircle
-                      style={{
-                        width: "30px",
-                        height: "30px",
-                        borderRadius: "100%",
-                      }}
-                    />
+           <div style={{marginLeft:"20px" , padding:"0px"}}> 
+            
+         <Image src={elem && elem.image} roundedCircle style={{width:"30px" , height:"30px" , borderRadius:"100%" }} />
 
-                    <ProgressBar
-                      variant="dark"
-                      animated
-                      now={
-                        3.3 *
-                        dateDiffInDays(
-                          new Date(elem && elem.date_to.slice(0, 10))
-                        )
+          <ProgressBar variant="dark" animated now={3.3*dateDiffInDays(new Date(elem&& elem.date_to.slice(0,10)))}  label={`${ dateDiffInDays(new Date(elem&& elem.date_to.slice(0,10)))} day`} className="progress" style={{marginLeft:"40px" , padding:"0px"}} />
+         
+          </div>
+          <div className="ExpierDate" style={{marginLeft:"20px"  , padding:"0px"}}> Expier Date: {elem && elem.date_to.slice(0,10)}</div>
+      </fieldset>) : (<div></div>)
+
                       }
-                      label={`${dateDiffInDays(
-                        new Date(elem && elem.date_to.slice(0, 10))
-                      )} day`}
-                      className="progress"
-                      style={{ marginLeft: "40px", padding: "0px" }}
-                    />
-                  </div>
-                  <div
-                    className="ExpierDate"
-                    style={{ marginLeft: "20px", padding: "0px" }}
-                  >
-                    {" "}
-                    Expier Date: {elem && elem.date_to.slice(0, 10)}
-                  </div>
-                </fieldset>
-              ) : (
-                <div></div>
-              )}
-            </>
-          );
-        })}
+           
+         </> )
+        })
+          }
+        
+      
       </div>
     </div>
   );

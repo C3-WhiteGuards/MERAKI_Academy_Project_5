@@ -1,7 +1,7 @@
 /********************************** main div */
-.userProfile{
+
+.userProfile {
     width: 80%;
-    height: 100%;
     display: flex;
     flex-direction: row;
     /* background-color: rgb(235, 129, 129); */
@@ -10,55 +10,55 @@
     background-color: #F1F7E7;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 5px;
-
 }
+
 /************************************* left dic */
-.leftdiv{
-    /* border: 3px yellow solid; */
-    width:20% ;
+
+.leftdiv {
+    text-align: left;
+    width: 20%;
     height: auto;
-   }
-.leftdiv .imgProfile{
-width: 200px;
-height: 200px;
-border-radius: 100%;
-margin-top: 40px;
-border: 1px rgb(12, 12, 12) solid;
-margin: 40px 30px 10px 30px;
-  
-} 
-.leftdiv details{
+}
+
+.leftdiv .imgProfile {
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+    margin-top: 40px;
+    border: 1px rgb(12, 12, 12) solid;
+    margin: 40px 30px 10px 30px;
+}
+
+/* .leftdiv details{
     text-align: left;
     font-size: 2px;
-   
+} */
 
-}
 /************************ middle div ***********************/
-.imgAndInfo{
-  
-    /* border: 3px rgb(0, 255, 21) solid; */
-    width:15%;
+
+.imgAndInfo {
+    width: 15%;
     justify-content: space-around;
     text-align: left;
-   
-    
 }
 
-.middleDiv{
+.middleDiv {
     text-align: left;
     justify-content: space-between;
     height: auto;
 }
-.middleDiv .NameOfUser{
-font-size: 30px;
-font-weight: bold;
-margin-left: 0px ;
-padding-left: 0px;
+
+.leftdiv .NameOfUser {
+    font-size: 20px;
+    margin-left: -35px;
+    padding-left: 0px;
 }
-.middleDiv .details2{
-font-size: 15px ;
+
+.middleDiv .details2 {
+    font-size: 15px;
 }
-.profileeeBtn{
+
+.profileeeBtn {
     width: 90px;
     height: 40px;
     border-radius: 3px;
@@ -68,77 +68,67 @@ font-size: 15px ;
     color: white;
     cursor: pointer;
     transition: width 1s;
-  margin-top: 40px;
-  margin-left: 10px ;
+    margin-top: 20px;
+    margin-left: 10px;
 }
 
-
-
-
 /*********************************** right div ******************************/
-.AllSubscribtion{
+
+.AllSubscribtion {
     display: flex;
     gap: 20px;
-    width:40%;
+    width: 40%;
     justify-content: space-between;
-   align-content: stretch;
-
+    align-content: stretch;
     flex-direction: column;
     flex-wrap: nowrap;
     margin-top: 20px;
     margin-left: 70px;
-   
     margin-bottom: 20px;
-    
 }
-.restaurantSubscirption{
+
+.restaurantSubscirption {
     font-size: small;
     box-shadow: 4px 4px 4px 4px #989999;
     /* border: 1px rgb(12, 12, 12) solid; */
     width: 330px;
     height: 150px;
     border-radius: 5px;
-
 }
-.progress{
+
+.progress {
     width: 200px;
     margin-top: 6px;
     border: solid 1px yellow;
     margin-left: 100px;
 }
+
 /******************/
-.NameOfUser{
+
+.NameOfUser {
     font-size: 35px;
     /* padding-right: 350px; */
     font-family: "Goudy Bookletter 1911", sans-serif;
     width: 350px;
-
-
-
 }
 
-.AllInfo{
+.AllInfo {
     display: flex;
-
-    
 }
-.imgAndInfo{
+
+.imgAndInfo {
     /* border: solid red 1px; */
     height: 400px;
     width: 50%;
     display: grid;
-    
 }
 
-
-.details{
+.details {
     font-size: 14px;
     font-weight: bold;
     font-family: "Goudy Bookletter 1911", sans-serif;
     width: 250px;
     float: left;
-
-
 }
 
 /* .restaurantSubscirption{
@@ -151,15 +141,13 @@ font-size: 15px ;
      display: grid
 }; */
 
-
-.ExpierDate{
+.ExpierDate {
     font-size: 15px;
     margin-top: 20px;
     padding-left: 10px;
-    
 }
 
-.EditInfo{
+.EditInfo {
     width: 85px;
     height: 30px;
     font-size: 10px;
@@ -167,35 +155,28 @@ font-size: 15px ;
     font-weight: bold;
     margin-left: auto;
     margin-right: 100px;
-    
-
 }
 
-
-
-.titleSubscription{
+.titleSubscription {
     position: relative;
     top: -0.8em;
     margin-left: 1em;
     display: inline;
-    background-color:white;
+    background-color: white;
     width: 80px;
     font-size: 13px;
     padding-left: 5px;
-    
 }
 
-.mainDetails{
+.mainDetails {
     display: grid;
-   text-align: left;
+    text-align: left;
     /* border: greenyellow 2px solid; */
     width: 250px;
-    
     right: auto;
-    
 }
 
-.inputModal{ 
+.inputModal {
     border-radius: 3px;
     border-bottom: solid rgb(56, 56, 55) 2px;
     font-size: 15px;
@@ -203,38 +184,32 @@ font-size: 15px ;
     height: 30px;
 }
 
-.AllInputs{
+.AllInputs {
     display: grid;
     gap: 5px;
     width: 250px;
     margin: auto;
     padding-top: 10px;
-
 }
 
-.closeButton{
-    
+.closeButton {
     width: 15px;
     height: 30px;
     margin-right: auto;
-    
 }
 
-.EnterInfo{
-  
+.EnterInfo {
     font-size: 15px;
     width: 80px;
     margin: auto;
-    
-    
 }
 
-.inputModalDiseases{
+.inputModalDiseases {
     border: solid rgb(118, 119, 116) 1px;
     border-radius: 3px;
     height: 100px;
 }
 
-.lebelDiseases{
+.lebelDiseases {
     font-size: 17px;
 }
