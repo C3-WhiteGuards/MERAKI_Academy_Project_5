@@ -19,6 +19,8 @@ export const Trainer = () => {
   }, []);
 
   return (
+    <div>
+      <p style={{fontSize:"25px",fontFamily:"monospace" }}>Here are the best coaches in various sports</p>
     <div className="AllTrainersClass">
       {trainers &&
         trainers.map((elem, i) => {
@@ -35,8 +37,10 @@ export const Trainer = () => {
               />
               <p className="nameTrainer">{elem.firstName+" "+elem.lastName}</p>
             </div>
+            
           );
         })}
+    </div>
     </div>
   );
 };
