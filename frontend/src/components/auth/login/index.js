@@ -6,7 +6,7 @@ import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setToken } from "../../../redux/action/loginToken";
 import { addToCart } from "../../../redux/action/cart";
-
+import { addSubscription } from "../../../redux/action/cart";
 export const Login = () => {
   const [email, setEmail] = useState(0);
   const [password, setPassword] = useState(0);
@@ -30,8 +30,9 @@ export const Login = () => {
         const token = res.data.token;
         localStorage.setItem("token", token);
         localStorage.setItem("savedData", JSON.stringify([]));
+        localStorage.setItem("subscription", JSON.stringify([]));
         dispatch(setToken(res.data.token));
-        console.log(res);
+        dispatch(addSubscription([]));
         dispatch(addToCart([]));
         history.push("/home");
       })

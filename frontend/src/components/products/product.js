@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import {Col,Card,Row,Button} from "react-bootstrap";
-import { useSelector,useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addToCart } from "../../redux/action/cart";
 import swal from 'sweetalert';
 export const Allproduct = () => {
   const [products, setProducts] = useState([]);
   const dispatch = useDispatch();
-  const state = useSelector((state) => {
-    return state.cart.cart;
-  }); 
+
   const all = JSON.parse(localStorage.getItem("savedData"))
    useEffect(() => {
     axios.get("http://localhost:5000/products").then((result) => {

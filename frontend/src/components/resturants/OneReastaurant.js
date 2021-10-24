@@ -3,14 +3,16 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import "./oneResturant.css";
 import swal from 'sweetalert';
-// import Payment from "../payment/payment";
-// import swal from '@sweetalert/with-react';
+import {useDispatch } from "react-redux";
+import { addSubscription } from "../../redux/action/cart";
 import Carousel from "react-bootstrap/Carousel";
 
 export const OneResturant = () => {
   const [resturant, setResturant] = useState(0);
   const token = localStorage.getItem("token");
   let restaurantId = useParams().id;
+  const dispatch = useDispatch();
+  const all = JSON.parse(localStorage.getItem("subscription"))
 
   useEffect(async () => {
     await axios
@@ -34,6 +36,9 @@ export const OneResturant = () => {
         });
       }else{
         localStorage.setItem("restaurant", JSON.stringify(elem))
+        dispatch(addSubscription(elem))
+        all.push(elem)
+        localStorage.setItem("subscription", JSON.stringify(all));
         swal({
           title: "Success !! ",
           text: "Your Food Is Healthy Now , go to your cart to Pay and Confirm your Subsicribtion ",
