@@ -87,7 +87,7 @@ export default function Register() {
           <div className="inputBox">
             <p style={{ color: "red", fontSize: "15px" }}>{message}</p>
             <p>
-              Do You have an account? <a href="/login"> Login in</a>{" "}
+              Do You have an account? <a href="/login"> Login</a>{" "}
             </p>
           </div>
           <ul className="scil"></ul>

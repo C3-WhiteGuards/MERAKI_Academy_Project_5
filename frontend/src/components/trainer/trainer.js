@@ -20,7 +20,11 @@ export const Trainer = () => {
 
   return (
     <div>
-      <p style={{fontSize:"25px",fontFamily:"monospace" }}>Here are the best coaches in various sports</p>
+        <div className="titleMain" style={{paddingTop:"50px" }}>
+          <h1> Here are professional trainers </h1>
+         
+        </div>
+      
     <div className="AllTrainersClass">
       {trainers &&
         trainers.map((elem, i) => {

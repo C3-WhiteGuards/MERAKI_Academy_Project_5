@@ -48,8 +48,8 @@ const Navigation = () => {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link href="#features"></Nav.Link>
-              <Nav.Link href="/review">Review</Nav.Link>
+            
+              <Nav.Link href="/review" style={{color:"white"}}>Review</Nav.Link>
               <NavDropdown title="Our Sections" id="collasible-nav-dropdown">
                 <NavDropdown.Item href="/AllTrainers">
                 <Link to="/AllTrainers" style={{textDecoration: "none" , color:"gray"}}>Trainers</Link>
@@ -63,9 +63,9 @@ const Navigation = () => {
               </NavDropdown>
             </Nav>
             <Nav>
-              <Nav.Link href="/home">Home</Nav.Link>
-              <Nav.Link href="/login">Login</Nav.Link>
-              <Nav.Link eventKey={2} href="/register">
+              <Nav.Link href="/home"  style={{color:"white"}}>Home</Nav.Link>
+              <Nav.Link href="/login"  style={{color:"white"}}>Login</Nav.Link>
+              <Nav.Link eventKey={2} href="/register"  style={{color:"white"}}>
                 Register
               </Nav.Link>
             </Nav>
@@ -81,9 +81,8 @@ const Navigation = () => {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link href="#features"></Nav.Link>
-
-              <Nav.Link href="/review">Review</Nav.Link>
+              
+              <Nav.Link href="/review"  style={{color:"white"}}>Review</Nav.Link>
               <NavDropdown title="Our Sections" id="collasible-nav-dropdown">
                 <NavDropdown.Item href="/AllTrainers">
                 <Link to="/AllTrainers" style={{textDecoration: "none", color:"gray" }}>Trainers</Link>
@@ -97,10 +96,10 @@ const Navigation = () => {
               </NavDropdown>
             </Nav>
             <Nav>
-              <Nav.Link href="/home" color="#FFF">Home</Nav.Link>
-              <Nav.Link href="/profile"><div className = "linkText">Profile</div></Nav.Link>
-              <Nav.Link href="/logout">Logout</Nav.Link>
-              <Nav.Link href="/cart">Cart<MdAddShoppingCart size="1.5em" color="#87898f"/></Nav.Link>
+              <Nav.Link href="/home" style={{color:"white"}}>Home</Nav.Link>
+              <Nav.Link href="/profile"  style={{color:"white"}}><div className = "linkText">Profile</div></Nav.Link>
+              <Nav.Link href="/logout"  style={{color:"white"}}>Logout</Nav.Link>
+              <Nav.Link href="/cart"  style={{color:"white"}}> Cart <MdAddShoppingCart size="1.2em" color="white"/></Nav.Link>
             </Nav>
            
           </Navbar.Collapse>
