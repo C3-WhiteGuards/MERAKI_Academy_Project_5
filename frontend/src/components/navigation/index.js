@@ -10,6 +10,7 @@ import Container from "react-bootstrap/Container";
 import Image from "react-bootstrap/Image";
 import axios from "axios";
 import { useHistory } from "react-router";
+import { MdAddShoppingCart } from "react-icons/md";
 
 const Navigation = () => {
   const state =useSelector((state) => {
@@ -96,11 +97,11 @@ const Navigation = () => {
               </NavDropdown>
             </Nav>
             <Nav>
+              <Nav.Link href="/home" color="#FFF">Home</Nav.Link>
+              <Nav.Link href="/profile"><div className = "linkText">Profile</div></Nav.Link>
               <Nav.Link href="/logout">Logout</Nav.Link>
-              <Nav.Link href="/profile">Profile</Nav.Link>
-              <Nav.Link href="/home">Home</Nav.Link>
+              <Nav.Link href="/cart">Cart<MdAddShoppingCart size="1.5em" color="#87898f"/></Nav.Link>
             </Nav>
-           
            
           </Navbar.Collapse>
           {console.log("Rashed",imageUser)}

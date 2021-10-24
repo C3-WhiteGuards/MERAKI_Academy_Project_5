@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import {Col,Card,Row,Button} from "react-bootstrap";
-import { useSelector,useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addToCart } from "../../redux/action/cart";
 import swal from 'sweetalert';
 export const Allproduct = () => {
   const [products, setProducts] = useState([]);
   const dispatch = useDispatch();
-  const state = useSelector((state) => {
-    return state.cart.cart;
-  }); 
+
   const all = JSON.parse(localStorage.getItem("savedData"))
    useEffect(() => {
     axios.get("http://localhost:5000/products").then((result) => {
@@ -19,26 +17,28 @@ export const Allproduct = () => {
 
   return (
     <div className="container">
-      <h3 className="center">Our items</h3>
-     
+      <div className="titleMain" style={{paddingTop:"50px" , paddingBottom:"50px"}}>
+          <h1 >OUR PRODUCTS </h1>
+         
+        </div>
     
       <Row xs={1} md={3} className="g-4">
       {products &&
         products.map((item, index) => {
           return (
               <Col key={item.id}>
-                <Card>
-                  <Card.Img variant="top" src={item.image}  height="350px"
-                  width="350px" />
+                <Card  style={{textAlign:"left" , width:"90%" , height:"100%"}}>
+                  <Card.Img variant="top" src={item.image}  height="200px"
+                  width="200px" />
                   <Card.Body>
-                    <Card.Title>{item.name}</Card.Title>
-                    <Card.Text>
+                    <Card.Title style={{fontSize:"18px"}}>{item.name}</Card.Title>
+                    <Card.Text  style={{fontSize:"13px"}}>
                       {item.description}
                     </Card.Text>
-                    <Card.Text>
-                     Prics:{item.price}$
+                    <Card.Text  style={{fontSize:"16px"}}>
+                     Price: {item.price} $
                     </Card.Text>
-                    <Button variant="primary" onClick={()=>{
+                    <Button style={{ width: "40%" , fontSize:"16px" , backgroundColor:"#ffcd08" , color:"black" , border:"none" , fontSize:"13px"}} variant="primary" onClick={()=>{
                       dispatch(addToCart(item))
                       all.push(item)
                       localStorage.setItem("savedData", JSON.stringify(all));

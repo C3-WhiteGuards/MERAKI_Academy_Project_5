@@ -7,10 +7,32 @@ import Phone from "@mui/icons-material/Phone";
 import SportsScore from "@mui/icons-material/SportsScore";
 import StarBorder from "@mui/icons-material/StarBorder";
 import swal from 'sweetalert';
+import {useDispatch } from "react-redux";
+import { addSubscription } from "../../redux/action/cart";
+
 export const OneTrainer = () => {
   const [trainer, setTrainer] = useState(0);
   const token = localStorage.getItem("token");
   let trainerId = useParams().id;
+  const dispatch = useDispatch();
+  const all = JSON.parse(localStorage.getItem("subscription"))
+
+  const sendText = async () => {
+    const recipient="+962796507231"
+    const textmessage= "Success"
+   await axios.get("http://localhost:5000/sendMsg", {
+        recipient,
+        textmessage,
+      })
+      .then((res) => {
+       console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+        
+      });
+  };
+
 
   useEffect(async () => {
     await axios
@@ -24,25 +46,27 @@ export const OneTrainer = () => {
       });
   }, []);
 
-  const addSubsecribtionTrainer = async () => {
-    await axios
-      .post(
-        `http://localhost:5000/subscribtion/trainer`,
-        { trainerId },
-        { headers: { Authorization: `Bearer ${token}` } }
-      )
-      .then((result) => {
-        swal({
-          title: "Congratulations !! ",
-          text: "You Now Have The Perfect Personal Trainer  !! \n  Go To Your Cart To Confirm Your Subsicribtion ",
-          icon: "success",
-          button: "OK",
-        });
-        console.log(result);
-      })
-      .catch((err) => {
-        console.log(err);
+  const addSubsecribtionTrainer = async (elem) => {
+    if(localStorage.getItem("trainer") !== null ){
+      swal({
+        title: "You cant subsicribe with more than one trainer",
+        text: "go to your cart if you want to replace you subsicribtion  ",
+        icon: "error",
+        button: "OK",
       });
+    }else{
+       //sendText()
+      localStorage.setItem("trainer", JSON.stringify(elem))
+      dispatch(addSubscription(elem))
+      all.push(elem)
+      localStorage.setItem("subscription", JSON.stringify(all));
+      swal({
+        title: "Success !! ",
+        text: "You Now Have The Perfect Personal Trainer  !! \n  Go To Your Cart To Pay and Confirm Your Subsicribtion ",
+        icon: "success",
+        button: "OK",
+      });
+    }
   };
 
   return (
@@ -105,7 +129,9 @@ export const OneTrainer = () => {
         </h2>
         <div className="pt-bio">
           <p className="prgTra">{trainer && trainer[0].description}</p>
-          <button className="btnTrainner" onClick={addSubsecribtionTrainer}> Subscribe Now </button>
+          <button className="btnTrainner" onClick={()=>{
+            addSubsecribtionTrainer(trainer && trainer[0])
+          }}> Subscribe Now </button>
         </div>
       </div>
     </div>

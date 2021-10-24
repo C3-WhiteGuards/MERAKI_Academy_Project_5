@@ -53,7 +53,7 @@ export const Review = () => {
                   />
                   </div>
                   <div className="inforReview">
-                   <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" />
+                   <img src={element.image} />
                 <h5>{element.firstName}</h5>
                   <h5>{element.comment}</h5>
                   </div>

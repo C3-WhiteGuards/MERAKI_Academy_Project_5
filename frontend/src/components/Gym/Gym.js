@@ -2,45 +2,46 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./Gym.css";
 import swal from "sweetalert";
+import {useDispatch } from "react-redux";
+import { addSubscription } from "../../redux/action/cart";
 export const Gym = () => {
   const [allgyms, setAllGyms] = useState([]);
-  const userId = localStorage.getItem("userId");
-  let gymId = "";
   const token = localStorage.getItem("token");
+  const dispatch = useDispatch();
+  const all = JSON.parse(localStorage.getItem("subscription"))
+
 
   useEffect(() => {
     axios
       .get("http://localhost:5000/gym")
       .then((res) => {
-        console.log(res.data);
         setAllGyms([...res.data.result]);
-        gymId = res.data.result;
-        console.log(allgyms);
       })
       .catch((error) => {
         console.log(error.response);
       });
   }, []);
 
-  const addSubsGym = async (gymId) => {
-    await axios
-      .post(
-        `http://localhost:5000/subscribtion/gym`,
-        { gymId },
-        { headers: { Authorization: `Bearer ${token}` } }
-      )
-      .then((result) => {
-        swal({
-          title: "Congratulations !! ",
-          text: "  Your Fitness Home Is Here !! \n Go To Your Cart To Confirm Your Subsicribtion ",
-          icon: "success",
-          button: "OK",
-        });
-        console.log(result);
-      })
-      .catch((error) => {
-        console.log(error.response.data);
-      });
+  const addSubsGym = (element) => {
+        if(localStorage.getItem("gym") !== null ){
+          swal({
+            title: "You cant subsicribe in more than one gym",
+            text: "go to your cart if you want to replace you subsicribtion  ",
+            icon: "error",
+            button: "OK",
+          });
+        }else{
+          localStorage.setItem("gym",JSON.stringify(element))
+          dispatch(addSubscription(element))
+          all.push(element)
+          localStorage.setItem("subscription", JSON.stringify(all));
+          swal({
+            title: "Success !! ",
+            text: "  Your Fitness Home Is Here !! \n Go To Your Cart To Pay and Confirm Your Subsicribtion ",
+            icon: "success",
+            button: "OK",
+          });
+        }
   };
 
   return (
@@ -48,6 +49,7 @@ export const Gym = () => {
       {allgyms &&
         allgyms.map((element, index) => {
           return (
+
             <>
               {index % 2 == 0 ? (
                 <div key={index} className="OneGym">
@@ -74,7 +76,7 @@ export const Gym = () => {
                     <button
                       className="subscribeBtn"
                       onClick={() => {
-                        addSubsGym(element.id);
+                        addSubsGym(element);
                       }}
                     >
                       Subscribe Now
@@ -105,7 +107,7 @@ export const Gym = () => {
                     <button
                       className="subscribeBtn"
                       onClick={() => {
-                        addSubsGym(element.id);
+                        addSubsGym(element);
                       }}
                     >
                       Subscribe Now
@@ -116,6 +118,7 @@ export const Gym = () => {
                 </div>
               )}
             </>
+
           );
         })}
     </div>
