@@ -1,25 +1,37 @@
-const intialToken = {
+const intialCart = {
   items: JSON.parse(localStorage.getItem("savedData")) || [],
-  total: 0,
+  subscription : JSON.parse(localStorage.getItem("subscription")) || [],
 };
 
-const cart = (state = intialToken, { type, payload }) => {
+const cart = (state = intialCart, { type, payload }) => {
   switch (type) {
     case "ADD_TO_CART":
       return {
         items: [...state.items, payload],
-        total: state.total + payload.price,
+        
       };
 
     case "REMOVE_ITEM":
-      let itemToRemove = state.items.find((item) => payload === item.id);
       let new_items = state.items.filter((item) => payload !== item.id);
       localStorage.setItem("savedData", JSON.stringify([...new_items]));
-      let newTotal = state.total - itemToRemove.price;
       return {
         items: [...new_items],
-        total: newTotal,
+        
       };
+
+      case "ADD_TO_SUBSCRIPTION":
+        return {
+          subscription: [...state.subscription, payload],
+          
+        };
+
+      case "REMOVE_SUBSCRIPTION":
+        let new_subscription = state.subscription.filter((subscription) => payload !== subscription.provider);
+        localStorage.setItem("subscription", JSON.stringify([...new_subscription]));
+        return {
+          subscription: [...new_subscription],
+          
+        };
 
     default:
       return state;
