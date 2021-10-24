@@ -103,9 +103,10 @@ function dateDiffInDays(a) {
   const d = new Date();
   const utc1 = Date.UTC(a.getFullYear(), a.getMonth(), a.getDate());
   const utc2 = Date.UTC(d.getFullYear(), d.getMonth(), d.getDate());
+  console.log(utc2/86400000 - utc1/86400000 , "ust");
   return Math.abs(Math.floor((utc2 - utc1) / 86400000));
 }
-
+//dateDiffInDays(new Date(elem&& elem.date_to.slice(0,10)))
 
   let subtitle;
   const [modalIsOpen, setIsOpen] = useState(false);
