@@ -22,25 +22,23 @@ export const Gym = () => {
       });
   }, []);
 
-  const addSubsGym = async (gymId) => {
-    await axios
-      .post(
-        `http://localhost:5000/subscribtion/gym`,
-        { gymId },
-        { headers: { Authorization: `Bearer ${token}` } }
-      )
-      .then((result) => {
-        swal({
-          title: "Congratulations !! ",
-          text: "  Your Fitness Home Is Here !! \n Go To Your Cart To Confirm Your Subsicribtion ",
-          icon: "success",
-          button: "OK",
-        });
-        console.log(result);
-      })
-      .catch((error) => {
-        console.log(error.response.data);
-      });
+  const addSubsGym = async (element) => {
+        if(localStorage.getItem("gym") !== null ){
+          swal({
+            title: "You cant subsicribe in more than one gym",
+            text: "go to your cart if you want to replace you subsicribtion  ",
+            icon: "error",
+            button: "OK",
+          });
+        }else{
+          localStorage.setItem("gym",JSON.stringify(element))
+          swal({
+            title: "Success !! ",
+            text: "  Your Fitness Home Is Here !! \n Go To Your Cart To Pay and Confirm Your Subsicribtion ",
+            icon: "success",
+            button: "OK",
+          });
+        }
   };
 
   return (
@@ -48,6 +46,7 @@ export const Gym = () => {
       {allgyms &&
         allgyms.map((element, index) => {
           return (
+
             <>
               {index % 2 == 0 ? (
                 <div key={index} className="OneGym">
@@ -105,7 +104,7 @@ export const Gym = () => {
                     <button
                       className="subscribeBtn"
                       onClick={() => {
-                        addSubsGym(element.id);
+                        addSubsGym(element);
                       }}
                     >
                       Subscribe Now
@@ -116,6 +115,7 @@ export const Gym = () => {
                 </div>
               )}
             </>
+
           );
         })}
     </div>

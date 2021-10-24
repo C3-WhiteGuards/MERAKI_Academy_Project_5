@@ -24,30 +24,25 @@ export const OneResturant = () => {
       });
   }, []);
 
-  const addSubsecRestaurant = async () => {
-    await axios
-      .post(
-        `http://localhost:5000/subscribtion/rest
- `,
-        { restaurantId },
-        { headers: { Authorization: `Bearer ${token}` } }
-      )
-      .then((result) => {
+  const addSubsecRestaurant = async (elem) => {
+   if(localStorage.getItem("restaurant") !== null ){
         swal({
-          title: "Congratulations !! ",
-          text: "Your Food Is Healthy Now , go to your cart to confirm your subsicribtion ",
+          title: "You cant subsicribe in more than one restaurant",
+          text: "go to your cart if you want to replace you subsicribtion  ",
+          icon: "error",
+          button: "OK",
+        });
+      }else{
+        localStorage.setItem("restaurant", JSON.stringify(elem))
+        swal({
+          title: "Success !! ",
+          text: "Your Food Is Healthy Now , go to your cart to Pay and Confirm your Subsicribtion ",
           icon: "success",
           button: "OK",
         });
-        // swal(<div>
-        //   <Payment/>
-        // </div>)
-        console.log(result);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+      }
+       
+  }
 
   return (
     <div className="parent_div">
@@ -115,7 +110,9 @@ export const OneResturant = () => {
               Resturant Rate : {resturant && resturant[0].rate}
             </li>
 
-            <button className="resButton" onClick={addSubsecRestaurant}>Subscribe Now </button>
+            <button className="resButton" onClick={()=>{
+              addSubsecRestaurant(resturant && resturant[0])
+            }}>Subscribe Now </button>
     
 
           </ul>

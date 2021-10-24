@@ -14,6 +14,8 @@ const registerRouter = require("./routers/routes/auth/signUp");
 const loginRouter = require("./routers/routes/auth/login");
 const usersRouter = require("./routers/routes/users");
 const cartRouter = require("./routers/routes/cart");
+
+
 app.use(express.json());
 
 app.use(cors());
