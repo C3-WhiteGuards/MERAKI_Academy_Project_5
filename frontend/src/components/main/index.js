@@ -18,11 +18,11 @@ const Main = () => {
         <div className="landText">
           <h2 className="h2_Main">
             WELCOME TO - <br />
-            MegaLodon
+            MEGALODON
           </h2>
           <p className="pMain">
-            We have made the most advanced, constumizable and sport theme in the
-            world.
+            We’re excited to have you on board! You’ve taken the first step
+            towards achieving your fitness goals
           </p>
           <button
             className="button"
@@ -45,8 +45,6 @@ const Main = () => {
         </div>
       </div>
 
-   
-     
       {/* ////////                service section       /////////// */}
       <div className="featuresMain">
         <div className="titleMain">
@@ -62,8 +60,8 @@ const Main = () => {
             <img src="/icon-1.png" alt="" />
             <h5>QUALITY EQUIPMENT</h5>
             <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. expedita
-              voluptatum, ipsum sit dolor exercitationem temporibus qui!
+              You won’t find any better one-hour fitness workout. You will lose
+              fat while also building lean muscle .
             </p>
           </div>
           <div className="featMain">
@@ -71,44 +69,52 @@ const Main = () => {
 
             <h5>UNIQUE TO YOUR NEEDS</h5>
             <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. expedita
-              voluptatum, ipsum sit dolor exercitationem temporibus qui!
+              Sport can help us feel fitter, healthier and mentally strong, and
+              that is just the start of it. Sport can also be fun, especially
+              when played as part of a team or with family or friends
             </p>
           </div>
           <div className="featMain">
             <img src="/icon-3.png" />
             <h5>HEALTHY NUTRITION PLAN</h5>
             <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. expedita
-              voluptatum, ipsum sit dolor exercitationem temporibus qui!
+              Eating a variety of foods and consuming less salt, sugars and
+              saturated and industrially-produced trans-fats, are essential for
+              healthy diet.
             </p>
           </div>
         </div>
       </div>
       <div className="Main-text-center">
         <div className="container">
-        <div className="titleMain">
-          <h1 >OUR SECTIONS </h1>
-         
-        </div>
-          <div className="row" style={{marginTop:"50px"}}>
+          <div className="titleMain">
+            <h1>OUR SECTIONS </h1>
+          </div>
+          <div className="row" style={{ marginTop: "50px" }}>
             <div className="col-md-4 col-sm-12">
-              <Card className="cardS"  style={{textAlign:"left" }}>
+              <Card className="cardS" style={{ textAlign: "left" }}>
                 <Card.Img
                   variant="top"
-                  src="https://d1nigvtzsvfzyx.cloudfront.net/store/amenity/075cda3f435bc205f9a7-xs.png"
+                  src="https://www.britishclub.org.sg/wp-content/uploads/2020/12/WB_PT.jpg"
                   height="250px"
                   width="350px"
                 />
                 <Card.Body>
                   <Card.Title>Trainers</Card.Title>
-                  <Card.Text  style={{fontSize:"16px"}}>
+                  <Card.Text style={{ fontSize: "16px" }}>
                     Being educated while exercising is essential in maximizing
                     effectiveness and reducing risk of injury. A personal
-                    trainer will teach you everything .
+                    trainer will teach you everything . join us now and be
+                    amember of us !
                   </Card.Text>
                   <Button
-                     style={{ width: "60%" , fontSize:"16px" , backgroundColor:"#ffcd08" , color:"black" , border:"none" }}
+                    style={{
+                      width: "60%",
+                      fontSize: "16px",
+                      backgroundColor: "#ffcd08",
+                      color: "black",
+                      border: "none",
+                    }}
                     variant="dark"
                     onClick={() => history.push("/AllTrainers")}
                   >
@@ -119,23 +125,28 @@ const Main = () => {
             </div>
 
             <div className="col-md-4 col-sm-12">
-              <Card className="cardS"   style={{textAlign:"left"}}>
+              <Card className="cardS" style={{ textAlign: "left" }}>
                 <Card.Img
                   variant="top"
                   src="https://cdn.vox-cdn.com/thumbor/BBzIzBTtIXF1HG_5Lm7BvMkPNXk=/0x0:960x673/1200x900/filters:focal(404x261:556x413)/cdn.vox-cdn.com/uploads/chorus_image/image/62771444/realgood_stuff.1546466894.jpg"
                   height="250px"
                   width="350px"
-                
                 />
                 <Card.Body>
                   <Card.Title>Restaurants</Card.Title>
-                  <Card.Text  style={{fontSize:"16px"}}>
+                  <Card.Text style={{ fontSize: "16px" }}>
                     The food you eat can eather be either the safest and most
                     powerful form of midicine OR the slowest form of poison Dont
                     forget that health needs healthy food
                   </Card.Text>
                   <Button
-                    style={{ width: "60%" , fontSize:"16px" , backgroundColor:"#ffcd08" , color:"black" , border:"none" }}
+                    style={{
+                      width: "60%",
+                      fontSize: "16px",
+                      backgroundColor: "#ffcd08",
+                      color: "black",
+                      border: "none",
+                    }}
                     variant="dark"
                     onClick={() => history.push("/AllRestaurnats")}
                   >
@@ -146,22 +157,28 @@ const Main = () => {
             </div>
 
             <div className="col-md-4 col-sm-12">
-              <Card className="cardS"  style={{textAlign:"left"}}>
+              <Card className="cardS" style={{ textAlign: "left" }}>
                 <Card.Img
                   variant="top"
-                  src="https://wiselivingmagazine.co.uk/wp-content/uploads/2018/11/gyms-near-me-how-to-find-the-best-gym-widescreen.jpg"
+                  src="https://www.raffles.com/assets/0/72/1930/1931/1945/c2ffca4f-123c-4907-81c9-13bb8a859540.jpg"
                   height="250px"
                   width="350px"
                 />
                 <Card.Body>
                   <Card.Title>Gyms</Card.Title>
-                  <Card.Text  style={{fontSize:"16px"}}>
+                  <Card.Text style={{ fontSize: "16px" }}>
                     Joining a gym can help you stay motivated to exercise
                     consistently. This is a great way to build muscle, lose
                     weight, lower blood pressure, boost mental focus, and more .
                   </Card.Text>
                   <Button
-                     style={{ width: "60%" , fontSize:"16px" , backgroundColor:"#ffcd08" , color:"black" , border:"none" }}
+                    style={{
+                      width: "60%",
+                      fontSize: "16px",
+                      backgroundColor: "#ffcd08",
+                      color: "black",
+                      border: "none",
+                    }}
                     variant="dark"
                     onClick={() => history.push("/ALLGyms")}
                   >

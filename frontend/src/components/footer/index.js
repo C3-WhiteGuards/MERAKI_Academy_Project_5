@@ -22,7 +22,7 @@ export const Footer = () => {
             </h4>
             <ul>
               <li>
-                <a href="">About us</a>
+                <a href="">our location</a>
               </li>
 
               <li>

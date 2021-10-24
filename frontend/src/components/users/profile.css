@@ -1,215 +1,198 @@
-/********************************** main div */
-
 .userProfile {
-    width: 80%;
-    display: flex;
-    flex-direction: row;
-    /* background-color: rgb(235, 129, 129); */
-    margin: auto;
-    margin-top: 20px;
-    background-color: #F1F7E7;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    border-radius: 5px;
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  margin-top: 20px;
+  background-color: #f1f7e7;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 5px;
+  margin-bottom: 50px;
 }
 
-/************************************* left dic */
-
 .leftdiv {
-    text-align: left;
-    width: 20%;
-    height: auto;
+  text-align: left;
+  width: 20%;
 }
 
 .leftdiv .imgProfile {
-    width: 200px;
-    height: 200px;
-    border-radius: 100%;
-    margin-top: 40px;
-    border: 1px rgb(12, 12, 12) solid;
-    margin: 40px 30px 10px 30px;
+  width: 200px;
+  height: 200px;
+  border-radius: 100%;
+  margin-top: 40px;
+  border: 1px rgb(12, 12, 12) solid;
+  margin: 40px 30px 10px 30px;
 }
 
-/* .leftdiv details{
-    text-align: left;
-    font-size: 2px;
-} */
-
-/************************ middle div ***********************/
-
 .imgAndInfo {
-    width: 15%;
-    justify-content: space-around;
-    text-align: left;
+  width: 15%;
+  justify-content: space-around;
+  text-align: left;
 }
 
 .middleDiv {
-    text-align: left;
-    justify-content: space-between;
-    height: auto;
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+  text-align: left;
+  justify-content: space-between;
+  margin: auto;
+  gap: 5px;
 }
 
 .leftdiv .NameOfUser {
-    font-size: 20px;
-    margin-left: -35px;
-    padding-left: 0px;
+  font-size: 20px;
+  margin-left: -40px;
+  padding-left: 0px;
 }
 
 .middleDiv .details2 {
-    font-size: 15px;
+  font-size: 15px;
+  padding-top: 30px;
 }
 
 .profileeeBtn {
-    width: 90px;
-    height: 40px;
-    border-radius: 3px;
-    background: black;
-    margin-top: 20px;
-    font-size: 15px;
-    color: white;
-    cursor: pointer;
-    transition: width 1s;
-    margin-top: 20px;
-    margin-left: 10px;
+  width: 90px;
+  height: 40px;
+  border-radius: 3px;
+  background: black;
+  margin-top: 20px;
+  font-size: 15px;
+  color: white;
+  cursor: pointer;
+  transition: width 1s;
+  margin-top: 10px;
+  margin-left: 5px;
 }
 
-/*********************************** right div ******************************/
-
 .AllSubscribtion {
-    display: flex;
-    gap: 20px;
-    width: 40%;
-    justify-content: space-between;
-    align-content: stretch;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    margin-top: 20px;
-    margin-left: 70px;
-    margin-bottom: 20px;
+  display: flex;
+  gap: 20px;
+  width: 35%;
+  justify-content: space-between;
+  align-content: stretch;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  margin-top: 20px;
+  margin-left: 70px;
+  margin-bottom: 20px;
 }
 
 .restaurantSubscirption {
-    font-size: small;
-    box-shadow: 4px 4px 4px 4px #989999;
-    /* border: 1px rgb(12, 12, 12) solid; */
-    width: 330px;
-    height: 150px;
-    border-radius: 5px;
+  box-shadow: 4px 4px 4px 4px #989999;
+  width: 300px;
+  height: 150px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-content: stretch;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  font-size: 15px;
+  margin: auto 10px;
+  gap: 10px;
+  text-align: center;
 }
 
 .progress {
-    width: 200px;
-    margin-top: 6px;
-    border: solid 1px yellow;
-    margin-left: 100px;
+  width: 150px;
+  border: solid 1px yellow;
 }
 
-/******************/
-
 .NameOfUser {
-    font-size: 35px;
-    /* padding-right: 350px; */
-    font-family: "Goudy Bookletter 1911", sans-serif;
-    width: 350px;
+  font-size: 35px;
+
+  font-family: "Goudy Bookletter 1911", sans-serif;
+  width: 350px;
 }
 
 .AllInfo {
-    display: flex;
+  display: flex;
 }
 
 .imgAndInfo {
-    /* border: solid red 1px; */
-    height: 400px;
-    width: 50%;
-    display: grid;
+  height: 400px;
+  width: 50%;
+  display: grid;
 }
 
 .details {
-    font-size: 14px;
-    font-weight: bold;
-    font-family: "Goudy Bookletter 1911", sans-serif;
-    width: 250px;
-    float: left;
+  font-size: 14px;
+  font-weight: bold;
+  font-family: "Goudy Bookletter 1911", sans-serif;
+  width: 250px;
+  float: left;
 }
 
-/* .restaurantSubscirption{
-    border: solid rgb(158, 158, 158) 1px;
-    width: 400px;
-    height: 200px;
-    border-radius: 5px;
-     box-shadow: 1px 1px 1px 1px #e1ff38;
-     margin-top: 20px;
-     display: grid
-}; */
-
 .ExpierDate {
-    font-size: 15px;
-    margin-top: 20px;
-    padding-left: 10px;
+  font-size: 15px;
+  margin-top: 20px;
+  padding-left: 10px;
 }
 
 .EditInfo {
-    width: 85px;
-    height: 30px;
-    font-size: 10px;
-    /* margin-top: 130px; */
-    font-weight: bold;
-    margin-left: auto;
-    margin-right: 100px;
+  width: 85px;
+  height: 30px;
+  font-size: 10px;
+
+  font-weight: bold;
+  margin-left: auto;
+  margin-right: 100px;
 }
 
 .titleSubscription {
-    position: relative;
-    top: -0.8em;
-    margin-left: 1em;
-    display: inline;
-    background-color: white;
-    width: 80px;
-    font-size: 13px;
-    padding-left: 5px;
+  position: relative;
+  top: -0.8em;
+  margin-left: 1em;
+  display: inline;
+  background-color: white;
+  width: 80px;
+  font-size: 13px;
+  padding-left: 5px;
 }
 
 .mainDetails {
-    display: grid;
-    text-align: left;
-    /* border: greenyellow 2px solid; */
-    width: 250px;
-    right: auto;
+  display: grid;
+  text-align: left;
+
+  width: 250px;
+  right: auto;
 }
 
 .inputModal {
-    border-radius: 3px;
-    border-bottom: solid rgb(56, 56, 55) 2px;
-    font-size: 15px;
-    margin-top: 15px;
-    height: 30px;
+  border-radius: 3px;
+  border-bottom: solid rgb(56, 56, 55) 2px;
+  font-size: 15px;
+  margin-top: 15px;
+  height: 30px;
 }
 
 .AllInputs {
-    display: grid;
-    gap: 5px;
-    width: 250px;
-    margin: auto;
-    padding-top: 10px;
+  display: grid;
+  gap: 5px;
+  width: 250px;
+  margin: auto;
+  padding-top: 10px;
 }
 
 .closeButton {
-    width: 15px;
-    height: 30px;
-    margin-right: auto;
+  width: 15px;
+  height: 30px;
+  margin-right: auto;
 }
 
 .EnterInfo {
-    font-size: 15px;
-    width: 80px;
-    margin: auto;
+  font-size: 15px;
+  width: 80px;
+  margin: auto;
 }
 
 .inputModalDiseases {
-    border: solid rgb(118, 119, 116) 1px;
-    border-radius: 3px;
-    height: 100px;
+  border: solid rgb(118, 119, 116) 1px;
+  border-radius: 3px;
+  height: 100px;
 }
 
 .lebelDiseases {
-    font-size: 17px;
+  font-size: 17px;
 }

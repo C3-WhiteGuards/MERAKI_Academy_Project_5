@@ -1,3 +1,6 @@
+.big-div{
+  margin-bottom: 520px ;
+}
 .col-xs-12 {
   float: right;
   position: relative;
@@ -149,17 +152,31 @@
   font-size: 23px;
 }
 .btnTrainner {
-  width: 140px;
+
+  border-radius: 30px;
+background-color: black;
+border: none;
+color: #ffffff;
+padding: 15px 25px;
+font-size: 16px;
+
+width: 180px;
+font-weight: 800;
+margin-right: 10px;
+  /* width: 140px;
   height: 40px;
   border-radius: 5px;
   background: linear-gradient(255deg,#3906f3,#0326662d);
   margin-top: 50px;
   margin-left: 30px;
-  color: white;
+  color: white; */
 }
 
 .btnTrainner:hover{ 
-  background: linear-gradient(255deg,#167e5b,#01461e2d);
+  cursor: pointer;
+  background-color:#ffcd08;
+  color: black;
+  border: none;
 }
 .list--gym-address a{
   color: black;
