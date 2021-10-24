@@ -2,7 +2,7 @@
   float: right;
   position: relative;
   right: 115px;
-  top: 86px;
+  top: 60px;
 }
 
 .pt-bio {
@@ -62,7 +62,7 @@
 .heading {
   position: absolute;
   left: 25px;
-  bottom: 75%;
+  bottom: 85%;
   font-size: 30px;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
@@ -87,13 +87,13 @@
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   font-weight: bold;
   position: relative;
-  bottom: 58px;
+  bottom: 30px;
   left: 30px;
 }
 
 .list-experience {
   position: relative;
-  bottom: 68px;
+  bottom: 41px;
   left: 30px;
   padding: 0px;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
@@ -117,31 +117,32 @@
 
 .location-Class {
   position: relative;
-  top: 32px;
+  top: 25px;
   right: 42px;
 }
 
 .phon-Class {
   position: relative;
-  top: 34px;
+  top: 25px;
   right: 40px;
 }
 
 .list__phon {
   position: relative;
-  bottom: 50px;
+  bottom: 18px;
+  left: 30px;
   font-weight: bold;
 }
 
 .Sports-Score-Class {
   position: relative;
-  top: 34px;
+  top: 27px;
   right: 40px;
 }
 
 .StarBorder-Class {
   position: relative;
-  top: 32px;
+  top: 25px;
   right: 42px;
 }
 .gym-block-bottm h3 {

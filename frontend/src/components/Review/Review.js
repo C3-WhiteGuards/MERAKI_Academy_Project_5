@@ -49,11 +49,11 @@ export const Review = () => {
                    <div className="imgReview">
                   <img 
                    
-                    src="https://www.pngall.com/wp-content/uploads/2018/04/Gym-Free-Download-PNG.png"
+                    src="https://www.pngall.com/wp-content/uploads/2018/04/Gym-Free-Download-PNG.png" 
                   />
                   </div>
                   <div className="inforReview">
-                   <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" />
+                   <img src={element.image} />
                 <h5>{element.firstName}</h5>
                   <h5>{element.comment}</h5>
                   </div>

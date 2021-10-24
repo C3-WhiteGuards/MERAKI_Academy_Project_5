@@ -10,7 +10,7 @@ import Modal from "react-modal";
 
 const customStyles = {
     content: {
-        width:"400px",
+        width:"500px",
       top: "50%",
       left: "50%",
       right: "auto",
@@ -18,6 +18,7 @@ const customStyles = {
       marginRight: "-50%",
       transform: "translate(-50%, -50%)",
       borderRadius: "5px",
+     
       backgroundColor: "white",
         overlay: {
           backgroundColor: "#ffffff",
@@ -39,7 +40,7 @@ export const ProfileUser = () => {
       })
       .then((result) => {
         setProfile(result.data[0]);
-        console.log(result.data[0]);
+        console.log("user profile",result.data[0]);
       })
       .catch((err) => {
         console.log(err);
@@ -144,36 +145,40 @@ function dateDiffInDays(a) {
     });
   };
     
-   
+   /* style={{display:"grid" , height:"620px" , borderRadius:"5px"}} */
    
 
   return (
     <div className="userProfile" >
       
-      <div style={{display:"grid" , height:"620px" , borderRadius:"5px"}}>
+
+    
+      <div className="leftdiv">
       <img className="imgProfile" src={profile && profile.image}/>
-       <div className="mainDetails">
-      <p className="details"><Phone/>{profile && profile.phoneNumber}</p>
-      <p className="details"><Email/> {profile && profile.email}</p>
-      <p className="details"><Place/> {profile && profile.country}</p>
-      </div>
-      </div>
+      <h4 className="NameOfUser" >{profile && profile.firstName+" "+profile.lastName }</h4> 
+      
+     </div>
+
+
+
+
+
+
+
+
       <div className="imgAndInfo" >
-      <p className="NameOfUser" >{profile && profile.firstName+" "+profile.lastName }</p> 
-      <div className="AllInfo" > 
-      <div style={{display:"grid"}}>
-      <div style={{display:"flex" , gap:"100px" , margin:"50px" , width:"600px"}} className="secondDetails">
-       <div >  
-      <p className="details">Weight: {profile && profile.weight} Kg</p>
-      <p className="details">Diseases: {profile && profile.diseases}</p>
-      </div>
-      <div >
-      <p className="details">height: {profile && profile.height} cm</p>
-      <p className="details">Age: {profile && profile.age} Years</p>
-      </div> 
-      </div>
-      <Button onClick={openModal} variant="outline-dark" className="EditInfo">Edit Info</Button>
-      </div>
+      
+      <div className="middleDiv">
+        <h5 className="details2"><Phone className="details2" /> Phone Number : {profile && profile.phoneNumber} </h5>
+      <h5 className="details2"><Email className="details2"/> Email :  {profile && profile.email}</h5>
+      <h5 className="details2"><Place className="details2"/> Country : {profile && profile.country}</h5>
+
+      <h5 className="details2">Your Weight : {profile && profile.weight} Kg</h5>
+      <h5 className="details2">Your Height: {profile && profile.height} cm</h5>
+      <h5 className="details2">Your Age : {profile && profile.age} Years</h5>
+      <h5 className="details2">Any Diseases History : {profile && profile.diseases}</h5>
+    <Button onClick={openModal} variant="outline-dark" className="EditInfo" className="profileeeBtn"> Edit Info </Button>
+    </div>
       
       
       <Modal
@@ -184,43 +189,60 @@ function dateDiffInDays(a) {
         contentLabel="Example Modal"
         ariaHideApp={false}
       >
-        
-          <Cancel onClick={closeModal} className="closeButton"/>
-        
+      <Cancel onClick={closeModal} className="closeButton"/>
         <div className="AllInputs">
-            
-        <input type="number" className="inputModal" placeholder=" Your Phone"  onChange={(e)=>{setPhoneNumber(e.target.value)}}/>
-        <input type="number" className="inputModal" placeholder=" Your weiget" onChange={(e)=>{setWeight(e.target.value)}}/>
-        <input type="number" className="inputModal"placeholder=" Your heigest" onChange={(e)=>{setHeight(e.target.value)}}/>
-        <input type="number" className="inputModal"placeholder=" Your Age" onChange={(e)=>{setAge(e.target.value)}}/>
-        <input type="text" className="inputModal"placeholder=" Country"  onChange={(e)=>{setCountry(e.target.value)}}/>
+      
+        <input type="number" className="inputModal" placeholder="Your Phone" onChange={(e)=>{setPhoneNumber(e.target.value)}}/>
+      
+        <input type="number" className="inputModal"placeholder="Weight"  onChange={(e)=>{setWeight(e.target.value)}}/>
+        
+        <input type="number" className="inputModal"placeholder="Height" onChange={(e)=>{setHeight(e.target.value)}}/>
+        
+        <input type="number" className="inputModal"placeholder="Your Age" onChange={(e)=>{setAge(e.target.value)}}/>
+        
+        <input type="text" className="inputModal"placeholder="Country" onChange={(e)=>{setCountry(e.target.value)}}/>
         <lebel className="lebelDiseases"> • Do you have any Diseases ?</lebel>
         <input type="text" className="inputModalDiseases" value={profile && profile.diseases} onChange={(e)=>{setDiseases(e.target.value)}} />
         <Button  variant="outline-dark" className="EnterInfo" onClick={updateInfo}>Enter</Button>
         </div>
-        
-      </Modal>
+        </Modal>
+  </div>
 
-      
-      
-      </div>
-      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       <div className="AllSubscribtion">
         {AllSubscribtions.map((elem , i)=>{ console.log(elem);
           return( <>
           { elem !== undefined?( <fieldset className="restaurantSubscirption">
-            <legend className="titleSubscription">{" "} Subscription</legend>
-          <p className="nameSub">{elem && elem.name }</p>
+            <legend className="titleSubscription">{" "} </legend>
+          <p className="nameSub" style={{margin:"0px" , padding:"0px"}}>{elem && elem.name }</p>
            
 
-           <div style={{display:"flex" , gap:"20px" , paddingLeft:"10px"}}> 
+           <div style={{marginLeft:"20px" , padding:"0px"}}> 
             
          <Image src={elem && elem.image} roundedCircle style={{width:"30px" , height:"30px" , borderRadius:"100%" }} />
 
-          <ProgressBar variant="dark" animated now={3.3*dateDiffInDays(new Date(elem&& elem.date_to.slice(0,10)))}  label={`${ dateDiffInDays(new Date(elem&& elem.date_to.slice(0,10)))} day`} className="progress" />
+          <ProgressBar variant="dark" animated now={3.3*dateDiffInDays(new Date(elem&& elem.date_to.slice(0,10)))}  label={`${ dateDiffInDays(new Date(elem&& elem.date_to.slice(0,10)))} day`} className="progress" style={{marginLeft:"40px" , padding:"0px"}} />
          
           </div>
-          <div className="ExpierDate"> Expier Date: {elem && elem.date_to.slice(0,10)}</div>
+          <div className="ExpierDate" style={{marginLeft:"20px"  , padding:"0px"}}> Expier Date: {elem && elem.date_to.slice(0,10)}</div>
       </fieldset>) : (<div></div>)
 
                       }
