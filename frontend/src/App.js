@@ -31,6 +31,7 @@ import { ProfileUser } from "./components/users/profileUser";
 import ScrollToTop from "./components/scroll/scroll";
 import {Review} from "./components/Review/Review";
 import Dashboard from "./components/dashboard/Dashboard";
+import { Remainder } from "./components/remainder";
 
 const App = () => {
  
@@ -71,7 +72,9 @@ const App = () => {
         {/* abdalllah */}
         <Route path="/" component={Main} />
       </Switch>
+     
       <Footer />
+      <Remainder/>
     </div>
   );
 };

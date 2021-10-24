@@ -46,8 +46,18 @@ app.use(loginRouter);
 app.use("/users", usersRouter);
 
 app.use("/cart", cartRouter);
+/////////
 
+const remainderRouter = require("./routers/routes/remainder");
+
+
+app.use('/sendEmail', remainderRouter )
+
+///////
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server On ${PORT}`);
 });
+
+
+

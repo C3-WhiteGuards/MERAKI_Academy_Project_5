@@ -36,6 +36,7 @@ const login = (req, res) => {
       const payload = {
         userId: result[0].id,
         role: result[0].role,
+        emailId:result[0].email,
       };
 
       const options = {
