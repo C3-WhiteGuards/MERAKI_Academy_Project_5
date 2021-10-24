@@ -74,7 +74,7 @@ const App = () => {
       </Switch>
      
       <Footer />
-      <Remainder/>
+      
     </div>
   );
 };

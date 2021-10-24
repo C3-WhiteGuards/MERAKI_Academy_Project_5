@@ -14,6 +14,7 @@ const registerRouter = require("./routers/routes/auth/signUp");
 const loginRouter = require("./routers/routes/auth/login");
 const usersRouter = require("./routers/routes/users");
 const cartRouter = require("./routers/routes/cart");
+const { remainder } = require("./routers/controllers/remainder");
 app.use(express.json());
 
 app.use(cors());
@@ -37,6 +38,12 @@ app.use("/trainer", trainerRouter);
 
 app.use("/products", productsRouter);
 app.use("/subscribtion", subscribtionRouter);
+var now = new Date();
+var daily = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 20, 0, 0, 0) - now;
+if (daily < 0) {
+  daily += 86400000; 
+}
+setTimeout(function(){remainder()}, daily);
 //Islam
 
 app.use("/register", registerRouter);
@@ -48,10 +55,6 @@ app.use("/users", usersRouter);
 app.use("/cart", cartRouter);
 /////////
 
-const remainderRouter = require("./routers/routes/remainder");
-
-
-app.use('/sendEmail', remainderRouter )
 
 ///////
 const PORT = process.env.PORT || 5000;

@@ -1,7 +1,7 @@
 const nodemailer = require("nodemailer");
 const connection = require("../../db/db");
 
-const remainder = async (req, res) => {
+const remainder = async () => {
   const query = `SELECT email, date_to ,SUBSTRING(date_to,1,10) as to_date FROM users inner join subscriptionsRestaurant on users.id = subscriptionsRestaurant.userId
     union all
     select email,date_to ,SUBSTRING(date_to,1,10) as to_date FROM users inner join subscriptionsGym on users.id = subscriptionsGym.userId
@@ -34,7 +34,7 @@ const remainder = async (req, res) => {
             to: `${result[i].email}`,
             subject: "Hello ALi✔",
             text: "Hello rashed world?",
-            html: "<b>...kjh...?</b>",
+            html: "<b style='color:red';>...kjh...?</b>",
           });
           console.log("Message sent: %s", info.messageId);
 
@@ -45,8 +45,8 @@ const remainder = async (req, res) => {
         }
       }
     }
-    
-    return res.status(200).json({ result });
+    //res.status(200).json({ result });
+    return 
   });
 };
 module.exports = { remainder };
