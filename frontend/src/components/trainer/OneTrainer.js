@@ -7,11 +7,15 @@ import Phone from "@mui/icons-material/Phone";
 import SportsScore from "@mui/icons-material/SportsScore";
 import StarBorder from "@mui/icons-material/StarBorder";
 import swal from 'sweetalert';
+import {useDispatch } from "react-redux";
+import { addSubscription } from "../../redux/action/cart";
 
 export const OneTrainer = () => {
   const [trainer, setTrainer] = useState(0);
   const token = localStorage.getItem("token");
   let trainerId = useParams().id;
+  const dispatch = useDispatch();
+  const all = JSON.parse(localStorage.getItem("subscription"))
 
   const sendText = async () => {
     const recipient="+962796507231"
@@ -52,7 +56,10 @@ export const OneTrainer = () => {
       });
     }else{
        //sendText()
-      localStorage.setItem("trainer", JSON.stringify({elem}))
+      localStorage.setItem("trainer", JSON.stringify(elem))
+      dispatch(addSubscription(elem))
+      all.push(elem)
+      localStorage.setItem("subscription", JSON.stringify(all));
       swal({
         title: "Success !! ",
         text: "You Now Have The Perfect Personal Trainer  !! \n  Go To Your Cart To Pay and Confirm Your Subsicribtion ",
