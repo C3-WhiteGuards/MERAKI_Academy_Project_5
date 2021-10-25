@@ -42,7 +42,7 @@ const Navigation = () => {
         <Container>
           <Navbar.Brand >
           <Link to="/home">      
-            <Image className="logo" src="/image.png" width="45%" height="45%" />
+            <Image className="logo" src="/logo.png" width="45%" height="45%" />
           </Link>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -76,7 +76,7 @@ const Navigation = () => {
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" sticky="top" style={{height:"80px"}}>
         <Container>
           <Navbar.Brand>
-            <Image className="logo" src="/image.png" width="45%" height="45%" />
+            <Image className="logo" src="/logo.png" width="45%" height="45%" />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
