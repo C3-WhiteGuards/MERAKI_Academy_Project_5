@@ -144,7 +144,15 @@ export const ProfileUser = () => {
   return (
     <div className="userProfile">
       <div className="leftdiv">
-        <img className="imgProfile" src={profile && profile.image} />
+        {profile && profile.image !== null ? (
+          <img className="imgProfile" src={profile && profile.image} />
+        ) : (
+          <img
+            className="imgProfile"
+            src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"
+          />
+        )}
+
         <h4 className="NameOfUser">
           {profile && profile.firstName + " " + profile.lastName}
         </h4>
@@ -272,17 +280,15 @@ export const ProfileUser = () => {
                   >
                     {elem && elem.name}
                   </p>
-
                   <div className="rightDivv">
-                    <Image 
+                    <Image
                       src={elem && elem.image}
                       roundedCircle
                       style={{
                         width: "40px",
                         height: "40px",
                         borderRadius: "100%",
-                        paddingBottom:"5px" 
-                       
+                        paddingBottom: "5px",
                       }}
                     />
 
@@ -301,11 +307,8 @@ export const ProfileUser = () => {
                       className="progress"
                       style={{ margin: "auto", padding: "0px" }}
                     />
-                  </div>
-                 
-                    {" "}
-                    Expier Date: {elem && elem.date_to.slice(0, 10)}
-                  
+                  </div>{" "}
+                  Expier Date: {elem && elem.date_to.slice(0, 10)}
                 </fieldset>
               ) : (
                 <div></div>
