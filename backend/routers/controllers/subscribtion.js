@@ -82,5 +82,16 @@ const getTrainersSubscribtion = (req , res)=>{
   })
 }
 
+const getAllResturantsSubscribtion = (req , res)=>{
+  
+  const query = `SELECT * FROM subscriptionsRestaurant INNER JOIN resturant ON subscriptionsRestaurant.restaurantId=resturant.id
+   INNER JOIN users ON subscriptionsRestaurant.userId=users.id `;
+  connection.query(query , (err , result)=>{
+   // if (err) return res.status(404).json({success:false , message:"There is Error!" , Error:err});
 
-module.exports = { addGymUser, addRestaruntUser, addTrainerUser , getResturantsSubscribtion , getGymsSubscribtion , getTrainersSubscribtion};
+   res.status(200).json({success:true , message:"get all restaurants subscriptions!" , result:result});
+  })
+}
+
+
+module.exports = { addGymUser, addRestaruntUser, addTrainerUser , getResturantsSubscribtion , getGymsSubscribtion , getTrainersSubscribtion,getAllResturantsSubscribtion};

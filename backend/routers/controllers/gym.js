@@ -90,5 +90,26 @@ const getAllGyms = (req, res) => {
     
   });
 };
-module.exports = { createNewGym, updateGymById, deleteGymById, getAllGyms };
+
+const getGymById =(req,res)=>{
+  const id = req.params.id;
+   const query = `SELECT * FROM gym WHERE id=${id} `;
+   connection.query(query, (error, result) => {
+     if (error) {
+      return res.status(500).json({
+         success: false,
+         message: `Server Error`,
+         error: error,
+       }).end();
+     }
+     return res.status(200).json({
+       success: true,
+       message: "all  gyms in your website ",
+       result: result,
+     }).end();
+     
+   });
+ }
+ 
+module.exports = { createNewGym, updateGymById, deleteGymById, getAllGyms,getGymById};
 

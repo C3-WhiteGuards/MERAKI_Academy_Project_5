@@ -17,7 +17,7 @@ const cartRouter = require("./routers/routes/cart");
 const { remainder } = require("./routers/controllers/remainder");
 
 
-
+const messageRouter = require("./routers/routes/sendMsg")
 app.use(express.json());
 
 app.use(cors());
@@ -48,7 +48,7 @@ if (daily < 0) {
 }
 setTimeout(function(){remainder()}, daily);
 //Islam
-
+app.use("/sendMsg",messageRouter)
 app.use("/register", registerRouter);
 
 app.use(loginRouter);

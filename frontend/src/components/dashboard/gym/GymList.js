@@ -2,7 +2,7 @@ import style from "../trainer/trainerList.module.css";
 import { DataGrid } from "@material-ui/data-grid";
 import { DeleteOutline } from "@material-ui/icons";
 import { Link } from "react-router-dom";
-
+import swal from 'sweetalert';
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 export default function GymList () {
@@ -10,6 +10,18 @@ export default function GymList () {
 
   const handleDelete = (id) => {
     setData(data.filter((item) => item.id !== id));
+    axios
+      .delete(`http://localhost:5000/gym/${id}`)
+      .then((result) => {
+        swal({
+          title: "deleted gym success ",
+          icon: "success",
+          button: "OK",
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   useEffect(() => {
