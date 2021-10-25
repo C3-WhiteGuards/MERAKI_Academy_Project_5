@@ -1,4 +1,4 @@
-# MERAKI_Academy_Project_5# MERAKI_Academy_Project_5
+# MERAKI_Academy_Project_5
 
 
 <br />
@@ -9,7 +9,7 @@
    <h3 align="center">Megalodon </h3>
  
 <p align="center">
- A complete integrated site to take care of your health and fitness .. through which you can subscribe to everything necessary for your physical health .. in which you will find health restaurants, many sports clubs and personal trainers, in addition to a number of products that are necessary for every athlete and loves to maintain his fitness
+ 
 
 
  <details>
@@ -37,16 +37,20 @@
 
 ## About 
 
+A complete integrated site to take care of your health and fitness .. through which you can subscribe to everything necessary for your physical health .. in which you will find health restaurants, many sports clubs and personal trainers, in addition to a number of products that are necessary for every athlete and loves to maintain his fitness
+
 
 
 ### Built With
-* React JS
-* JScript
-* redux 
-* My SQL
-* CSS
-* Html
-* Node JS
+**React JS**
+**JScript**
+**redux**
+**My SQL**
+**CSS**
+**Html**
+**Node JS**
+
+
 ## Getting Started
 
 you can use two lines  **npm run dev**  and **npm start** to start react and server two terminals 
@@ -54,7 +58,7 @@ you can use two lines  **npm run dev**  and **npm start** to start react and ser
 
 ### Prerequisites
 
-*npm 
+**npm** 
 ``` 
 i for both  backend  and frontend 
 ```react 
