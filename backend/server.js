@@ -15,7 +15,7 @@ const loginRouter = require("./routers/routes/auth/login");
 const usersRouter = require("./routers/routes/users");
 const cartRouter = require("./routers/routes/cart");
 
-
+const messageRouter = require("./routers/routes/sendMsg")
 app.use(express.json());
 
 app.use(cors());
@@ -40,7 +40,7 @@ app.use("/trainer", trainerRouter);
 app.use("/products", productsRouter);
 app.use("/subscribtion", subscribtionRouter);
 //Islam
-
+app.use("/sendMsg",messageRouter)
 app.use("/register", registerRouter);
 
 app.use(loginRouter);

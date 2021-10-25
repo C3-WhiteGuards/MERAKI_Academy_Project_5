@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Route } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { removeItem, removeSubscription } from "../../redux/action/cart";
 import Payment from "../payment/payment";
@@ -8,18 +9,17 @@ import "./cart.css";
 import axios from "axios";
 export const Cart = () => {
   const token = localStorage.getItem("token");
-  const [trainerId, setTrainerId] = useState([]);
-  const [gymId, setGymId] = useState([]);
-  const [restaurantId, setRestaurantId] = useState([]);
+  let trainerId = 0;
+  let gymId = 0;
+  let restaurantId = 0;
   let total = 0;
-  
-  
+
   const dispatch = useDispatch();
 
   const state = useSelector((state) => {
     return state.cart;
   });
-  
+
   const handleRemove = (id) => {
     dispatch(removeItem(id));
   };
@@ -28,49 +28,19 @@ export const Cart = () => {
     dispatch(removeSubscription(provider));
 
     if (provider === "resturant") {
+      restaurantId = 0;
       localStorage.removeItem("restaurant");
     }
     if (provider === "trainer") {
+      trainerId = 0;
       localStorage.removeItem("trainer");
     }
     if (provider === "gym") {
+      gymId = 0;
       localStorage.removeItem("gym");
     }
   };
 
-  function reqTrainer() {
-    axios.post(
-      `http://localhost:5000/subscribtion/trainer`,
-      { trainerId },
-      { headers: { Authorization: `Bearer ${token}` } }
-    );
-  }
-
-  function reqGym() {
-    axios.post(
-      `http://localhost:5000/subscribtion/gym`,
-      { gymId },
-      { headers: { Authorization: `Bearer ${token}` } }
-    );
-  }
-  function reqResturant() {
-    axios.post(
-      `http://localhost:5000/subscribtion/rest`,
-      { restaurantId },
-      { headers: { Authorization: `Bearer ${token}` } }
-    );
-  }
-  const addSUB = () => {
-    Promise.all([reqTrainer(), reqGym(), reqResturant()])
-      .then(function (results) {
-        console.log("traner", results[0], trainerId);
-        console.log("gym", results[1], gymId);
-        console.log("returant", results[2], restaurantId);
-      })
-      .catch((errors) => {
-        console.log(errors);
-      });
-  };
   return (
     <div className="allCart">
       <div className="container">
@@ -79,13 +49,13 @@ export const Cart = () => {
           state.subscription.map((elem, index) => {
             total = total + (elem.priceMonthly || elem.monthlyPrice);
             if (elem.provider === "resturant") {
-             // setRestaurantId(elem.id);
+              restaurantId = elem.id;
             }
             if (elem.provider === "trainer") {
-             // setTrainerId(elem.id);
+              trainerId = elem.id;
             }
             if (elem.provider === "gym") {
-             //setGymId(elem.id);
+              gymId = elem.id;
             }
             if (elem != null) {
               return (
@@ -94,11 +64,10 @@ export const Cart = () => {
 
                   <div class="card-Text">
                     <h2>
-                      {elem && (elem.name || (elem.firstName +" "+ elem.lastName))}
+                      {elem &&
+                        (elem.name || elem.firstName + " " + elem.lastName)}
                     </h2>
-                    <p>
-                     
-                    </p>
+                    <p></p>
 
                     <strong>
                       Price:{elem && (elem.priceMonthly || elem.monthlyPrice)}$
@@ -127,12 +96,17 @@ export const Cart = () => {
           </li>
         </div>
         <div className="checkout">
-          <button className="waves-effect waves-light btn" onClick={addSUB}>
-            Checkout
-          </button>
-        </div>
-        <div className="checkout">
-          <Payment />
+          <Route
+            exact
+            path="/cart"
+            render={() => (
+              <Payment
+                restaurantId={restaurantId}
+                gymId={gymId}
+                trainerId={trainerId}
+              />
+            )}
+          />
         </div>
       </div>
     </div>
