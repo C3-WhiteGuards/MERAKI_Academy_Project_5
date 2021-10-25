@@ -2,11 +2,11 @@ const nodemailer = require("nodemailer");
 const connection = require("../../db/db");
 
 const remainder = async () => {
-  const query = `SELECT email, date_to ,SUBSTRING(date_to,1,10) as to_date FROM users inner join subscriptionsRestaurant on users.id = subscriptionsRestaurant.userId
+  const query = `SELECT firstName,email, date_to ,SUBSTRING(date_to,1,10) as to_date FROM users inner join subscriptionsRestaurant on users.id = subscriptionsRestaurant.userId
     union all
-    select email,date_to ,SUBSTRING(date_to,1,10) as to_date FROM users inner join subscriptionsGym on users.id = subscriptionsGym.userId
+    select firstName,email,date_to ,SUBSTRING(date_to,1,10) as to_date FROM users inner join subscriptionsGym on users.id = subscriptionsGym.userId
     union all
-    select email,date_to ,SUBSTRING(date_to,1,10) as to_date FROM users inner join subscriptionsTrainers on users.id = subscriptionsTrainers.userId;`;
+    select firstName,email,date_to ,SUBSTRING(date_to,1,10) as to_date FROM users inner join subscriptionsTrainers on users.id = subscriptionsTrainers.userId`;
   connection.query(query, async (err, result) => {
     console.log(result[0].to_date);
     function dateDiffInDays(a) {
@@ -32,9 +32,16 @@ const remainder = async () => {
           let info = await transporter.sendMail({
             from: "rashedmeg231@gmail.com",
             to: `${result[i].email}`,
-            subject: "Hello ALi✔",
+            subject: "Remainder about your subscription!",
             text: "Hello rashed world?",
-            html: "<b style='color:red';>...kjh...?</b>",
+            html: `<img style="border-radius:5px" src="https://media.istockphoto.com/photos/sports-gym-equipment-on-yellow-background-picture-id906005492?k=20&m=906005492&s=170667a&w=0&h=CLDlaap2dBFc_HVPWaZ5b3ij3J5CoTbnSwR6ah2AyqA=">
+            <div style="margin-top:-300px;margin-left:150px">
+            <h2 style="color:black;font-family:Century Gothic">Hello ${result[i].firstName} ,</h2>
+            <p style="font-weight:bold; font-family:Century Gothic">We would like to inform you that your<br/> subscription is about to expire in ${result[i].to_date}...<br/>
+            To renew your subscription,<br/> please visit our website : </p><br/>
+            <button style="width:120px;height:30px;  background-color:yellow; border-radius:3px; border:solid 3px white" ><a href="http://localhost:3000" target="blank_" style="text-decoration:none;color:black ;font-weight:bold;">MEGALODON</a> </button><br/>
+            </div>
+            </img>`,
           });
           console.log("Message sent: %s", info.messageId);
 
