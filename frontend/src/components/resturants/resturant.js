@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import "./restaurants.css";
 import axios from "axios";
 import { useHistory } from "react-router";
+import { Form } from "react-bootstrap";
 
 export const Resturants = () => {
   const [resturants, setResturants] = useState([]);
+  const [search , setSearch] = useState("");
   const history = useHistory();
 
   useEffect(async () => {
@@ -20,9 +22,30 @@ export const Resturants = () => {
   }, []);
 
   return (
+    <>
+    <Form>
+        <Form.Group className="searchGym" controlId="exampleForm.ControlInput1">
+          <Form.Control
+            type="text"
+            
+            placeholder="  search...,restaurant"
+            onChange={(e) => {
+              setSearch(e.target.value);
+            }}
+          />
+        </Form.Group>
+      </Form>
     <div className="AllResturants">
       {resturants &&
-        resturants.map((Element, i) => {
+        resturants.filter((val) => {
+          if (search == "") {
+            return val;
+          } else if (
+            val.name.toLowerCase().includes(search.toLowerCase())          
+          ) {
+            return val;
+          }
+        }).map((Element, i) => {
           return (
             <div
               key={i}
@@ -35,5 +58,6 @@ export const Resturants = () => {
           );
         })}
     </div>
+    </>
   );
 };
