@@ -1,5 +1,5 @@
 const intialCart = {
-  items: JSON.parse(localStorage.getItem("savedData")) || [],
+  items: JSON.parse(localStorage.getItem("savedData")) || [] ,
   subscription : JSON.parse(localStorage.getItem("subscription")) || [],
 };
 

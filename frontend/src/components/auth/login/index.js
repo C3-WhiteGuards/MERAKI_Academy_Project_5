@@ -7,11 +7,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { setToken } from "../../../redux/action/loginToken";
 import { addToCart } from "../../../redux/action/cart";
 import { addSubscription } from "../../../redux/action/cart";
+import swal from "sweetalert";
 export const Login = () => {
   const [email, setEmail] = useState(0);
   const [password, setPassword] = useState(0);
 
-  const [message , setMessage] = useState("")
+  const [message, setMessage] = useState("");
 
   const history = useHistory();
   const dispatch = useDispatch();
@@ -28,19 +29,23 @@ export const Login = () => {
       })
       .then((res) => {
         const token = res.data.token;
+        console.log(res.data.role);
         localStorage.setItem("token", token);
         localStorage.setItem("savedData", JSON.stringify([]));
         localStorage.setItem("subscription", JSON.stringify([]));
         dispatch(setToken(res.data.token));
         dispatch(addSubscription([]));
-        dispatch(addToCart([]));
+        //dispatch(addToCart([]));
         history.push("/home");
       })
 
       .catch((error) => {
-        setMessage("Email or Password incorrect, please try again");
+        console.log(error);
+        if(error){
+          setMessage("Email or Password incorrect, please try again");
+        }
 
-
+       
       });
   };
 
@@ -51,17 +56,60 @@ export const Login = () => {
       .then((res) => {
         if (res.data) {
           localStorage.setItem("token", res.data.token);
+          localStorage.setItem("savedData", JSON.stringify([]));
+          localStorage.setItem("subscription", JSON.stringify([]));
+          dispatch(setToken(res.data.token));
+          dispatch(addSubscription([]));
+          //dispatch(addToCart([]));
           history.push("/home");
         } else throw Error;
       })
       .catch((err) => {
         console.log(err.response.data.message);
       });
-    console.log("Login Success: currentUser:", res.tokenObj.id_token); // for set token
+    
   };
 
   const onFailure = (res) => {
     console.log("Login failed: res:", res);
+  };
+
+  const restPass = () => {
+    swal({
+      text: 'Please Enter your email".',
+      content: "input",
+      button: {
+        text: "Send",
+        closeModal: false,
+      },
+    }).then((email) => {
+      if (!email) {
+        swal.close();
+        return;
+      }
+
+      axios
+        .post("http://localhost:5000/login/restPass", {
+          email,
+        })
+        .then((results) => {
+          swal({
+            title: "Success",
+            text: "please check yor email to get new password",
+            icon: "success",
+          });
+        })
+
+        .catch((err) => {
+          if (err.response.status === 404) {
+            swal("Oh noes!", `email doesn't exist`, "error");
+          } else {
+            swal("Oh noes!", "The request failed!", "error");
+            swal.stopLoading();
+            swal.close();
+          }
+        });
+    });
   };
 
   return (
@@ -108,9 +156,11 @@ export const Login = () => {
           </div>
           <div className="inputBx">
             <p style={{ color: "red", fontSize: "15px" }}>{message}</p>
-            {/* <p>
-              <a href="#"> Forget Your Password ? </a>{" "}
-            </p> */}
+            <div>
+              <p>
+                <a onClick={restPass}> Forget Your Password ? </a>{" "}
+              </p>
+            </div>
 
             <div className="with-gmail">
               <GoogleLogin

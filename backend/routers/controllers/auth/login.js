@@ -3,6 +3,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 const { OAuth2Client } = require("google-auth-library");
+const nodemailer = require("nodemailer");
 
 const clientId = new OAuth2Client(
   "707788443358-u05p46nssla3l8tmn58tpo9r5sommgks.apps.googleusercontent.com"
@@ -43,13 +44,17 @@ const login = (req, res) => {
       };
 
       const token = await jwt.sign(payload, process.env.SECRET, options);
-      res.status(200).json({
+     return res.status(200).json({
         success: true,
         message: `Email and Password are correct`,
         token: token,
+        role:result[0].role
       });
     } catch (error) {
-      throw new Error(error.message);
+      return res.status(404).json({
+        success: false,
+        message: error,
+      });
     }
   });
 };
@@ -125,7 +130,69 @@ const loginGoogle = async (req, res) => {
     });
 };
 
+const transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
+  },
+});
+
+const restPassword = async (req, res) => {
+  const email = req.body.email;
+  const query = `SELECT * FROM users WHERE email ='${email}'`;
+  const password = Math.floor(Math.random() * 100000).toString();
+  const bcryptPassword = await bcrypt.hash(password, 10);
+  connection.query(query, (error, result) => {
+    
+    if (result.length) {
+      const queryUpdate = `UPDATE users SET password=? WHERE email ='${email}'`;
+      const data = [bcryptPassword];
+      connection.query(queryUpdate, data, (err, result) => {
+        if (err) {
+          console.log(err);
+        return  res.status(500).json({
+            success: false,
+            message: `Server Error`,
+            error: err,
+          });
+        } else {
+          const mailOption = {
+            from: process.env.EMAIL_USER,
+            to: email,
+            subject: "rest password",
+            text: `your new password is ${password}`,
+          };
+          transporter.sendMail(mailOption, function (err, response) {
+            if (err) {
+             return res.status(500).json({
+                success: false,
+                message: `Server Error`,
+                err: err,
+              });
+            } else {
+              res.status(201).json({
+                success: true,
+                message: ` Success send created`,
+                result: response,
+              });
+            }
+          });
+        }
+      });
+    }
+    else {
+      res.status(404).json({
+        success: false,
+        message: `email dosent exit `,
+        error: error,
+      });
+    }
+  });
+};
+
 module.exports = {
   login,
   loginGoogle,
+  restPassword,
 };

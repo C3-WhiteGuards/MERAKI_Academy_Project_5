@@ -87,6 +87,41 @@ export const Cart = () => {
             }
           })}
       </div>
+      <div className="container">
+        <h3>Your Items</h3>
+        {state.items &&
+          state.subscription.map((elem, index) => {
+            total = total + (elem.price);
+            if (elem != null) {
+              return (
+                <div class="Main-Card" key={index}>
+                  <img src={elem && elem.image} alt="!" />
+
+                  <div class="card-Text">
+                    <h2>
+                      {elem &&
+                        elem.name }
+                    </h2>
+                    <p></p>
+
+                    <strong>
+                      Price:{elem && (elem.priceMonthly || elem.monthlyPrice)}$
+                    </strong>
+                    <br />
+
+                    <button
+                      onClick={() => {
+                        removeSubscribtion(elem.provider);
+                      }}
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </div>
+              );
+            }
+          })}
+      </div>
 
       <div className="container">
         <div className="collection">
