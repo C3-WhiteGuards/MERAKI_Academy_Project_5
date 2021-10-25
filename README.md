@@ -62,7 +62,7 @@ i for both  backend  and frontend
 ```
 
 
-### Instolation
+### Installation
 1.
 2.
 3.
