@@ -133,6 +133,8 @@ export const ProfileUser = () => {
       .then((result) => {
         console.log(result);
         closeModal();
+        history.push('/home')
+        history.push('/profile')
       })
       .catch((err) => {
         console.log("Error", err);
@@ -209,7 +211,7 @@ export const ProfileUser = () => {
             />
 
             <input
-              type="number"
+              type="number" value={profile && profile.weigh}
               className="inputModal"
               placeholder="Weight"
               onChange={(e) => {
@@ -235,11 +237,17 @@ export const ProfileUser = () => {
               }}
             />
 
-            <input
+            <input 
               type="text"
               className="inputModal"
               placeholder="Country"
+              onChan
+              type="text"
+              className="inputModalDiseases"
+              value={profile && profile.diseases}
               onChange={(e) => {
+                setDiseases(e.target.value);
+              }}ge={(e) => {
                 setCountry(e.target.value);
               }}
             />
@@ -248,12 +256,6 @@ export const ProfileUser = () => {
               • Do you have any Diseases ?
             </lebel>
             <input
-              type="text"
-              className="inputModalDiseases"
-              value={profile && profile.diseases}
-              onChange={(e) => {
-                setDiseases(e.target.value);
-              }}
             />
             <Button
               variant="outline-dark"
