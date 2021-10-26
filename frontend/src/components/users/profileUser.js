@@ -289,6 +289,7 @@ export const ProfileUser = () => {
                         height: "40px",
                         borderRadius: "100%",
                         paddingBottom: "5px",
+                        marginLeft:"10px"
                       }}
                     />
 
@@ -305,7 +306,7 @@ export const ProfileUser = () => {
                         new Date(elem && elem.date_to.slice(0, 10))
                       )} day`}
                       className="progress"
-                      style={{ margin: "auto", padding: "0px" }}
+                      style={{ margin: "auto", padding: "0px" , width:"200px" , height:"25px" }}
                     />
                   </div>{" "}
                   Expier Date: {elem && elem.date_to.slice(0, 10)}
