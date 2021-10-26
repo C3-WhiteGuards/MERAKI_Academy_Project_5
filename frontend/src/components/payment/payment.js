@@ -18,11 +18,11 @@ const Payment = ({ gymId, trainerId, restaurantId }) => {
     "your subscribtion has been confirmed check your profile to see your subscribtion ";
 
   function sendMsg() {
-    axios.post(`http://localhost:5000/sendMsg`, { confirm });
+    axios.post(`https://c3megalodon.herokuapp.com/sendMsg`, { confirm });
   }
   function reqTrainer() {
     axios.post(
-      `http://localhost:5000/subscribtion/trainer`,
+      `https://c3megalodon.herokuapp.com/subscribtion/trainer`,
       { trainerId },
       { headers: { Authorization: `Bearer ${token}` } }
     );
@@ -30,14 +30,14 @@ const Payment = ({ gymId, trainerId, restaurantId }) => {
 
   function reqGym() {
     axios.post(
-      `http://localhost:5000/subscribtion/gym`,
+      `https://c3megalodon.herokuapp.com/subscribtion/gym`,
       { gymId },
       { headers: { Authorization: `Bearer ${token}` } }
     );
   }
   function reqResturant() {
     axios.post(
-      `http://localhost:5000/subscribtion/rest`,
+      `https://c3megalodon.herokuapp.com/subscribtion/rest`,
       { restaurantId },
       { headers: { Authorization: `Bearer ${token}` } }
     );

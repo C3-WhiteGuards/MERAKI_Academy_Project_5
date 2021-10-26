@@ -10,7 +10,7 @@ export const Trainer = () => {
   const [search, setSearch] = useState("");
 
   const getAllTrainers = async () => {
-    await axios.get("http://localhost:5000/trainer").then((res) => {
+    await axios.get("https://c3megalodon.herokuapp.com/trainer").then((res) => {
       setTrainer(res.data.allTrainers);
       console.log(res.data.allTrainers);
     });
@@ -84,7 +84,7 @@ export const AddTrainer = () => {
 
   const addTrainers = async () => {
     await axios
-      .post("http://localhost:5000/trainer", {
+      .post("https://c3megalodon.herokuapp.com/trainer", {
         firstName,
         lastName,
         phoneNumber,

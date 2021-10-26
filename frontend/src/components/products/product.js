@@ -10,7 +10,7 @@ export const Allproduct = () => {
 
   const all = JSON.parse(localStorage.getItem("savedData"))
    useEffect(() => {
-    axios.get("http://localhost:5000/products").then((result) => {
+    axios.get("https://c3megalodon.herokuapp.com/products").then((result) => {
       setProducts([...result.data.Products]);
     });
   }, []);
@@ -68,7 +68,7 @@ export const AddProducts = () => {
   const [image, setImage] = useState("");
 
   const addProduct = () => {
-    axios.post("http://localhost:5000/products", {
+    axios.post("https://c3megalodon.herokuapp.com/products", {
       name,
       price,
       description,

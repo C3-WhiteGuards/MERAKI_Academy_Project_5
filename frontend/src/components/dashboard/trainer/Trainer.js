@@ -23,7 +23,7 @@ export default function Trainer() {
 
   const updateTrainers = async () => {
     await axios
-      .put(`http://localhost:5000/trainer/${trainerId}`, {
+      .put(`https://c3megalodon.herokuapp.com/trainer/${trainerId}`, {
         firstName,
         lastName,
         phoneNumber,
@@ -42,7 +42,7 @@ export default function Trainer() {
 
   useEffect(async () => {
     await axios
-      .get(`http://localhost:5000/trainer/${trainerId}`)
+      .get(`https://c3megalodon.herokuapp.com/trainer/${trainerId}`)
       .then((res) => {
         setTrainer(res.data.Trainer[0]);
         

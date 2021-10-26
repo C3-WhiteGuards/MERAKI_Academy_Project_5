@@ -21,7 +21,7 @@ export default function Register() {
       setShow(true);
     } else {
       await axios
-        .post("http://localhost:5000/register", {
+        .post("https://c3megalodon.herokuapp.com/register", {
           firstName,
           lastName,
           email,

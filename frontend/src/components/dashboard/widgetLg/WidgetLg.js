@@ -12,7 +12,7 @@ export default function WidgetLg (){
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/subscribtion/allResturantsSubscribtion")
+      .get("https://c3megalodon.herokuapp.com/subscribtion/allResturantsSubscribtion")
       .then((result) => {
         console.log(result.data.result);
         setSubRest(result.data.result);

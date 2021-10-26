@@ -11,7 +11,7 @@ export default function GymList () {
   const handleDelete = (id) => {
     setData(data.filter((item) => item.id !== id));
     axios
-      .delete(`http://localhost:5000/gym/${id}`)
+      .delete(`https://c3megalodon.herokuapp.com/gym/${id}`)
       .then((result) => {
         swal({
           title: "deleted gym success ",
@@ -26,7 +26,7 @@ export default function GymList () {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/gym")
+      .get("https://c3megalodon.herokuapp.com/gym")
       .then((result) => {
         setData(result.data.result);
       })

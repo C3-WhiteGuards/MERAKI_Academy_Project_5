@@ -7,7 +7,7 @@ export const Review = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/comment")
+      .get("https://c3megalodon.herokuapp.com/comment")
       .then((res) => {
         console.log(res.data);
         setAllReview(res.data.comment);

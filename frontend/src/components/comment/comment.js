@@ -10,7 +10,7 @@ export const AddComment = () => {
   const createComment = () => {
     axios
       .post(
-        `http://localhost:5000/comment`,
+        `https://c3megalodon.herokuapp.com/comment`,
         { comment },
         { headers: { Authorization: `Bearer ${token}` } }
       )

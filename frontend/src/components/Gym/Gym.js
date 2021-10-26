@@ -15,7 +15,7 @@ export const Gym = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/gym")
+      .get("https://c3megalodon.herokuapp.com/gym")
       .then((res) => {
         setAllGyms([...res.data.result]);
       })

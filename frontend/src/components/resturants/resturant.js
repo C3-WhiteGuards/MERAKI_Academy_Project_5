@@ -11,7 +11,7 @@ export const Resturants = () => {
 
   useEffect(async () => {
     await axios
-      .get("http://localhost:5000/resturan")
+      .get("https://c3megalodon.herokuapp.com/resturan")
       .then((res) => {
         console.log(res.data.result);
         setResturants([...res.data.result]);

@@ -20,7 +20,7 @@ export const OneTrainer = () => {
   const sendText = async () => {
     const recipient="+962796507231"
     const textmessage= "Success"
-   await axios.get("http://localhost:5000/sendMsg", {
+   await axios.get("https://c3megalodon.herokuapp.com/sendMsg", {
         recipient,
         textmessage,
       })
@@ -36,7 +36,7 @@ export const OneTrainer = () => {
 
   useEffect(async () => {
     await axios
-      .get(`http://localhost:5000/trainer/${trainerId}`)
+      .get(`https://c3megalodon.herokuapp.com/trainer/${trainerId}`)
       .then((res) => {
         setTrainer(res.data.Trainer);
         console.log(res.data.Trainer);
