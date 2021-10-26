@@ -12,7 +12,7 @@ export default function ResturantList() {
   const handleDelete = (id) => {
     setData(data.filter((item) => item.id !== id));
     axios
-      .delete(`http://localhost:5000/resturan/${id}`)
+      .delete(`https://c3megalodon.herokuapp.com/resturan/${id}`)
       .then((result) => {
         swal({
           title: "Deleted Resturant Success ",
@@ -27,7 +27,7 @@ export default function ResturantList() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/resturan")
+      .get("https://c3megalodon.herokuapp.com/resturan")
       .then((result) => {
         setData(result.data.result);
       })

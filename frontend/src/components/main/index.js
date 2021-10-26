@@ -2,10 +2,14 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import Col from "react-bootstrap/Col";
+
 import Carousel from "react-bootstrap/Carousel";
 import { Allproduct } from "../products/product";
 import { AddComment } from "../comment/comment";
+import icon1 from "../../imeges/icon-1.png"
+import icon2 from "../../imeges/icon-2.png"
+import icon3 from "../../imeges/icon-3.png"
+
 
 import "./main.css";
 import { useHistory } from "react-router";
@@ -57,7 +61,7 @@ const Main = () => {
         </div>
         <div className="containerMain">
           <div className="featMain">
-            <img src="/icon-1.png" alt="" />
+            <img src={icon1} alt="!!" />
             <h5>QUALITY EQUIPMENT</h5>
             <p>
               You won’t find any better one-hour fitness workout. You will lose
@@ -65,7 +69,7 @@ const Main = () => {
             </p>
           </div>
           <div className="featMain">
-            <img src="/icon-2.png" alt="" />
+            <img src={icon2} alt="!!" />
 
             <h5>UNIQUE TO YOUR NEEDS</h5>
             <p>
@@ -75,7 +79,7 @@ const Main = () => {
             </p>
           </div>
           <div className="featMain">
-            <img src="/icon-3.png" />
+            <img src={icon3} alt="!!" />
             <h5>HEALTHY NUTRITION PLAN</h5>
             <p>
               Eating a variety of foods and consuming less salt, sugars and

@@ -11,7 +11,7 @@ export const GymAdmin = () => {
 
   const getAllGyms = () => {
     axios
-      .get("http://localhost:5000/gym")
+      .get("https://c3megalodon.herokuapp.com/gym")
       .then((res) => {
         console.log(res.data);
         setAllGym([...res.data.result]);
@@ -27,7 +27,7 @@ export const GymAdmin = () => {
 
   const addNewGym = () => {
     axios
-      .post("http://localhost:5000/gym", {
+      .post("https://c3megalodon.herokuapp.com/gym", {
         name,
         phoneNumber,
         image,
@@ -44,7 +44,7 @@ export const GymAdmin = () => {
 
   const updateGymById = (id) => {
     axios
-      .put(`http://localhost:5000/gym/${id}`, {
+      .put(`https://c3megalodon.herokuapp.com/gym/${id}`, {
         name,
         phoneNumber,
         image,
@@ -57,7 +57,7 @@ export const GymAdmin = () => {
   };
 
   const deleteGymById = (id) => {
-    axios.delete(`http://localhost:5000/gym/${id}`).then((result) => {
+    axios.delete(`https://c3megalodon.herokuapp.com/gym/${id}`).then((result) => {
       getAllGyms();
     });
   };

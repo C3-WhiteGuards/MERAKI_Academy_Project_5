@@ -3,10 +3,9 @@ import { Route } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { removeItem, removeSubscription } from "../../redux/action/cart";
 import Payment from "../payment/payment";
-import { Col, Card, Row, Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./cart.css";
-import axios from "axios";
+
 export const Cart = () => {
   const token = localStorage.getItem("token");
   let trainerId = 0;

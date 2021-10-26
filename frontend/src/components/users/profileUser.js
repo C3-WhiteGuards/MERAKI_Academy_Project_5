@@ -33,7 +33,7 @@ export const ProfileUser = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/users", {
+      .get("https://c3megalodon.herokuapp.com/users", {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((result) => {
@@ -47,7 +47,7 @@ export const ProfileUser = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/subscribtion/ResturantsSubscribtion", {
+      .get("https://c3megalodon.herokuapp.com/subscribtion/ResturantsSubscribtion", {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((result) => {
@@ -62,7 +62,7 @@ export const ProfileUser = () => {
   const [subTrainer, setSubTrainer] = useState("");
   useEffect(() => {
     axios
-      .get("http://localhost:5000/subscribtion/TrainersSubscribtion", {
+      .get("https://c3megalodon.herokuapp.com/subscribtion/TrainersSubscribtion", {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((result) => {
@@ -77,7 +77,7 @@ export const ProfileUser = () => {
   const [subGym, setSubGym] = useState("");
   useEffect(() => {
     axios
-      .get("http://localhost:5000/subscribtion/GymSubscribtions", {
+      .get("https://c3megalodon.herokuapp.com/subscribtion/GymSubscribtions", {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((result) => {
@@ -126,7 +126,7 @@ export const ProfileUser = () => {
   const updateInfo = () => {
     axios
       .put(
-        "http://localhost:5000/users",
+        "https://c3megalodon.herokuapp.com/users",
         { age, phoneNumber, country, weight, height, diseases },
         { headers: { Authorization: `Bearer: ${token}` } }
       )

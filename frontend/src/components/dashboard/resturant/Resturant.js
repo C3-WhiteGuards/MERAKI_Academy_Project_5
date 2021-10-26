@@ -15,7 +15,7 @@ export default function Resturant () {
   let restaurantId = useParams().restaurantId;
   const updateRestaurant = async () => {
     await axios
-      .put(`http://localhost:5000/resturan/${restaurantId}`, {
+      .put(`https://c3megalodon.herokuapp.com/resturan/${restaurantId}`, {
         name,
         location,
         image,
@@ -29,7 +29,7 @@ export default function Resturant () {
   };
   useEffect(async () => {
     await axios
-      .get(`http://localhost:5000/resturan/${restaurantId}`)
+      .get(`https://c3megalodon.herokuapp.com/resturan/${restaurantId}`)
       .then((res) => {
         setResturant(res.data.Resturant[0]);
       })

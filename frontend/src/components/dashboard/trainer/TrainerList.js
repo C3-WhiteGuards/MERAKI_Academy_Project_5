@@ -12,7 +12,7 @@ export default function TrainerList() {
   const handleDelete = (id) => {
     setData(data.filter((item) => item.id !== id));
     axios
-      .delete(`http://localhost:5000/trainer/${id}`)
+      .delete(`https://c3megalodon.herokuapp.com/trainer/${id}`)
       .then((result) => {
         swal({
           title: "Deleted Trainer Success ",
@@ -27,7 +27,7 @@ export default function TrainerList() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/trainer")
+      .get("https://c3megalodon.herokuapp.com/trainer")
       .then((result) => {
         setData(result.data.allTrainers);
       })

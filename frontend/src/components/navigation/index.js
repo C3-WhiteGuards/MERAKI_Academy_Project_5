@@ -22,7 +22,7 @@ const Navigation = () => {
   const [imageUser , setImageUser] = useState("");
   useEffect(() => {
     axios
-      .get("http://localhost:5000/users", {
+      .get("https://c3megalodon.herokuapp.com/users", {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((result) => {
