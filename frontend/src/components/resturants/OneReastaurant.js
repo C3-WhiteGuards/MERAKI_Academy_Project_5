@@ -86,7 +86,7 @@ export const OneResturant = () => {
       </div>
 
       <div className="resturant_1">
-        <ul className="list_main" style={{ textAlign: "center" }}>
+        <ul className="list_main" style={{ textAlign: "left" }}>
           <li className="name" style={{fontSize:"30px"}}>{resturant && resturant[0].name}</li>
           <li className="name">
           restaurant located in Jordan, serving a selection of Healthy that

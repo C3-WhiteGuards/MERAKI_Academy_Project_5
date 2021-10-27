@@ -27,7 +27,6 @@
 }
 .carousel-control-next-icon,
 .carousel-control-prev-icon {
-  /* background-color:black; */
   font-size: 15px;
   border-radius: 50%;
   -webkit-border-radius: 50%;
@@ -107,12 +106,11 @@
 .titleMain p {
   color: #808080;
 }
-/* @media only screen and (max-width: 767px) {
-    .titleMain h1 {
-      font-size: 30px;
-    }
+@media only screen and (max-width: 767px) {
+  .titleMain h1 {
+    font-size: 30px;
   }
-   */
+}
 
 .landing {
   margin: 0;

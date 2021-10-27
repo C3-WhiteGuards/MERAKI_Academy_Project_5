@@ -139,20 +139,24 @@ export const ProfileUser = () => {
       });
   };
 
-  /* style={{display:"grid" , height:"620px" , borderRadius:"5px"}} */
+  
 
   return (
     <div className="userProfile">
       <div className="leftdiv">
+      <div className="profileImg">
         {profile && profile.image !== null ? (
+         
           <img className="imgProfile" src={profile && profile.image} />
+         
         ) : (
           <img
             className="imgProfile"
             src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"
           />
+         
         )}
-
+ </div>
         <h4 className="NameOfUser">
           {profile && profile.firstName + " " + profile.lastName}
         </h4>
