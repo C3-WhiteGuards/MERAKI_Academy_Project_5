@@ -23,14 +23,23 @@ export const Gym = () => {
   }, []);
 
   const addSubsGym = (element) => {
-        if(localStorage.getItem("gym") !== null ){
+    if (!token){
+      swal({
+        title: "You have to login first so you can subscribe",
+        icon: "error",
+        button: "OK",
+      });}
+
+      else   if(localStorage.getItem("gym") !== null ){
           swal({
             title: "You cant subsicribe in more than one gym",
             text: "go to your cart if you want to replace you subsicribtion  ",
             icon: "error",
             button: "OK",
           });
-        }else{
+        }
+        
+        else{
           localStorage.setItem("gym",JSON.stringify(element))
           dispatch(addSubscription(element))
           all.push(element)

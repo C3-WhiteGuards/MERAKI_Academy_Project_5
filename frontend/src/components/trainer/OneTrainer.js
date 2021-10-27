@@ -47,14 +47,21 @@ export const OneTrainer = () => {
   }, []);
 
   const addSubsecribtionTrainer = async (elem) => {
-    if(localStorage.getItem("trainer") !== null ){
+    if (!token){
+      swal({
+        title: "You have to login first so you can subscribe",
+        icon: "error",
+        button: "OK",
+      });}
+    else if(localStorage.getItem("trainer") !== null ){
       swal({
         title: "You cant subsicribe with more than one trainer",
         text: "go to your cart if you want to replace you subsicribtion  ",
         icon: "error",
         button: "OK",
       });
-    }else{
+    }
+    else{
        //sendText()
       localStorage.setItem("trainer", JSON.stringify(elem))
       dispatch(addSubscription(elem))
@@ -124,7 +131,7 @@ export const OneTrainer = () => {
       </div>
 
       <div className="col-xs-14">
-        <h2 className="heading">
+        <h2 className="Theading">
           {trainer && trainer[0].firstName + " " + trainer[0].lastName}
         </h2>
         <div className="pt-bio">

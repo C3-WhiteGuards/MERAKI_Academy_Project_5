@@ -27,14 +27,21 @@ export const OneResturant = () => {
   }, []);
 
   const addSubsecRestaurant = async (elem) => {
-   if(localStorage.getItem("restaurant") !== null ){
+    if (!token){
+      swal({
+        title: "You have to login first so you can subscribe",
+        icon: "error",
+        button: "OK",
+      });}
+ else   if(localStorage.getItem("restaurant") !== null ){
         swal({
           title: "You cant subsicribe in more than one restaurant",
           text: "go to your cart if you want to replace you subsicribtion  ",
           icon: "error",
           button: "OK",
         });
-      }else{
+      }
+      else{
         localStorage.setItem("restaurant", JSON.stringify(elem))
         dispatch(addSubscription(elem))
         all.push(elem)
