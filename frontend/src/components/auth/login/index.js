@@ -23,7 +23,7 @@ export const Login = () => {
   const userLogin = async (e) => {
     e.preventDefault();
     await axios
-      .post("http://localhost:5000/login", {
+      .post("https://c3megalodon.herokuapp.com/login", {
         email,
         password,
       })
@@ -52,7 +52,7 @@ export const Login = () => {
   const onSuccess = async (res) => {
     console.log(res.tokenId);
     await axios
-      .post("http://localhost:5000/login/loginGoogle", { tokenId: res.tokenId })
+      .post("https://c3megalodon.herokuapp.com/login/loginGoogle", { tokenId: res.tokenId })
       .then((res) => {
         if (res.data) {
           localStorage.setItem("token", res.data.token);
@@ -89,7 +89,7 @@ export const Login = () => {
       }
 
       axios
-        .post("http://localhost:5000/login/restPass", {
+        .post("https://c3megalodon.herokuapp.com/login/restPass", {
           email,
         })
         .then((results) => {

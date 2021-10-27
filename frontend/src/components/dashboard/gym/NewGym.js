@@ -13,7 +13,7 @@ export default function NewGym () {
 
   const createNewGym = async () => {
     await axios
-      .post(`http://localhost:5000/gym`, {
+      .post(`https://c3megalodon.herokuapp.com/gym`, {
         name,
         location,
         image,

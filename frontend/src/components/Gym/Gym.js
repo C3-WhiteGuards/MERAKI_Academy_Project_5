@@ -4,8 +4,10 @@ import "./Gym.css";
 import swal from "sweetalert";
 import {useDispatch } from "react-redux";
 import { addSubscription } from "../../redux/action/cart";
+import { Form } from "react-bootstrap";
 export const Gym = () => {
   const [allgyms, setAllGyms] = useState([]);
+  const [search , setSearch] = useState("");
   const token = localStorage.getItem("token");
   const dispatch = useDispatch();
   const all = JSON.parse(localStorage.getItem("subscription"))
@@ -13,7 +15,7 @@ export const Gym = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/gym")
+      .get("https://c3megalodon.herokuapp.com/gym")
       .then((res) => {
         setAllGyms([...res.data.result]);
       })
@@ -55,8 +57,28 @@ export const Gym = () => {
 
   return (
     <div className="bigDiv">
+      <Form>
+        <Form.Group className="searchGym" controlId="exampleForm.ControlInput1">
+          <Form.Control
+            type="text"
+            
+            placeholder="  search...,name"
+            onChange={(e) => {
+              setSearch(e.target.value);
+            }}
+          />
+        </Form.Group>
+      </Form>
       {allgyms &&
-        allgyms.map((element, index) => {
+        allgyms.filter((val) => {
+          if (search == "") {
+            return val;
+          } else if (
+            val.name.toLowerCase().includes(search.toLowerCase())          
+          ) {
+            return val;
+          }
+        }).map((element, index) => {
           return (
 
             <>

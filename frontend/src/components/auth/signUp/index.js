@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import axios from "axios";
 import "./signUp.css";
 import { useHistory } from "react-router-dom";
+import { Overlay, Tooltip } from "react-bootstrap";
 
 export default function Register() {
   const [firstName, setFirstName] = useState("");
@@ -9,25 +10,31 @@ export default function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
+  const [show, setShow] = useState(false);
+  const target = useRef(null);
 
   const history = useHistory();
 
   const userRegister = async (e) => {
     e.preventDefault();
-    await axios
-      .post("http://localhost:5000/register", {
-        firstName,
-        lastName,
-        email,
-        password,
-      })
-      .then((res) => {
-        history.push("/login");
-      })
-      .catch((err) => {
-        console.log(err);
-        setMessage("Error happened while register, please try again");
-      });
+    if (password.length < 6) {
+      setShow(true);
+    } else {
+      await axios
+        .post("https://c3megalodon.herokuapp.com/register", {
+          firstName,
+          lastName,
+          email,
+          password,
+        })
+        .then((res) => {
+          history.push("/login");
+        })
+        .catch((err) => {
+          console.log(err);
+          setMessage("Error happened while register, please try again");
+        });
+    }
   };
 
   return (
@@ -71,12 +78,21 @@ export default function Register() {
           </div>
           <div className="inputBox">
             <input
+              ref={target}
+              onClick={() => setShow(!show)}
               type="Password"
               placeholder="Password"
               onChange={(e) => {
                 setPassword(e.target.value);
               }}
             />
+            <Overlay className="tooltip" target={target.current} show={show} placement="left">
+              {(props) => (
+                <Tooltip id="overlay-example" {...props}>
+                  must be 6 to 15 characters long.
+                </Tooltip>
+              )}
+            </Overlay>
           </div>
 
           <div className="inputBox">

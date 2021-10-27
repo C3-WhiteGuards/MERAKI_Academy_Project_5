@@ -33,7 +33,7 @@ export const ProfileUser = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/users", {
+      .get("https://c3megalodon.herokuapp.com/users", {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((result) => {
@@ -47,7 +47,7 @@ export const ProfileUser = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/subscribtion/ResturantsSubscribtion", {
+      .get("https://c3megalodon.herokuapp.com/subscribtion/ResturantsSubscribtion", {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((result) => {
@@ -62,7 +62,7 @@ export const ProfileUser = () => {
   const [subTrainer, setSubTrainer] = useState("");
   useEffect(() => {
     axios
-      .get("http://localhost:5000/subscribtion/TrainersSubscribtion", {
+      .get("https://c3megalodon.herokuapp.com/subscribtion/TrainersSubscribtion", {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((result) => {
@@ -77,7 +77,7 @@ export const ProfileUser = () => {
   const [subGym, setSubGym] = useState("");
   useEffect(() => {
     axios
-      .get("http://localhost:5000/subscribtion/GymSubscribtions", {
+      .get("https://c3megalodon.herokuapp.com/subscribtion/GymSubscribtions", {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((result) => {
@@ -126,13 +126,15 @@ export const ProfileUser = () => {
   const updateInfo = () => {
     axios
       .put(
-        "http://localhost:5000/users",
+        "https://c3megalodon.herokuapp.com/users",
         { age, phoneNumber, country, weight, height, diseases },
         { headers: { Authorization: `Bearer: ${token}` } }
       )
       .then((result) => {
         console.log(result);
         closeModal();
+        history.push('/home')
+        history.push('/profile')
       })
       .catch((err) => {
         console.log("Error", err);
@@ -209,7 +211,7 @@ export const ProfileUser = () => {
             />
 
             <input
-              type="number"
+              type="number" value={profile && profile.weigh}
               className="inputModal"
               placeholder="Weight"
               onChange={(e) => {
@@ -235,11 +237,17 @@ export const ProfileUser = () => {
               }}
             />
 
-            <input
+            <input 
               type="text"
               className="inputModal"
               placeholder="Country"
+              onChan
+              type="text"
+              className="inputModalDiseases"
+              value={profile && profile.diseases}
               onChange={(e) => {
+                setDiseases(e.target.value);
+              }}ge={(e) => {
                 setCountry(e.target.value);
               }}
             />
@@ -248,12 +256,6 @@ export const ProfileUser = () => {
               • Do you have any Diseases ?
             </lebel>
             <input
-              type="text"
-              className="inputModalDiseases"
-              value={profile && profile.diseases}
-              onChange={(e) => {
-                setDiseases(e.target.value);
-              }}
             />
             <Button
               variant="outline-dark"
@@ -289,6 +291,7 @@ export const ProfileUser = () => {
                         height: "40px",
                         borderRadius: "100%",
                         paddingBottom: "5px",
+                        marginLeft:"10px"
                       }}
                     />
 
@@ -305,7 +308,7 @@ export const ProfileUser = () => {
                         new Date(elem && elem.date_to.slice(0, 10))
                       )} day`}
                       className="progress"
-                      style={{ margin: "auto", padding: "0px" }}
+                      style={{ margin: "auto", padding: "0px" , width:"200px" , height:"25px" }}
                     />
                   </div>{" "}
                   Expier Date: {elem && elem.date_to.slice(0, 10)}

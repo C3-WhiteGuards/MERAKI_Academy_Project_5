@@ -168,6 +168,10 @@
   filter: invert(1);
 }
 
+.tooltip{
+  width: 200px;
+}
+
 @media all and (max-width: 768px) {
   .section2 .imgBox {
     position: absolute;

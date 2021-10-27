@@ -10,7 +10,7 @@ export default function FeaturedInfo () {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/gym")
+      .get("https://c3megalodon.herokuapp.com/gym")
       .then((res) => {
         setAllGyms([...res.data.result]);
       })
@@ -20,14 +20,14 @@ export default function FeaturedInfo () {
   }, []);
 
   useEffect(async () => {
-    await axios.get("http://localhost:5000/trainer").then((res) => {
+    await axios.get("https://c3megalodon.herokuapp.com/trainer").then((res) => {
       setTrainer(res.data.allTrainers);
     });
   }, []);
 
   useEffect(async () => {
     await axios
-      .get("http://localhost:5000/resturan")
+      .get("https://c3megalodon.herokuapp.com/resturan")
       .then((res) => {
         setResturants([...res.data.result]);
       })

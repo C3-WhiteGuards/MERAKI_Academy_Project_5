@@ -18,7 +18,7 @@ export default function Gym () {
 
   const updateGym = async () => {
     await axios
-      .put(`http://localhost:5000/gym/${gymId}`, {
+      .put(`https://c3megalodon.herokuapp.com/gym/${gymId}`, {
         name,
         phoneNumber,
         location,
@@ -33,7 +33,7 @@ export default function Gym () {
 
   useEffect(async () => {
     await axios
-      .get(`http://localhost:5000/gym/${gymId}`)
+      .get(`https://c3megalodon.herokuapp.com/gym/${gymId}`)
       .then((res) => {
         setGym(res.data.result[0]);
         

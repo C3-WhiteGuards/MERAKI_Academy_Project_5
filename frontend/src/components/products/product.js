@@ -7,10 +7,16 @@ import swal from "sweetalert";
 export const Allproduct = () => {
   const [products, setProducts] = useState([]);
   const dispatch = useDispatch();
+
   const token = localStorage.getItem("token");
   const all = JSON.parse(localStorage.getItem("savedData"));
   useEffect(() => {
     axios.get("http://localhost:5000/products").then((result) => {
+
+
+  const all = JSON.parse(localStorage.getItem("savedData"))
+   useEffect(() => {
+
       setProducts([...result.data.Products]);
     });
   }, []);
@@ -99,6 +105,7 @@ export const AddProducts = () => {
   const [image, setImage] = useState("");
 
   const addProduct = () => {
+
     axios
       .post("http://localhost:5000/products", {
         name,
@@ -107,6 +114,14 @@ export const AddProducts = () => {
         image,
       })
       .then((result) => {
+
+    axios.post("https://c3megalodon.herokuapp.com/products", {
+      name,
+      price,
+      description,
+      image,
+    }).then(result=>{
+
         console.log(result);
       });
   };

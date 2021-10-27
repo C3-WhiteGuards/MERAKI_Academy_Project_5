@@ -2,14 +2,15 @@ import React, { useEffect, useState } from "react";
 import "./trainer.css";
 import axios from "axios";
 import { useHistory } from "react-router";
-
+import { Form } from "react-bootstrap";
 
 export const Trainer = () => {
   const [trainers, setTrainer] = useState([]);
   const history = useHistory();
+  const [search, setSearch] = useState("");
 
   const getAllTrainers = async () => {
-    await axios.get("http://localhost:5000/trainer").then((res) => {
+    await axios.get("https://c3megalodon.herokuapp.com/trainer").then((res) => {
       setTrainer(res.data.allTrainers);
       console.log(res.data.allTrainers);
     });
@@ -20,36 +21,55 @@ export const Trainer = () => {
 
   return (
     <div>
-        <div className="titleMain" style={{paddingTop:"50px" }}>
-          <h1> Here are professional trainers </h1>
-         
-        </div>
-      
-    <div className="AllTrainersClass">
-      {trainers &&
-        trainers.map((elem, i) => {
-          
-          return (
-            <div
-              key={i}
-              className="trainrClass"
-              onClick={() => history.push(`/trainer/${elem.id}`)}
-            >
-              <img
-                src={elem.image}
-                className="imgTrainer"
-              />
-              <p className="nameTrainer">{elem.firstName+" "+elem.lastName}</p>
-            </div>
+      <div className="titleMain" style={{ paddingTop: "50px" }}>
+        <h1> Here are professional trainers </h1>
+      </div>
+
+      <Form>
+        <Form.Group className="searchTrainer" controlId="exampleForm.ControlInput1">
+          <Form.Control
+            type="text"
             
-          );
-        })}
-    </div>
+            placeholder="  search...,sport or name"
+            onChange={(e) => {
+              setSearch(e.target.value);
+            }}
+          />
+        </Form.Group>
+      </Form>
+
+      <div className="AllTrainersClass">
+        {trainers &&
+          trainers
+            .filter((val) => {
+              if (search == "") {
+                return val;
+              } else if (
+                val.firstName.toLowerCase().includes(search.toLowerCase()) ||
+                val.lastName.toLowerCase().includes(search.toLowerCase()) ||
+                val.sport.toLowerCase().includes(search.toLowerCase())
+              ) {
+                return val;
+              }
+            })
+            .map((elem, i) => {
+              return (
+                <div
+                  key={i}
+                  className="trainrClass"
+                  onClick={() => history.push(`/trainer/${elem.id}`)}
+                >
+                  <img src={elem.image} className="imgTrainer" />
+                  <p className="nameTrainer">
+                    {elem.firstName + " " + elem.lastName}
+                  </p>
+                </div>
+              );
+            })}
+      </div>
     </div>
   );
 };
-
-
 
 export const AddTrainer = () => {
   const [firstName, setFirstName] = useState("");
@@ -64,7 +84,7 @@ export const AddTrainer = () => {
 
   const addTrainers = async () => {
     await axios
-      .post("http://localhost:5000/trainer", {
+      .post("https://c3megalodon.herokuapp.com/trainer", {
         firstName,
         lastName,
         phoneNumber,

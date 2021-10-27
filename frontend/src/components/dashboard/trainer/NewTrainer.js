@@ -16,7 +16,7 @@ export default function NewTrainer () {
 
   const createNewTrainer = async () => {
     await axios
-      .post(`http://localhost:5000/trainer`, {
+      .post(`https://c3megalodon.herokuapp.com/trainer`, {
         firstName,
         lastName,
         phoneNumber,

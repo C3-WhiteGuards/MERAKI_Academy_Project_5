@@ -12,7 +12,7 @@ export default function NewResturant () {
 
   const createNewRestaurant = async () => {
     await axios
-      .post(`http://localhost:5000/resturan`, {
+      .post(`https://c3megalodon.herokuapp.com/resturan`, {
         name,
         location,
         image,
