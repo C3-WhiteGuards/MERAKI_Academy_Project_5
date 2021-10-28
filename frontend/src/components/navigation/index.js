@@ -98,10 +98,11 @@ const Navigation = () => {
             </Nav>
             <Nav>
             <Nav.Link><Link to="/home" style={{textDecoration: "none" , color:"white"}}>Home</Link></Nav.Link>
-              <Nav.Link><Link to="/login" style={{textDecoration: "none" , color:"white"}}>Login</Link></Nav.Link>
+              <Nav.Link><Link to="/profile" style={{textDecoration: "none" , color:"white"}}>Profile</Link></Nav.Link>
               <Nav.Link eventKey={2} >
-              <Link to="/register" style={{textDecoration: "none" , color:"white"}}>Register</Link>
+              <Link to="/logout" style={{textDecoration: "none" , color:"white"}}>Logout</Link>
               </Nav.Link>
+              <Nav.Link><Link to="/home" style={{textDecoration: "none" , color:"white"}}>Cart</Link><MdAddShoppingCart size="1.2em" color="white"/></Nav.Link>
             </Nav>
            
           </Navbar.Collapse>

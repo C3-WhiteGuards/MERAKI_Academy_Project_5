@@ -4,6 +4,7 @@ import { Col, Card, Row, Button } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../redux/action/cart";
 import swal from "sweetalert";
+
 export const Allproduct = () => {
   const [products, setProducts] = useState([]);
   const dispatch = useDispatch();
@@ -11,12 +12,7 @@ export const Allproduct = () => {
   const token = localStorage.getItem("token");
   const all = JSON.parse(localStorage.getItem("savedData"));
   useEffect(() => {
-    axios.get("http://localhost:5000/products").then((result) => {
-
-
-  const all = JSON.parse(localStorage.getItem("savedData"))
-   useEffect(() => {
-
+    axios.get("https://c3megalodon.herokuapp.com/products").then((result) => {
       setProducts([...result.data.Products]);
     });
   }, []);
@@ -105,7 +101,6 @@ export const AddProducts = () => {
   const [image, setImage] = useState("");
 
   const addProduct = () => {
-
     axios
       .post("http://localhost:5000/products", {
         name,
@@ -114,14 +109,6 @@ export const AddProducts = () => {
         image,
       })
       .then((result) => {
-
-    axios.post("https://c3megalodon.herokuapp.com/products", {
-      name,
-      price,
-      description,
-      image,
-    }).then(result=>{
-
         console.log(result);
       });
   };
