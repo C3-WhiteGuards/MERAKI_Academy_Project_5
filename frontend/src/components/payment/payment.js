@@ -45,9 +45,6 @@ const Payment = ({ gymId, trainerId, restaurantId }) => {
   const addSUB = () => {
     Promise.all([reqTrainer(), reqGym(), reqResturant()])
       .then(function (results) {
-        console.log("traner", results[0], trainerId);
-        console.log("gym", results[1], gymId);
-        console.log("returant", results[2], restaurantId);
         swal({
           title: "Success !! ",
           text: "Thank you for Payment you will receive an sms that confirm your subscription ",
@@ -55,9 +52,7 @@ const Payment = ({ gymId, trainerId, restaurantId }) => {
           button: "OK",
         });
       })
-      .catch((errors) => {
-        console.log(errors);
-      });
+      .catch((errors) => {});
   };
 
   const CARD_OPTIONS = {
@@ -143,7 +138,6 @@ const Payment = ({ gymId, trainerId, restaurantId }) => {
     </div>
   );
 
- 
   const CheckoutForm = () => {
     const stripe = useStripe();
     const elements = useElements();
@@ -203,9 +197,7 @@ const Payment = ({ gymId, trainerId, restaurantId }) => {
     };
 
     return paymentMethod ? (
-      <div className="Result">
-        
-      </div>
+      <div className="Result"></div>
     ) : (
       <form className="Form" onSubmit={handleSubmit}>
         <fieldset className="FormGroup">

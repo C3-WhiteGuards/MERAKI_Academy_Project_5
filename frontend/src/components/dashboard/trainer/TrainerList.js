@@ -2,7 +2,7 @@ import style from "./trainerList.module.css";
 import { DataGrid } from "@material-ui/data-grid";
 import { DeleteOutline } from "@material-ui/icons";
 import { Link } from "react-router-dom";
-import swal from 'sweetalert';
+import swal from "sweetalert";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 
@@ -20,9 +20,7 @@ export default function TrainerList() {
           button: "OK",
         });
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((err) => {});
   };
 
   useEffect(() => {
@@ -31,9 +29,7 @@ export default function TrainerList() {
       .then((result) => {
         setData(result.data.allTrainers);
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((err) => {});
   }, []);
 
   const columns = [
@@ -52,7 +48,7 @@ export default function TrainerList() {
       },
     },
     { field: "phoneNumber", headerName: "phoneNumber", width: 200 },
-  
+
     {
       field: "priceMonthly",
       headerName: "priceMonthly",

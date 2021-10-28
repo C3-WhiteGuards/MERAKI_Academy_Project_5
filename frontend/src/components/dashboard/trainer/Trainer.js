@@ -1,7 +1,4 @@
-import {
-  LocationSearching,
-  PhoneAndroid,
-} from "@material-ui/icons";
+import { LocationSearching, PhoneAndroid } from "@material-ui/icons";
 import { Link, useParams } from "react-router-dom";
 import style from "./trainer.module.css";
 import axios from "axios";
@@ -36,7 +33,6 @@ export default function Trainer() {
       })
       .then((res) => {
         setMessage(res.data.message);
-        
       });
   };
 
@@ -45,11 +41,8 @@ export default function Trainer() {
       .get(`https://c3megalodon.herokuapp.com/trainer/${trainerId}`)
       .then((res) => {
         setTrainer(res.data.Trainer[0]);
-        
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((err) => {});
   }, []);
 
   return (
@@ -86,11 +79,15 @@ export default function Trainer() {
             <span className={style.userShowTitle}>Contact Details</span>
             <div className={style.userShowInfo}>
               <PhoneAndroid className={style.userShowIcon} />
-              <span className={style.userShowInfoTitle}>{Trainer.phoneNumber}</span>
+              <span className={style.userShowInfoTitle}>
+                {Trainer.phoneNumber}
+              </span>
             </div>
             <div className={style.userShowInfo}>
               <LocationSearching className={style.userShowIcon} />
-              <span className={style.userShowInfoTitle}>{Trainer.location}</span>
+              <span className={style.userShowInfoTitle}>
+                {Trainer.location}
+              </span>
             </div>
           </div>
         </div>
@@ -117,7 +114,6 @@ export default function Trainer() {
                   className={style.userUpdateInput}
                   onChange={(e) => {
                     setLastName(e.target.value);
-                    console.log(e.target.value);
                   }}
                 />
               </div>

@@ -1,56 +1,52 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./comment.css";
 import axios from "axios";
-
+import swal from "sweetalert";
 export const AddComment = () => {
   const [comment, setComment] = useState("");
-
-  const token = localStorage.getItem("token");
-
   const createComment = () => {
+   
     axios
-      .post(
-        `https://c3megalodon.herokuapp.com/comment`,
-        { comment },
-        { headers: { Authorization: `Bearer ${token}` } }
-      )
+      .post(`https://c3megalodon.herokuapp.com/comment`, { comment })
       .then((res) => {
-        console.log(res.data);
+        swal({
+          title: "Thank you for giving us your opinion ",
+          icon: "success",
+          button: "OK",
+        });
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((err) => {});
   };
 
   return (
     <>
-    <div className="commentPerant">
-      <div className="container33">
-        <div className="form44">
-          <h4> Send us a Message</h4>
-          <div className="container22">
-            <textarea
-              className="textareaaa"
-              cols="30"
-              rows="6"
-              placeholder="Write you opinion . . .
+      <div className="commentPerant">
+        <div className="container33">
+          <div className="form44">
+            <h4> Send us a Message</h4>
+            <div className="container22">
+              <textarea
+                className="textareaaa"
+                cols="30"
+                rows="6"
+                placeholder="Write you opinion . . .
               "
-              onChange={(e) => {
-                setComment(e.target.value);
-              }}
-            ></textarea>
-            <div className="clearrr">
-              <button
-                type="submit"
-                className="signupbtnn"
-                onClick={createComment}
-              >
-                Submit
-              </button>
+                onChange={(e) => {
+                  setComment(e.target.value);
+                }}
+              ></textarea>
+              <div className="clearrr">
+                <button
+                  type="submit"
+                  className="signupbtnn"
+                  onClick={createComment}
+                >
+                  Submit
+                </button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
       </div>
     </>
   );

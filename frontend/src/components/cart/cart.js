@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Route } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { removeItem, removeSubscription } from "../../redux/action/cart";
@@ -7,7 +7,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./cart.css";
 
 export const Cart = () => {
-  const token = localStorage.getItem("token");
   let trainerId = 0;
   let gymId = 0;
   let restaurantId = 0;
@@ -36,7 +35,7 @@ export const Cart = () => {
   };
   return (
     <div className="allCart">
-      <div className="container" >
+      <div className="container">
         <h5 className="cartTitle">Your subscribtions</h5>
         {state.subscription &&
           state.subscription.map((elem, index) => {
@@ -59,12 +58,13 @@ export const Cart = () => {
                       {elem &&
                         (elem.name || elem.firstName + " " + elem.lastName)}
                     </h2>
-                    <p></p>
+
                     <strong>
                       Price:{elem && (elem.priceMonthly || elem.monthlyPrice)}$
                     </strong>
                     <br />
-                    <button  className="cartbuttom"
+                    <button
+                      className="cartbuttom"
                       onClick={() => {
                         removeSubscribtion(elem.provider);
                       }}
@@ -77,7 +77,7 @@ export const Cart = () => {
             }
           })}
       </div>
-      <hr/>
+      <hr />
       <div className="container">
         <h5 className="cartTitle">Your Items</h5>
         {state.items &&
@@ -89,15 +89,16 @@ export const Cart = () => {
                   <img src={elem && elem.image} alt="!" />
                   <div class="card-Text">
                     <h2 className="cartProductName">{elem && elem.name}</h2>
-                    <p></p>
+
                     <strong>Price:{elem && elem.price}$</strong>
                     <br />
-                    <button className="cartbuttom"
+                    <button
+                      className="cartbuttom"
                       onClick={() => {
                         handleRemove(elem.id);
                       }}
                     >
-                        Remove
+                      Remove
                     </button>
                   </div>
                 </div>
@@ -105,18 +106,18 @@ export const Cart = () => {
             }
           })}
       </div>
-      <hr/>
+      <hr />
       <div className="container">
         <div className="collection">
           <li className="collection-item"></li>
           <li className="collection-item">
-            <b style={{fontSize:"25px"}}> TOTAL : {total} $</b>
+            <b style={{ fontSize: "25px" }}> TOTAL : {total} $</b>
           </li>
         </div>
         <div className="checkout">
-          <Route 
+          <Route
             exact
-            path="/cart" 
+            path="/cart"
             render={() => (
               <Payment
                 restaurantId={restaurantId}

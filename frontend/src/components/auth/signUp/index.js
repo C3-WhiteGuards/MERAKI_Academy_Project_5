@@ -31,7 +31,6 @@ export default function Register() {
           history.push("/login");
         })
         .catch((err) => {
-          console.log(err);
           setMessage("Error happened while register, please try again");
         });
     }
@@ -86,7 +85,12 @@ export default function Register() {
                 setPassword(e.target.value);
               }}
             />
-            <Overlay className="tooltip" target={target.current} show={show} placement="left">
+            <Overlay
+              className="tooltip"
+              target={target.current}
+              show={show}
+              placement="left"
+            >
               {(props) => (
                 <Tooltip id="overlay-example" {...props}>
                   must be 6 to 15 characters long.

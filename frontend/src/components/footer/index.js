@@ -1,6 +1,4 @@
 import React from "react";
-import { FaInstagram, FaFacebook, FaTwitter } from "react-icons/fa";
-import { Link } from "react-router-dom";
 import "./footer.css";
 import "./About";
 import { useHistory } from "react-router";

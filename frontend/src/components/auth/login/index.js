@@ -1,5 +1,5 @@
 import "./login.css";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { GoogleLogin } from "react-google-login";
 import { useHistory } from "react-router-dom";
@@ -29,30 +29,32 @@ export const Login = () => {
       })
       .then((res) => {
         const token = res.data.token;
-        console.log(res.data.role);
+        localStorage.setItem("role", res.data.role);
         localStorage.setItem("token", token);
         localStorage.setItem("savedData", JSON.stringify([]));
         localStorage.setItem("subscription", JSON.stringify([]));
         dispatch(setToken(res.data.token));
         dispatch(addSubscription([]));
         //dispatch(addToCart([]));
-        history.push("/home");
+        if (res.data.role === "admin") {
+          history.push("/dashboard");
+        } else {
+          history.push("/home");
+        }
       })
 
       .catch((error) => {
-        console.log(error);
-        if(error){
+        if (error) {
           setMessage("Email or Password incorrect, please try again");
         }
-
-       
       });
   };
 
   const onSuccess = async (res) => {
-    console.log(res.tokenId);
     await axios
-      .post("https://c3megalodon.herokuapp.com/login/loginGoogle", { tokenId: res.tokenId })
+      .post("https://c3megalodon.herokuapp.com/login/loginGoogle", {
+        tokenId: res.tokenId,
+      })
       .then((res) => {
         if (res.data) {
           localStorage.setItem("token", res.data.token);
@@ -65,14 +67,11 @@ export const Login = () => {
         } else throw Error;
       })
       .catch((err) => {
-        console.log(err.response.data.message);
+        setMessage("Email or Password incorrect, please try again");
       });
-    
   };
 
-  const onFailure = (res) => {
-    console.log("Login failed: res:", res);
-  };
+  const onFailure = (res) => {};
 
   const restPass = () => {
     swal({
@@ -142,14 +141,8 @@ export const Login = () => {
               }}
             />
           </div>
-          {/* <div className="remember">
-            <label>
-              <input type="checkbox" />
-              Remember me
-            </label>
-          </div> */}
+
           <div className="inputBx">
-            {/**  <input type="submit" value="Sign in"/>*/}
             <button className="" onClick={userLogin}>
               Sign In
             </button>

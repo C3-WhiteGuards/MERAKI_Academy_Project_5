@@ -12,7 +12,6 @@ export const Trainer = () => {
   const getAllTrainers = async () => {
     await axios.get("https://c3megalodon.herokuapp.com/trainer").then((res) => {
       setTrainer(res.data.allTrainers);
-      console.log(res.data.allTrainers);
     });
   };
   useEffect(() => {
@@ -22,15 +21,17 @@ export const Trainer = () => {
   return (
     <div>
       <div className="titleMain" style={{ paddingTop: "50px" }}>
-        <h1> Here are professional trainers </h1>
+        <h1> Our Professional Trainers </h1>
       </div>
 
       <Form>
-        <Form.Group className="searchTrainer" controlId="exampleForm.ControlInput1">
+        <Form.Group
+          className="searchTrainer"
+          controlId="exampleForm.ControlInput1"
+        >
           <Form.Control
             type="text"
-            
-            placeholder="  search...,sport or name"
+            placeholder="  Search..."
             onChange={(e) => {
               setSearch(e.target.value);
             }}
@@ -95,9 +96,7 @@ export const AddTrainer = () => {
         description,
         experience,
       })
-      .then((res) => {
-        console.log(res);
-      });
+      .then((res) => {});
   };
 
   return (

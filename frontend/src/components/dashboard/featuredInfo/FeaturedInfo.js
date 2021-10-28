@@ -3,7 +3,7 @@ import { ArrowDownward, ArrowUpward } from "@material-ui/icons";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-export default function FeaturedInfo () {
+export default function FeaturedInfo() {
   const [trainer, setTrainer] = useState();
   const [resturants, setResturants] = useState([]);
   const [allgyms, setAllGyms] = useState([]);
@@ -14,9 +14,7 @@ export default function FeaturedInfo () {
       .then((res) => {
         setAllGyms([...res.data.result]);
       })
-      .catch((error) => {
-        console.log(error.response);
-      });
+      .catch((error) => {});
   }, []);
 
   useEffect(async () => {
@@ -31,9 +29,7 @@ export default function FeaturedInfo () {
       .then((res) => {
         setResturants([...res.data.result]);
       })
-      .catch((error) => {
-        console.log(error.response);
-      });
+      .catch((error) => {});
   }, []);
 
   return (
@@ -53,9 +49,11 @@ export default function FeaturedInfo () {
       <div className={style.featuredItem}>
         <span className={style.featuredTitle}>Gyms</span>
         <div className={style.featuredMoneyContainer}>
-          <span className={style.featuredMoney}>{allgyms && allgyms.length}</span>
+          <span className={style.featuredMoney}>
+            {allgyms && allgyms.length}
+          </span>
           <span className={style.featuredMoneyRate}>
-            -3 <ArrowDownward  />
+            -3 <ArrowDownward />
           </span>
         </div>
         <span className={style.featuredSub}>Compared to last month</span>
@@ -63,9 +61,11 @@ export default function FeaturedInfo () {
       <div className={style.featuredItem}>
         <span className={style.featuredTitle}>Trainer</span>
         <div className={style.featuredMoneyContainer}>
-          <span className={style.featuredMoney}>{trainer && trainer.length}</span>
+          <span className={style.featuredMoney}>
+            {trainer && trainer.length}
+          </span>
           <span className={style.featuredMoneyRate}>
-            -2 <ArrowDownward  />
+            -2 <ArrowDownward />
           </span>
         </div>
         <span className={style.featuredSub}>Compared to last month</span>
