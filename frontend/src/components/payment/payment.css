@@ -11,7 +11,6 @@ button {
   border-style: none;
 }
 
-
 .AppWrapper {
   width: 100%;
   height: 100%;
@@ -37,8 +36,6 @@ button {
   margin: 0 15px 20px;
   padding: 0;
   border-style: none;
-  /* background-color: #777
-  ; */
   will-change: opacity, transform;
   box-shadow: 0 6px 9px rgba(50, 50, 93, 0.06), 0 2px 5px rgba(0, 0, 0, 0.08),
     inset 0 1px 0 #829fff;
@@ -76,8 +73,6 @@ button {
 }
 .FormRowInput:-webkit-autofill {
   -webkit-text-fill-color: black;
-  /* Hack to hide the default webkit autofill */
-  
   transition: background-color 100000000s;
   animation: 1ms void-animation-out;
 }
@@ -191,7 +186,6 @@ button {
   cursor: pointer;
   background: transparent;
 }
- 
 
 .ReactModal__Overlay {
   opacity: 0;
@@ -209,20 +203,20 @@ button {
   transform: translateX(-100px);
 }
 
-.logBtn{
+.logBtn {
   background-color: gray;
-  font-size: 15px ;
+  font-size: 15px;
   font-weight: bold;
-  border-radius: 3px ;
+  border-radius: 3px;
   width: 80px;
   height: 30px;
   margin: auto;
 }
 
-.kero{
+.kero {
   text-align: center;
   margin-right: 100px;
 }
-.modHeader{
+.modHeader {
   text-align: center;
 }

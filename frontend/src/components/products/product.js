@@ -46,7 +46,7 @@ export const Allproduct = () => {
 
       <Row xs={1} md={3} className="g-4">
         {products &&
-          products.map((item, index) => {
+          products.map((item) => {
             return (
               <Col key={item.id}>
                 <Card
@@ -108,9 +108,7 @@ export const AddProducts = () => {
         description,
         image,
       })
-      .then((result) => {
-        console.log(result);
-      });
+      .then((result) => {});
   };
 
   return (

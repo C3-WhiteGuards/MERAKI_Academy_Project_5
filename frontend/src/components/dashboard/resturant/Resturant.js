@@ -4,7 +4,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { LocationSearching } from "@material-ui/icons";
 
-export default function Resturant () {
+export default function Resturant() {
   const [resturant, setResturant] = useState();
   const [name, setName] = useState();
   const [location, setLocation] = useState();
@@ -24,7 +24,6 @@ export default function Resturant () {
       })
       .then((res) => {
         setMessage(res.data.message);
-        
       });
   };
   useEffect(async () => {
@@ -33,9 +32,7 @@ export default function Resturant () {
       .then((res) => {
         setResturant(res.data.Resturant[0]);
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((err) => {});
   }, []);
   return (
     <div className={style.user}>
@@ -93,7 +90,10 @@ export default function Resturant () {
                   }}
                 />
               </div>
-              <div className={style.userUpdateItem} style={{ marginTop: "20px" }}>
+              <div
+                className={style.userUpdateItem}
+                style={{ marginTop: "20px" }}
+              >
                 <label>Location</label>
                 <textarea
                   rows="4"
@@ -101,40 +101,41 @@ export default function Resturant () {
                   defaultValue={resturant && resturant.location}
                   onChange={(e) => {
                     setLocation(e.target.value);
-                    console.log(e.target.value);
                   }}
                 ></textarea>
               </div>
               <div className={style.userUpdateItem}>
-              <div className={style.userUpdateItem}>
-                <label>Price Monthly</label>
-                <input
-                  type="number"
-                  defaultValue={resturant && resturant.monthlyPrice}
-                  onChange={(e) => {
-                    setMonthlyPrice(e.target.value);
-                  }}
-                  className={style.userUpdateInput}
-                />
-              </div>
+                <div className={style.userUpdateItem}>
+                  <label>Price Monthly</label>
+                  <input
+                    type="number"
+                    defaultValue={resturant && resturant.monthlyPrice}
+                    onChange={(e) => {
+                      setMonthlyPrice(e.target.value);
+                    }}
+                    className={style.userUpdateInput}
+                  />
+                </div>
 
-              <div className={style.userUpdateItem}>
-                <label>Image</label>
-                <textarea
-                  rows="4"
-                  cols="50"
-                  defaultValue={resturant && resturant.image}
-                  onChange={(e) => {
-                    setImage(e.target.value);
-                  }}
-                ></textarea>
+                <div className={style.userUpdateItem}>
+                  <label>Image</label>
+                  <textarea
+                    rows="4"
+                    cols="50"
+                    defaultValue={resturant && resturant.image}
+                    onChange={(e) => {
+                      setImage(e.target.value);
+                    }}
+                  ></textarea>
+                </div>
               </div>
             </div>
-            </div>
-            
           </form>
           <div className={style.centerB}>
-            <button className={style.userUpdateButton} onClick={updateRestaurant}>
+            <button
+              className={style.userUpdateButton}
+              onClick={updateRestaurant}
+            >
               Update
             </button>
             <p>{message}</p>

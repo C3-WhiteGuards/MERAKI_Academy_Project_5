@@ -1,9 +1,9 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import style from "./widgetLg.module.css";
-import {Restaurant} from "@material-ui/icons";
+import { Restaurant } from "@material-ui/icons";
 
-export default function WidgetLg (){
+export default function WidgetLg() {
   const [subRest, setSubRest] = useState();
 
   const Button = ({ type }) => {
@@ -12,14 +12,13 @@ export default function WidgetLg (){
 
   useEffect(() => {
     axios
-      .get("https://c3megalodon.herokuapp.com/subscribtion/allResturantsSubscribtion")
+      .get(
+        "https://c3megalodon.herokuapp.com/subscribtion/allResturantsSubscribtion"
+      )
       .then((result) => {
-        console.log(result.data.result);
         setSubRest(result.data.result);
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((err) => {});
   }, []);
   return (
     <div className={style.widgetLg}>

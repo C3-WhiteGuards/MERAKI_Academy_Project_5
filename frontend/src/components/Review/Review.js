@@ -9,22 +9,23 @@ export const Review = () => {
     axios
       .get("https://c3megalodon.herokuapp.com/comment")
       .then((res) => {
-        console.log(res.data);
         setAllReview(res.data.comment);
       })
-      .catch((error) => {
-        console.log(error.response);
-      });
+      .catch((error) => {});
   }, []);
 
   return (
     <div className="review">
       <div className="hdrrev">
-      
-      {/* <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQryFgRbAorc_TxDWs0eEE4C5L253-yPQbiecjp0OjMscEtGEc5-3orRQazBM3Fm8vonyo&usqp=CAU" /> */}
-      <h3  className="reh3"> Customers Review <img src="https://cdn-icons-png.flaticon.com/256/4108/4108233.png" style={{width:"50px" , height:"50px" , marginTop:"-20px"}}/></h3>
-      <h5 className="reh5"> What Our Customers Say About Us </h5>
-     
+        <h3 className="reh3">
+          {" "}
+          Customers Review{" "}
+          <img
+            src="https://cdn-icons-png.flaticon.com/256/4108/4108233.png"
+            style={{ width: "50px", height: "50px", marginTop: "-20px" }}
+          />
+        </h3>
+        <h5 className="reh5"> What Our Customers Say About Us </h5>
       </div>
       {review &&
         review.map((element, index) => {
@@ -33,30 +34,26 @@ export const Review = () => {
               {index % 2 == 0 ? (
                 <div className="divRev">
                   <div className="inforReview">
-                <img src={element.image}/>
-                <h5>{element.firstName}</h5>
-                  <h5>{element.comment}</h5>
-                  <p className="dateReview">{element.date_created.slice(0 , 10)}</p>
+                    <img src={element.image} />
+                    <h5>{element.firstName}</h5>
+                    <h5>{element.comment}</h5>
+                    <p className="dateReview">
+                      {element.date_created.slice(0, 10)}
+                    </p>
                   </div>
                   <div className="imgReview">
-                  <img
-                    
-                    src="https://www.pngall.com/wp-content/uploads/2018/04/Gym-Free-Download-PNG.png" 
-                  />
+                    <img src="https://www.pngall.com/wp-content/uploads/2018/04/Gym-Free-Download-PNG.png" />
                   </div>
                 </div>
               ) : (
                 <div className="divRev">
-                   <div className="imgReview">
-                  <img 
-                   
-                    src="https://www.pngall.com/wp-content/uploads/2018/04/Gym-Free-Download-PNG.png" 
-                  />
+                  <div className="imgReview">
+                    <img src="https://www.pngall.com/wp-content/uploads/2018/04/Gym-Free-Download-PNG.png" />
                   </div>
                   <div className="inforReview">
-                   <img src={element.image} />
-                <h5>{element.firstName}</h5>
-                  <h5>{element.comment}</h5>
+                    <img src={element.image} />
+                    <h5>{element.firstName}</h5>
+                    <h5>{element.comment}</h5>
                   </div>
                 </div>
               )}

@@ -1,21 +1,18 @@
 .AllTrainersClass {
-  height: auto;
-  width: 80%;
+  width: 70%;
   background-color: white;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  padding: 20px;
-  margin-top: 70px;
-  margin-left: 115px;
-  justify-content: space-between;
-  gap: 50px;
+  margin: 70px auto;
+  justify-content: center;
+  gap: 70px;
+  align-items: center;
 }
 .trainrClass {
   margin: 10px;
   height: 300px;
   width: 350px;
   background-color: #ececec;
-  margin-left: 30px;
   border-radius: 5px;
   max-width: 200px;
   text-align: center;
@@ -40,16 +37,13 @@
   box-shadow: 2px 2px 4px #575858;
 }
 
-.Theading{
-  padding-top: 3px  ;
+.Theading {
+  padding-top: 3px;
   padding-bottom: 3px;
-
 }
 
-.searchTrainer{
+.searchTrainer {
   width: 350px;
   margin-left: 600px;
   margin-top: 50px;
-
-
 }

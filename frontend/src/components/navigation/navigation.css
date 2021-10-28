@@ -18,19 +18,7 @@
   background-color: rgb(253, 253, 253);
 }
 
-/* .left {
-  font-size: 15px;
-  color: white;
-  flex: 3;
-  /* margin-left: 20px; */
-/* width: 150%;     */
-/* border: 2px greenyellow solid;
-  width: 20%; */
-/* } */
-
 .words {
-  /* border : 1px red solid ;  */
-
   font-size: 6px;
   display: inline-flex;
   position: absolute;
@@ -40,7 +28,6 @@
   color: white;
   font-weight: normal;
   margin-left: 130%;
-  /* display: flex; */
   justify-content: space-around;
   gap: 30px;
 }
@@ -57,9 +44,6 @@
   letter-spacing: 1px;
   transition: all 0.3s ease 0s;
   font-family: "Crimson Pro", serif;
-  /* display: flex;
-  justify-content: space-around;
-  gap:10px */
 }
 .fixed img {
   height: 45%;
@@ -79,8 +63,6 @@
   }
 }
 
-.imgUser{
-  
+.imgUser {
   border-radius: 100%;
 }
-

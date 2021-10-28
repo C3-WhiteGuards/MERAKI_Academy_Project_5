@@ -4,7 +4,7 @@ import style from "../trainer/trainer.module.css";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 
-export default function Gym () {
+export default function Gym() {
   let gymId = useParams().gymId;
   const [gym, setGym] = useState();
   const [name, setName] = useState();
@@ -36,11 +36,8 @@ export default function Gym () {
       .get(`https://c3megalodon.herokuapp.com/gym/${gymId}`)
       .then((res) => {
         setGym(res.data.result[0]);
-        
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((err) => {});
   }, []);
 
   return (
@@ -100,7 +97,10 @@ export default function Gym () {
                   }}
                 />
               </div>
-              <div className={style.userUpdateItem} style={{ marginTop: "20px" }}>
+              <div
+                className={style.userUpdateItem}
+                style={{ marginTop: "20px" }}
+              >
                 <label>Location</label>
                 <textarea
                   rows="4"
@@ -108,7 +108,6 @@ export default function Gym () {
                   defaultValue={gym && gym.location}
                   onChange={(e) => {
                     setLocation(e.target.value);
-                    console.log(e.target.value);
                   }}
                 ></textarea>
               </div>

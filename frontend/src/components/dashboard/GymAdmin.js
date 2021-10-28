@@ -13,11 +13,11 @@ export const GymAdmin = () => {
     axios
       .get("https://c3megalodon.herokuapp.com/gym")
       .then((res) => {
-        console.log(res.data);
+        res.data;
         setAllGym([...res.data.result]);
       })
       .catch((error) => {
-        console.log(error.response);
+        error.response;
       });
   };
 
@@ -35,10 +35,10 @@ export const GymAdmin = () => {
         description,
       })
       .then((result) => {
-        console.log(result);
+        result;
       })
       .catch((error) => {
-        console.log(error.response);
+        error.response;
       });
   };
 
@@ -52,14 +52,16 @@ export const GymAdmin = () => {
         description,
       })
       .then((result) => {
-        console.log(result);
+        result;
       });
   };
 
   const deleteGymById = (id) => {
-    axios.delete(`https://c3megalodon.herokuapp.com/gym/${id}`).then((result) => {
-      getAllGyms();
-    });
+    axios
+      .delete(`https://c3megalodon.herokuapp.com/gym/${id}`)
+      .then((result) => {
+        getAllGyms();
+      });
   };
   return (
     <div className="gym">
@@ -139,7 +141,6 @@ export const GymAdmin = () => {
                     {" "}
                     update gym{" "}
                   </button>
-                 
                 </div>
               </div>
             );

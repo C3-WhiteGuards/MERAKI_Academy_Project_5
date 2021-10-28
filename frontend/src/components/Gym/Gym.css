@@ -1,73 +1,62 @@
-.childtwo{
-    /* border: 1px blue solid; */
-    width:40%;
-    height: 400px;
-    font-size: 20px;
-    /* border: blue 2px solid; */
-    /* overflow: auto; */
-    font-size: 10px;
-    
-    
+.childtwo {
+  width: 40%;
+  height: 400px;
+  font-size: 20px;
+  font-size: 10px;
 }
 
-
-.OneGym{
-    margin: auto;
-    width:100%;
-    height: 500px;
-    /* background-color: tomato; */
-    display: flex;
-    margin-top: 50px;
-    justify-content: space-around;
-    flex-shrink: 1;
-    
+.OneGym {
+  margin: auto;
+  width: 100%;
+  height: 500px;
+  display: flex;
+  margin-top: 50px;
+  justify-content: space-around;
+  flex-shrink: 1;
 }
 
-.subscribeBtn{
-    width: 120px;
-    height: 50px;
-    border-radius: 3px;
-    background: black;
-    margin-top: 30px;
-    margin-left: 35px;
-    font-size: 15px;
-    color: white;
+.subscribeBtn {
+  width: 120px;
+  height: 50px;
+  border-radius: 3px;
+  background: black;
+  margin-top: 30px;
+  margin-left: 35px;
+  font-size: 15px;
+  color: white;
 }
-.subscribeBtn:hover{
-    border: 1px solid #faf9aa;
-    background-color: #faf9aa;
-    color: #080808;
-    font-weight: 200;
+.subscribeBtn:hover {
+  border: 1px solid #faf9aa;
+  background-color: #faf9aa;
+  color: #080808;
+  font-weight: 200;
 }
-.imgGym{
-    border: rgb(124, 124, 123) 2px solid;
-        width: 40%;
-        height: 400px;
-        /* margin-right: 50px; */
-        border-radius: 3px;
-}
-
-.NameOfTheGym{
-    font-family: 'Crimson Pro', serif;
-    font-size: 30px;
-    margin-top: -30px;
-    padding-top: -30px;
+.imgGym {
+  border: rgb(124, 124, 123) 2px solid;
+  width: 40%;
+  height: 400px;
+  border-radius: 3px;
 }
 
-.name2{
-    font-size: 18px;
-    margin: 0px;
+.NameOfTheGym {
+  font-family: "Crimson Pro", serif;
+  font-size: 30px;
+  margin-top: -30px;
+  padding-top: -30px;
+}
+
+.name2 {
+  font-size: 18px;
+  margin: 0px;
 }
 .bigDiv h5 {
-       
-    padding: 30px 0px 0px 30px;
-    text-align: left;
-    font-weight: bold;
- }
+  padding: 30px 0px 0px 30px;
+  text-align: left;
+  font-weight: bold;
+}
 
- .searchGym{
-    width: 350px;
-    margin-left: 600px;
-    margin-top: 50px;
-  
-  }
+.searchGym {
+  width: 350px;
+  margin-left: 600px;
+  margin-top: 50px;
+}

@@ -21,11 +21,8 @@ export const OneResturant = () => {
       .get(`https://c3megalodon.herokuapp.com/resturan/${restaurantId}`)
       .then((res) => {
         setResturant(res.data.Resturant);
-        console.log(res.data.Resturant);
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((err) => {});
   }, []);
 
   const addSubsecRestaurant = async (elem) => {

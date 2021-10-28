@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import "./profile.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { ProgressBar, Button, Image } from "react-bootstrap";
-import { Place, Phone, Email, Cancel } from "@mui/icons-material";
+import { Cancel } from "@mui/icons-material";
 import Modal from "react-modal";
 
 const customStyles = {
@@ -17,7 +17,6 @@ const customStyles = {
     marginRight: "-50%",
     transform: "translate(-50%, -50%)",
     borderRadius: "5px",
-
     backgroundColor: "white",
     overlay: {
       backgroundColor: "#ffffff",
@@ -29,7 +28,6 @@ export const ProfileUser = () => {
   const [profile, setProfile] = useState("");
   const [subRest, setSubRest] = useState("");
   const token = localStorage.getItem("token");
-  const id = token.userId;
 
   useEffect(() => {
     axios
@@ -38,40 +36,37 @@ export const ProfileUser = () => {
       })
       .then((result) => {
         setProfile(result.data[0]);
-        console.log("user profile", result.data[0]);
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((err) => {});
   }, []);
 
   useEffect(() => {
     axios
-      .get("https://c3megalodon.herokuapp.com/subscribtion/ResturantsSubscribtion", {
-        headers: { Authorization: `Bearer ${token}` },
-      })
+      .get(
+        "https://c3megalodon.herokuapp.com/subscribtion/ResturantsSubscribtion",
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      )
       .then((result) => {
-        console.log("subRest", result.data.result[0]);
         setSubRest(result.data.result[0]);
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((err) => {});
   }, []);
 
   const [subTrainer, setSubTrainer] = useState("");
   useEffect(() => {
     axios
-      .get("https://c3megalodon.herokuapp.com/subscribtion/TrainersSubscribtion", {
-        headers: { Authorization: `Bearer ${token}` },
-      })
+      .get(
+        "https://c3megalodon.herokuapp.com/subscribtion/TrainersSubscribtion",
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      )
       .then((result) => {
-        console.log("subTrainer", result.data.result[0]);
         setSubTrainer(result.data.result[0]);
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((err) => {});
   }, []);
 
   const [subGym, setSubGym] = useState("");
@@ -81,12 +76,9 @@ export const ProfileUser = () => {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((result) => {
-        console.log("subTrainer", result.data.result[0]);
         setSubGym(result.data.result[0]);
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((err) => {});
   }, []);
 
   function dateDiffInDays(a) {
@@ -100,7 +92,6 @@ export const ProfileUser = () => {
   const [modalIsOpen, setIsOpen] = useState(false);
   function openModal() {
     setIsOpen(true);
-    console.log("rashed modal");
   }
 
   function afterOpenModal() {
@@ -131,34 +122,26 @@ export const ProfileUser = () => {
         { headers: { Authorization: `Bearer: ${token}` } }
       )
       .then((result) => {
-        console.log(result);
         closeModal();
-        history.push('/home')
-        history.push('/profile')
+        history.push("/home");
+        history.push("/profile");
       })
-      .catch((err) => {
-        console.log("Error", err);
-      });
+      .catch((err) => {});
   };
-
-  
 
   return (
     <div className="userProfile">
       <div className="leftdiv">
-      <div className="profileImg">
-        {profile && profile.image !== null ? (
-         
-          <img className="imgProfile" src={profile && profile.image} />
-         
-        ) : (
-          <img
-            className="imgProfile"
-            src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"
-          />
-         
-        )}
- </div>
+        <div className="profileImg">
+          {profile && profile.image !== null ? (
+            <img className="imgProfile" src={profile && profile.image} />
+          ) : (
+            <img
+              className="imgProfile"
+              src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"
+            />
+          )}
+        </div>
         <h4 className="NameOfUser">
           {profile && profile.firstName + " " + profile.lastName}
         </h4>
@@ -215,7 +198,8 @@ export const ProfileUser = () => {
             />
 
             <input
-              type="number" value={profile && profile.weigh}
+              type="number"
+              value={profile && profile.weigh}
               className="inputModal"
               placeholder="Weight"
               onChange={(e) => {
@@ -241,7 +225,7 @@ export const ProfileUser = () => {
               }}
             />
 
-            <input 
+            <input
               type="text"
               className="inputModal"
               placeholder="Country"
@@ -251,7 +235,8 @@ export const ProfileUser = () => {
               value={profile && profile.diseases}
               onChange={(e) => {
                 setDiseases(e.target.value);
-              }}ge={(e) => {
+              }}
+              ge={(e) => {
                 setCountry(e.target.value);
               }}
             />
@@ -259,8 +244,7 @@ export const ProfileUser = () => {
               {" "}
               • Do you have any Diseases ?
             </lebel>
-            <input
-            />
+            <input />
             <Button
               variant="outline-dark"
               className="EnterInfo"
@@ -274,7 +258,6 @@ export const ProfileUser = () => {
 
       <div className="AllSubscribtion">
         {AllSubscribtions.map((elem, i) => {
-          console.log(elem);
           return (
             <>
               {elem !== undefined ? (
@@ -295,7 +278,7 @@ export const ProfileUser = () => {
                         height: "40px",
                         borderRadius: "100%",
                         paddingBottom: "5px",
-                        marginLeft:"10px"
+                        marginLeft: "10px",
                       }}
                     />
 
@@ -312,7 +295,12 @@ export const ProfileUser = () => {
                         new Date(elem && elem.date_to.slice(0, 10))
                       )} day`}
                       className="progress"
-                      style={{ margin: "auto", padding: "0px" , width:"200px" , height:"25px" }}
+                      style={{
+                        margin: "auto",
+                        padding: "0px",
+                        width: "200px",
+                        height: "25px",
+                      }}
                     />
                   </div>{" "}
                   Expier Date: {elem && elem.date_to.slice(0, 10)}

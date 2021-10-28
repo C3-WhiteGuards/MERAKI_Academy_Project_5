@@ -1,13 +1,12 @@
 .AllResturants {
-  width: 80%;
-  margin: auto;
+  width: 70%;
+  background-color: white;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  padding: 20px;
-  margin-top: 70px;
-  margin-left: 120px;
-  justify-content: space-between;
-  gap: 50px;
+  margin: 70px auto;
+  justify-content: center;
+  gap: 70px;
+  align-items: center;
 }
 .cardRestrurant {
   height: 300px;
