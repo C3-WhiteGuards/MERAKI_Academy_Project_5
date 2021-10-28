@@ -8,10 +8,10 @@
   top: 60px;
 }
 
-.pt-bio {
+/* .pt-bio {
   position: relative;
   right: 170px;
-}
+} */
 
 .gym-img {
   border-radius: 100px;
@@ -63,7 +63,7 @@
 }
 
 .heading {
-  position: absolute;
+  /* position: absolute; */
   left: 25px;
   bottom: 85%;
   font-size: 30px;
@@ -75,8 +75,8 @@
   width: 700px;
   line-height: 25px;
   position: relative;
-  right: 7px;
-  top: 30px;
+  right: 0.3px;
+  top: 15px;
 }
 
 .sport-train {

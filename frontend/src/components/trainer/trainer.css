@@ -40,10 +40,16 @@
   box-shadow: 2px 2px 4px #575858;
 }
 
+.Theading{
+  padding-top: 3px  ;
+  padding-bottom: 3px;
+
+
 
 .searchTrainer{
   width: 350px;
   margin-left: 600px;
   margin-top: 50px;
+
 
 }

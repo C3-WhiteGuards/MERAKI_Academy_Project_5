@@ -29,6 +29,36 @@ export const OneResturant = () => {
   }, []);
 
   const addSubsecRestaurant = async (elem) => {
+
+    if (!token){
+      swal({
+        title: "You have to login first so you can subscribe",
+        icon: "error",
+        button: "OK",
+      });}
+ else   if(localStorage.getItem("restaurant") !== null ){
+        swal({
+          title: "You cant subsicribe in more than one restaurant",
+          text: "go to your cart if you want to replace you subsicribtion  ",
+          icon: "error",
+          button: "OK",
+        });
+      }
+      else{
+        localStorage.setItem("restaurant", JSON.stringify(elem))
+        dispatch(addSubscription(elem))
+        all.push(elem)
+        localStorage.setItem("subscription", JSON.stringify(all));
+        swal({
+          title: "Success !! ",
+          text: "Your Food Is Healthy Now , go to your cart to Pay and Confirm your Subsicribtion ",
+          icon: "success",
+          button: "OK",
+        });
+      }
+       
+  }
+
     if (localStorage.getItem("restaurant") !== null) {
       swal({
         title: "You cant subsicribe in more than one restaurant",
@@ -49,6 +79,7 @@ export const OneResturant = () => {
       });
     }
   };
+
 
   return (
     <div className="container">
