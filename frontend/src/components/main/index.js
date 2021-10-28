@@ -49,7 +49,7 @@ const Main = () => {
         </div>
       </div>
 
-      {/* ////////                service section       /////////// */}
+      
       <div className="featuresMain">
         <div className="titleMain">
           <h1>SET HIGH FITNESS GOALS</h1>
@@ -95,8 +95,8 @@ const Main = () => {
             <h1>OUR SECTIONS </h1>
           </div>
           <div className="row" style={{ marginTop: "50px" }}>
-            <div className="col-md-4 col-sm-12">
-              <Card className="cardS" style={{ textAlign: "left" }}>
+            <div className="col-md-4 col-sm-12" >
+              <Card className="cardS" style={{ textAlign: "left" , height:"490px"}}>
                 <Card.Img
                   variant="top"
                   src="https://www.britishclub.org.sg/wp-content/uploads/2020/12/WB_PT.jpg"
@@ -110,6 +110,7 @@ const Main = () => {
                     effectiveness and reducing risk of injury. A personal
                     trainer will teach you everything . join us now and be
                     amember of us !
+                    
                   </Card.Text>
                   <Button
                     style={{
@@ -129,7 +130,7 @@ const Main = () => {
             </div>
 
             <div className="col-md-4 col-sm-12">
-              <Card className="cardS" style={{ textAlign: "left" }}>
+              <Card className="cardS" style={{ textAlign: "left" , height:"490px"}}>
                 <Card.Img
                   variant="top"
                   src="https://cdn.vox-cdn.com/thumbor/BBzIzBTtIXF1HG_5Lm7BvMkPNXk=/0x0:960x673/1200x900/filters:focal(404x261:556x413)/cdn.vox-cdn.com/uploads/chorus_image/image/62771444/realgood_stuff.1546466894.jpg"
@@ -161,7 +162,7 @@ const Main = () => {
             </div>
 
             <div className="col-md-4 col-sm-12">
-              <Card className="cardS" style={{ textAlign: "left" }}>
+              <Card className="cardS" style={{ textAlign: "left" , height:"490px"}}>
                 <Card.Img
                   variant="top"
                   src="https://www.raffles.com/assets/0/72/1930/1931/1945/c2ffca4f-123c-4907-81c9-13bb8a859540.jpg"
