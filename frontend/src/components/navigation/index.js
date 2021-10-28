@@ -49,24 +49,25 @@ const Navigation = () => {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
             
-              <Nav.Link href="/review" style={{color:"white"}}>Review</Nav.Link>
+              <Nav.Link><Link to="/review" style={{textDecoration: "none" , color:"white"}}>Review</Link></Nav.Link>
               <NavDropdown title="Our Sections" id="collasible-nav-dropdown">
-                <NavDropdown.Item href="/AllTrainers">
-                <Link to="/AllTrainers" style={{textDecoration: "none" , color:"gray"}}>Trainers</Link>
+               
+              <NavDropdown.Item >
+                <Link to="/AllTrainers" style={{textDecoration: "none", color:"gray" }}>Trainers</Link>
+                </NavDropdown.Item>             
+                <NavDropdown.Item >
+                <Link to="/ALLGyms" style={{textDecoration: "none" , color:"gray"}}>GYMs</Link>
                 </NavDropdown.Item>
-                <NavDropdown.Item href="/ALLGyms">
-                <Link to="/ALLGyms" style={{textDecoration: "none" , color:"gray" }}>GYMs</Link>
-                </NavDropdown.Item>
-                <NavDropdown.Item href="/AllRestaurnats">
+                <NavDropdown.Item  >
                 <Link to="/AllRestaurnats" style={{textDecoration: "none" , color:"gray"}}>Restaurants</Link>
                 </NavDropdown.Item>
               </NavDropdown>
             </Nav>
             <Nav>
-              <Nav.Link href="/home"  style={{color:"white"}}>Home</Nav.Link>
-              <Nav.Link href="/login"  style={{color:"white"}}>Login</Nav.Link>
-              <Nav.Link eventKey={2} href="/register"  style={{color:"white"}}>
-                Register
+              <Nav.Link><Link to="/home" style={{textDecoration: "none" , color:"white"}}>Home</Link></Nav.Link>
+              <Nav.Link><Link to="/login" style={{textDecoration: "none" , color:"white"}}>Login</Link></Nav.Link>
+              <Nav.Link eventKey={2}>
+              <Link to="/register" style={{textDecoration: "none" , color:"white"}}>Register</Link>
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>
@@ -82,24 +83,25 @@ const Navigation = () => {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
               
-              <Nav.Link href="/review"  style={{color:"white"}}>Review</Nav.Link>
+            <Nav.Link><Link to="/review" style={{textDecoration: "none" , color:"white"}}>Review</Link></Nav.Link>
               <NavDropdown title="Our Sections" id="collasible-nav-dropdown">
-                <NavDropdown.Item href="/AllTrainers">
+                <NavDropdown.Item >
                 <Link to="/AllTrainers" style={{textDecoration: "none", color:"gray" }}>Trainers</Link>
                 </NavDropdown.Item>             
-                <NavDropdown.Item href="/ALLGyms">
+                <NavDropdown.Item >
                 <Link to="/ALLGyms" style={{textDecoration: "none" , color:"gray"}}>GYMs</Link>
                 </NavDropdown.Item>
-                <NavDropdown.Item href="/AllRestaurnats" >
+                <NavDropdown.Item  >
                 <Link to="/AllRestaurnats" style={{textDecoration: "none" , color:"gray"}}>Restaurants</Link>
                 </NavDropdown.Item>
               </NavDropdown>
             </Nav>
             <Nav>
-              <Nav.Link href="/home" style={{color:"white"}}>Home</Nav.Link>
-              <Nav.Link href="/profile"  style={{color:"white"}}><div className = "linkText">Profile</div></Nav.Link>
-              <Nav.Link href="/logout"  style={{color:"white"}}>Logout</Nav.Link>
-              <Nav.Link href="/cart"  style={{color:"white"}}> Cart <MdAddShoppingCart size="1.2em" color="white"/></Nav.Link>
+            <Nav.Link><Link to="/home" style={{textDecoration: "none" , color:"white"}}>Home</Link></Nav.Link>
+              <Nav.Link><Link to="/login" style={{textDecoration: "none" , color:"white"}}>Login</Link></Nav.Link>
+              <Nav.Link eventKey={2} >
+              <Link to="/register" style={{textDecoration: "none" , color:"white"}}>Register</Link>
+              </Nav.Link>
             </Nav>
            
           </Navbar.Collapse>
