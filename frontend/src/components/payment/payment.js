@@ -294,7 +294,8 @@ const Payment = ({ gymId, trainerId, restaurantId }) => {
 
   return (
     <>
-      <Button variant="primary" onClick={() => setIsOpen(true)}>
+      <Button variant="primary" onClick={() => setIsOpen(true)} 
+       style={{width: "200px"}}>
         Pay
       </Button>
 

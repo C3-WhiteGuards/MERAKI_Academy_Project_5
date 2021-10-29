@@ -4,10 +4,12 @@ import axios from "axios";
 import swal from "sweetalert";
 export const AddComment = () => {
   const [comment, setComment] = useState("");
+  const token = localStorage.getItem("token");
   const createComment = () => {
    
     axios
-      .post(`https://c3megalodon.herokuapp.com/comment`, { comment })
+      .post(`https://c3megalodon.herokuapp.com/comment`, { comment },
+      { headers: { Authorization: `Bearer ${token}` } })
       .then((res) => {
         swal({
           title: "Thank you for giving us your opinion ",
