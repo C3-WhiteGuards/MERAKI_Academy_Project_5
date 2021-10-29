@@ -1,8 +1,10 @@
 import React from 'react'
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./about.css"
 
 function About() {
     return (
+        <div className="container">
         <div className="allAbout">
     <div className="radi">
         <div className="roqia">
@@ -16,6 +18,7 @@ function About() {
    <p>For many, Megalodon is a community. For some it's an escape. For others it's a place to smash a PB or become a better version of themselves. Everyone is on their own journey and we believe a welcoming smile and a bit of support can make someone's day!
 </p>
     </div>
+        </div>
         </div>
         </div>
     )
