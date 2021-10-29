@@ -80,13 +80,13 @@ const getAllGyms = (req, res) => {
         success: false,
         message: `Server Error`,
         error: error,
-      }).end();
+      });
     }
     return res.status(200).json({
       success: true,
       message: "all  gyms in your website ",
       result: result,
-    }).end();
+    });
     
   });
 };
@@ -100,13 +100,13 @@ const getGymById =(req,res)=>{
          success: false,
          message: `Server Error`,
          error: error,
-       }).end();
+       });
      }
      return res.status(200).json({
        success: true,
        message: "all  gyms in your website ",
        result: result,
-     }).end();
+     });
      
    });
  }

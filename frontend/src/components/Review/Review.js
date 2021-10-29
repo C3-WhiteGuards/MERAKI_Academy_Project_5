@@ -34,7 +34,8 @@ export const Review = () => {
               {index % 2 == 0 ? (
                 <div className="divRev">
                   <div className="inforReview">
-                    <img src={element.image} />
+                    
+                    <img src={element.image || "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"} />
                     <h5>{element.firstName}</h5>
                     <h5>{element.comment}</h5>
                     <p className="dateReview">

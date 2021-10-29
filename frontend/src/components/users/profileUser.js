@@ -229,22 +229,24 @@ export const ProfileUser = () => {
               type="text"
               className="inputModal"
               placeholder="Country"
-              onChan
+              onChange={(e)=>setCountry(e.target.value)} 
+              />
+              <lebel className="lebelDiseases">
+              {" "}
+              • Do you have any Diseases ?
+            </lebel>
+
+              <input
               type="text"
               className="inputModalDiseases"
               value={profile && profile.diseases}
               onChange={(e) => {
                 setDiseases(e.target.value);
               }}
-              ge={(e) => {
-                setCountry(e.target.value);
-              }}
+              
             />
-            <lebel className="lebelDiseases">
-              {" "}
-              • Do you have any Diseases ?
-            </lebel>
-            <input />
+            
+            
             <Button
               variant="outline-dark"
               className="EnterInfo"
