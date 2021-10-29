@@ -67,15 +67,17 @@ i for both  backend  and frontend
 
 
 ### Installation
-1.
-2.
-3.
-4.
+1. npm i 
+2. npm run dev on the backend 
+3. npm start on the backend  
+
+then you  need to register with a new email , fill your data , and sign up 
+after registering you can log in anytime to subscribe with any of our gyms, resturents or personal trainers 
 
 
 ## Usage
 
-
+finding the best and the perfect resturent , trainer and gym 
 
 ## Contact
 
