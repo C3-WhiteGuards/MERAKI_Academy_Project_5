@@ -1,9 +1,9 @@
-const express = require("express");
+// const express = require("express");
 
-const { sendMsg } = require("../controllers/sendMsg");
+// const { sendMsg } = require("../controllers/sendMsg");
 
-const messageRouter = express.Router();
+// const messageRouter = express.Router();
 
-messageRouter.post("/", sendMsg);
+// messageRouter.post("/", sendMsg);
 
-module.exports = messageRouter;
+// module.exports = messageRouter;

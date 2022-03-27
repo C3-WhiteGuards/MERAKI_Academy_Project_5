@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const port = 3000;
 const cors = require("cors");
-const connection = require("./db/db");
+require("./db/db");
 const gymRouter = require("./routers/routes/gym");
 const rateRouter = require("./routers/routes/rate");
 const resturantRouter = require("./routers/routes/resturant");
@@ -17,27 +17,20 @@ const cartRouter = require("./routers/routes/cart");
 const { remainder } = require("./routers/controllers/remainder");
 
 
-const messageRouter = require("./routers/routes/sendMsg")
+// const messageRouter = require("./routers/routes/sendMsg")
 app.use(express.json());
 
 app.use(cors());
-
-// ruqia
 
 app.use("/gym", gymRouter);
 
 app.use("/rate", rateRouter);
 
-// kulthoum
-
 app.use("/resturan", resturantRouter);
 
 app.use("/comment", commentRouter);
-//abdallah
 
 app.use("/trainer", trainerRouter);
-
-//rashed  25 - 30
 
 app.use("/products", productsRouter);
 app.use("/subscribtion", subscribtionRouter);
@@ -47,22 +40,18 @@ if (daily < 0) {
   daily += 86400000; 
 }
 setTimeout(function(){remainder()}, daily);
-//Islam
-app.use("/sendMsg",messageRouter)
+// app.use("/sendMsg",messageRouter)
 app.use("/register", registerRouter);
 
-app.use(loginRouter);
+app.use("/login",loginRouter);
 
 app.use("/users", usersRouter);
 
 app.use("/cart", cartRouter);
-/////////
 
-
-///////
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(`Server On ${PORT}`);
+  console.log(`Server On ${PORT} , http://localhost:${PORT}/`);
 });
 
 

@@ -45,7 +45,6 @@ const getInfo = (req, res) => {
   const query = `SELECT * FROM users WHERE id=${id}`;
   connection.query(query, (err, result) => {
     if (err) {
-      console.log("getInfo" , err);
       res.status(500).json({
         success: false,
         message: `Server Error`,

@@ -44,7 +44,7 @@ const login = (req, res) => {
         expiresIn: "600h",
       };
 
-      const token = await jwt.sign(payload, process.env.SECRET, options);
+      const token = await jwt.sign(payload, "Rashed", options);
      return res.status(200).json({
         success: true,
         message: `Email and Password are correct`,
@@ -96,7 +96,7 @@ const loginGoogle = async (req, res) => {
               const options = {
                 expiresIn: "7d",
               };
-              const token = jwt.sign(payload, process.env.SECRET, options);
+              const token = jwt.sign(payload, "Rashed", options);
               return res.status(200).json({
                 success: true,
                 message: "Email and Password are correct",
