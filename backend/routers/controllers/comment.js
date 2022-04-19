@@ -2,6 +2,7 @@ const connection = require("../../db/db");
 const createNewComment = (req, res) => {
   const { comment } = req.body;
   const userId = req.token.userId;
+  console.log(userId);
   const query = `INSERT INTO feedback (
         comment ,
         userId

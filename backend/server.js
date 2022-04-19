@@ -1,6 +1,5 @@
 const express = require("express");
 const app = express();
-const port = 3000;
 const cors = require("cors");
 require("./db/db");
 const gymRouter = require("./routers/routes/gym");
@@ -19,35 +18,27 @@ const { remainder } = require("./routers/controllers/remainder");
 
 // const messageRouter = require("./routers/routes/sendMsg")
 app.use(express.json());
-
 app.use(cors());
 
 app.use("/gym", gymRouter);
-
 app.use("/rate", rateRouter);
-
 app.use("/resturan", resturantRouter);
-
 app.use("/comment", commentRouter);
-
 app.use("/trainer", trainerRouter);
-
 app.use("/products", productsRouter);
 app.use("/subscribtion", subscribtionRouter);
+// app.use("/sendMsg",messageRouter)
+app.use("/register", registerRouter);
+app.use("/login",loginRouter);
+app.use("/users", usersRouter);
+app.use("/cart", cartRouter);
+
 var now = new Date();
 var daily = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 20, 0, 0, 0) - now;
 if (daily < 0) {
   daily += 86400000; 
 }
 setTimeout(function(){remainder()}, daily);
-// app.use("/sendMsg",messageRouter)
-app.use("/register", registerRouter);
-
-app.use("/login",loginRouter);
-
-app.use("/users", usersRouter);
-
-app.use("/cart", cartRouter);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

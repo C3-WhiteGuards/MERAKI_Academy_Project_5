@@ -9,7 +9,7 @@ const {
 
 const commentRouter = express.Router();
 
-commentRouter.post("/",authentication, createNewComment);
+commentRouter.post("/", authentication, createNewComment);
 
 commentRouter.put("/:id", updatecommentById);
 
